@@ -1,3 +1,16 @@
 language: node_js
-node_js: node
+
+node_js: 
+  - "node"
+
 cache: yarn
+
+notifications:
+  email: false
+
+install:
+  - yarn global add now
+
+script:
+  - yarn test
+  - now --token=$NOW_TOKEN --team oslopride --no-clipboard
