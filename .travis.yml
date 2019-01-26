@@ -21,5 +21,5 @@ deploy:
   - NOW_DEPLOYMENT=$(now --token=$NOW_TOKEN --team oslopride --no-clipboard)
 
 after_deploy:
-  - if [ "$TRAVIS_PULL_REQUEST" ] then; curl -H 'Authorization: token ${PRIDEBOT_TOKEN}' -X POST -d '{"body": "${NOW_DEPLOYMENT}"}' 'https://api.github.com/repos/${TRAVIS_REPO_SLUG}/issues/${TRAVIS_PULL_REQUEST}/comments'; fi
+  - if [ "$TRAVIS_PULL_REQUEST" ] then; curl -H "Authorization: token ${PRIDEBOT_TOKEN}" -X POST -d "{\"body\": \"${NOW_DEPLOYMENT}\"}" "https://api.github.com/repos/${TRAVIS_REPO_SLUG}/issues/${TRAVIS_PULL_REQUEST}/comments"; fi
   - now alias set $NOW_DEPLOYMENT oslopride.now.sh --token=$NOW_TOKEN --team oslopride
