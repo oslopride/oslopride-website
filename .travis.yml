@@ -10,16 +10,12 @@ notifications:
 
 install:
   - yarn
+  - yarn global add now
 
 script:
   - yarn test
 
-before_deploy:
-  - yarn global add now
-
-deploy:
+after_success:
   - NOW_DEPLOYMENT=$(now --token=$NOW_TOKEN --team oslopride --no-clipboard)
-
-after_deploy:
-  - if [ "$TRAVIS_PULL_REQUEST" ] then; sh ./pridebot-comment.sh; fi
+  - if [ "$TRAVIS_PULL_REQUEST" ] then; sh .scripts/pridebot-comment.sh; fi
   - now alias set $NOW_DEPLOYMENT oslopride.now.sh --token=$NOW_TOKEN --team oslopride
