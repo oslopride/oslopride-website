@@ -16,6 +16,6 @@ script:
   - yarn test
 
 after_success:
-  - ./scripts/deploy-now.sh
+  - source ./scripts/deploy-now.sh
   - ./scripts/pridebot-comment.sh
   - ./scripts/alias-now.sh
