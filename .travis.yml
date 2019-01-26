@@ -17,5 +17,5 @@ script:
 
 after_success:
   - NOW_DEPLOYMENT=$(now --token=$NOW_TOKEN --team oslopride --no-clipboard)
-  - if [ "$TRAVIS_PULL_REQUEST" ] then; sh .scripts/pridebot-comment.sh; fi
+  - if [ "$TRAVIS_PULL_REQUEST" ] then; sh ./scripts/pridebot-comment.sh; fi
   - now alias set $NOW_DEPLOYMENT oslopride.now.sh --token=$NOW_TOKEN --team oslopride
