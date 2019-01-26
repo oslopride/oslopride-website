@@ -3,5 +3,6 @@
   "name": "oslopride.no",
   "builds": [
     { "src": "package.json", "use": "@now/next" }
-  ]
+  ],
+  "public": true
 }
