@@ -3,6 +3,8 @@ import App, { Container } from "next/app";
 
 import Header from "@/components/Header";
 
+import "normalize.css";
+
 class NextApp extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
