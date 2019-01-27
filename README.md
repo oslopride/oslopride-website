@@ -6,6 +6,8 @@ This is Oslo Pride's official website.
 
 First clone the repository and install the dependencies using `yarn`. You can start a development server using `yarn dev`.
 
+We recommend using [VisualStudio Code](https://code.visualstudio.com/) when working on this project (or any other Node.js/JS project for that matter). It's [open source](https://github.com/Microsoft/vscode), and has a large community and lots of good extensions. When opening the project in VisualStudio Code, you can list the recommended extensions by navigating to the extensions pane and search for `@recommended`.
+
 ## Workflow
 
 1. Find or create an issue, and assign it to your self.
