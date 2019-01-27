@@ -1,7 +1,11 @@
 import React from "react";
 
-import Document from "next/document";
-import { ServerStyleSheet } from "styled-components";
+import Document, { Head, Main, NextScript } from "next/document";
+import styled, { ServerStyleSheet } from "styled-components";
+
+const Body = styled.body`
+  font-family: "Open Sans", sans-serif;
+`;
 
 export default class NextDocument extends Document {
   static async getInitialProps(ctx) {
@@ -22,5 +26,22 @@ export default class NextDocument extends Document {
     } finally {
       sheet.seal();
     }
+  }
+
+  render() {
+    return (
+      <html lang="no">
+        <Head>
+          <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:400,700"
+            rel="stylesheet"
+          />
+        </Head>
+        <Body>
+          <Main />
+          <NextScript />
+        </Body>
+      </html>
+    );
   }
 }
