@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import styled from "styled-components";
+import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
@@ -63,7 +64,11 @@ const Header = ({ currentPath }) => {
   return (
     <Container>
       <TopHeader>
-        <Logo src="/static/oslopride.svg" alt="Oslo Pride Logo" />
+        <Link href="/">
+          <a>
+            <Logo src="/static/oslopride.svg" alt="Oslo Pride Logo" />
+          </a>
+        </Link>
         <PrideDate>14. juni – 23. juni 2019</PrideDate>
         <MenuButton onClick={() => setOpen(!isOpen)}>
           <MenuText>Meny</MenuText>
