@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import NextLink from "@/components/NextLink";
+import Link from "@/components/Link";
 
 const Container = styled.nav`
   display: ${({ visible }) => (visible ? "flex" : "none")};
@@ -20,7 +20,7 @@ const NavigationGroup = styled.div`
   }
 `;
 
-const NavigationLink = styled(NextLink)`
+const NavigationLink = styled(Link)`
   color: #000;
   font-weight: bold;
   text-transform: uppercase;
