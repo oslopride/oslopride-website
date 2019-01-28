@@ -5,6 +5,7 @@ import styled, { ServerStyleSheet } from "styled-components";
 
 const Body = styled.body`
   font-family: "Open Sans", sans-serif;
+  background-color: #f1f4f9;
 `;
 
 export default class NextDocument extends Document {
