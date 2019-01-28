@@ -1,5 +1,6 @@
 import React from "react";
 import App, { Container } from "next/app";
+import Head from "next/head";
 
 import Header from "@/components/Header";
 
@@ -21,7 +22,9 @@ class NextApp extends App {
 
     return (
       <Container>
-        <Header />
+        <Head>
+          <title>Oslo Pride</title>
+        </Head>
         <Component {...pageProps} />
       </Container>
     );
