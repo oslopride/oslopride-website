@@ -1,67 +1,90 @@
-import React from "react";
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 
-import Link from "next/link";
+import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
-const Header = () => (
-  <nav>
-    <ul>
-      <li>
-        <Link href="/">
-          <a>Forsiden</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/program">
-          <a>Program</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/pride-art">
-          <a>Pride Art</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/pride-park">
-          <a>Pride Park</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/pride-house">
-          <a>Pride House</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/pride-parade">
-          <a>Pride Parade</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/about">
-          <a>Om Oss</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/contact">
-          <a>Kontakt</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/partners">
-          <a>Partnere</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/become-partner">
-          <a>Bli Partner</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/pride-store">
-          <a>Pridebutikken</a>
-        </Link>
-      </li>
-    </ul>
-  </nav>
-);
+import Button from "@/components/Button";
+import Navigation from "./navigation";
+
+const Container = styled.header`
+  border-bottom: 3px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & > * {
+    max-width: 1200px;
+  }
+`;
+
+const TopHeader = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const Logo = styled.img`
+  max-width: 120px;
+`;
+
+const PrideDate = styled.div`
+  color: #666;
+  text-align: center;
+
+  font-size: 12px;
+
+  @media (min-width: 450px) {
+    font-size: initial;
+  }
+`;
+
+const MenuButton = styled(Button)`
+  margin: 0 10px;
+`;
+
+const MenuText = styled.span`
+  margin-right: 8px;
+  font-weight: bold;
+`;
+
+const HeaderNavigation = styled(Navigation)`
+  width: 100%;
+  display: ${({ visible }) => (visible ? "initial" : "none")};
+
+  & > ul > li {
+    margin-bottom: 10px;
+  }
+`;
+
+const Header = ({ currentPath }) => {
+  const [isOpen, setOpen] = useState(false);
+  const [path, setPath] = useState(currentPath);
+
+  if (currentPath !== path) {
+    // Close menue on page change
+    setOpen(false);
+    setPath(currentPath);
+  }
+
+  return (
+    <Container>
+      <TopHeader>
+        <Logo src="/static/oslopride.svg" alt="Oslo Pride Logo" />
+        <PrideDate>14. juni – 23. juni 2019</PrideDate>
+        <MenuButton onClick={() => setOpen(!isOpen)}>
+          <MenuText>Meny</MenuText>
+          <FontAwesomeIcon icon={isOpen ? faChevronUp : faChevronDown} />
+        </MenuButton>
+      </TopHeader>
+      <HeaderNavigation visible={isOpen} />
+    </Container>
+  );
+};
+
+Header.propTypes = {
+  currentPath: PropTypes.string.isRequired
+};
 
 export default Header;

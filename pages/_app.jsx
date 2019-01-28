@@ -14,17 +14,20 @@ class NextApp extends App {
       pageProps = await Component.getInitialProps(ctx);
     }
 
-    return { pageProps };
+    const path = ctx.pathname;
+
+    return { pageProps, path };
   }
 
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, path } = this.props;
 
     return (
       <Container>
         <Head>
           <title>Oslo Pride</title>
         </Head>
+        <Header currentPath={path} />
         <Component {...pageProps} />
       </Container>
     );
