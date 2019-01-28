@@ -16,7 +16,7 @@ const Container = styled.nav`
 `;
 
 const NavigationGroup = styled.div`
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
