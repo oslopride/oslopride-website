@@ -6,12 +6,12 @@ import styled from "styled-components";
 
 const A = styled.a`
   cursor: pointer;
-  box-shadow: inset 0 -7px 0 0 #ea98d9;
+  box-shadow: inset 0 -5px 0 0 #ffc000;
   transition: box-shadow 0.2s;
 
   :hover,
   :focus {
-    box-shadow: inset 0 -25px 0 0 #ea98d9;
+    box-shadow: inset 0 -25px 0 0 #ffc000;
   }
 `;
 
