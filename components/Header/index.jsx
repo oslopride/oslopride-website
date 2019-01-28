@@ -50,15 +50,6 @@ const MenuText = styled.span`
   font-weight: bold;
 `;
 
-const HeaderNavigation = styled(Navigation)`
-  width: 100%;
-  display: ${({ visible }) => (visible ? "initial" : "none")};
-
-  & > ul > li {
-    margin-bottom: 10px;
-  }
-`;
-
 const Header = ({ currentPath }) => {
   const [isOpen, setOpen] = useState(false);
   const [path, setPath] = useState(currentPath);
@@ -79,7 +70,7 @@ const Header = ({ currentPath }) => {
           <FontAwesomeIcon icon={isOpen ? faChevronUp : faChevronDown} />
         </MenuButton>
       </TopHeader>
-      <HeaderNavigation visible={isOpen} />
+      <Navigation visible={isOpen} />
     </Container>
   );
 };
