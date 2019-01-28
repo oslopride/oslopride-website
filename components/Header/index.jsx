@@ -9,6 +9,7 @@ import Button from "@/components/Button";
 import Navigation from "./navigation";
 
 const Container = styled.header`
+  background-color: #fff;
   border-bottom: 3px solid #ddd;
   display: flex;
   flex-direction: column;
