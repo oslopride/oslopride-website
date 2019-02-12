@@ -1,5 +1,7 @@
-function* rootSaga() {
-  yield 1;
-}
+import { all, call } from "redux-saga/effects";
 
-export default rootSaga;
+import { aboutSaga } from "./about";
+
+export default function* rootSaga() {
+  yield all([call(aboutSaga)]);
+}

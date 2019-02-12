@@ -1,5 +1,7 @@
 import { combineReducers } from "redux";
 
+import { aboutReducer } from "./about";
+
 export default combineReducers({
-  test: (state = {}) => ({ ...state, hei: 1 })
+  about: aboutReducer
 });
