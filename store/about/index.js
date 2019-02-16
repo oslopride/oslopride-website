@@ -1,23 +1,22 @@
-import { takeLeading, delay, call, put } from "redux-saga/effects";
+import { call, put, takeLeading } from "redux-saga/effects";
 import {
-  createWebResponseAction,
-  webResponseSuccess,
+  createAction,
   webResponseFailure,
   webResponseInitial,
-  webResponseRequest
-} from "../web-response";
+  webResponseRequest,
+  webResponseSuccess
+} from "../helpers";
 
 const REQUEST_ABOUT_CONTENT = "REQUEST_ABOUT_CONTENT";
 const SUCCESS_ABOUT_CONTENT = "SUCCESS_ABOUT_CONTENT";
 const FAILURE_ABOUT_CONTENT = "FAILURE_ABOUT_CONTENT";
 
-export const Actions = {
-  request: () =>
-    createWebResponseAction(REQUEST_ABOUT_CONTENT, webResponseRequest()),
+export const aboutActions = {
+  request: () => createAction(REQUEST_ABOUT_CONTENT, webResponseRequest()),
   success: data =>
-    createWebResponseAction(SUCCESS_ABOUT_CONTENT, webResponseSuccess(data)),
+    createAction(SUCCESS_ABOUT_CONTENT, webResponseSuccess(data)),
   failure: error =>
-    createWebResponseAction(FAILURE_ABOUT_CONTENT, webResponseFailure(error))
+    createAction(FAILURE_ABOUT_CONTENT, webResponseFailure(error))
 };
 
 const initialState = webResponseInitial();
@@ -40,9 +39,9 @@ function* fetchAbout() {
         setTimeout(() => resolve({ body: "kul text" }), 2000);
       });
     const response = yield call(apiCall);
-    yield put(Actions.success(response));
+    yield put(aboutActions.success(response));
   } catch (e) {
-    yield put(Actions.failure(":("));
+    yield put(aboutActions.failure(":("));
   }
 }
 

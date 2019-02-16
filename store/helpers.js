@@ -17,7 +17,7 @@ export const webResponseSuccess = data =>
 export const webResponseFailure = error =>
   createWebResponse(FAILURE, undefined, error);
 
-export const createWebResponseAction = (type, payload) => ({
+export const createAction = (type, payload) => ({
   type,
   payload
 });

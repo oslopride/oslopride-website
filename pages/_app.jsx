@@ -1,15 +1,13 @@
-import React from "react";
-import App, { Container } from "next/app";
-import Head from "next/head";
-import { createGlobalStyle } from "styled-components";
-import { Provider } from "react-redux";
-import withRedux from "next-redux-wrapper";
-import withReduxSaga from "next-redux-saga";
-
 import Header from "@/components/Header";
 import createStore from "@/store/store";
-
+import withReduxSaga from "next-redux-saga";
+import withRedux from "next-redux-wrapper";
+import App, { Container } from "next/app";
+import Head from "next/head";
 import "normalize.css";
+import React from "react";
+import { Provider } from "react-redux";
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   body {

@@ -1,10 +1,8 @@
+import { aboutActions } from "@/store/about";
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
-import { Actions } from "@/store/about";
-
 const About = props => {
-  console.log(props);
   useEffect(() => {
     props.fetchAboutContent();
   }, []);
@@ -19,7 +17,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchAboutContent: () => dispatch(Actions.request())
+  fetchAboutContent: () => dispatch(aboutActions.request())
 });
 
 export default connect(
