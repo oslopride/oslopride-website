@@ -7,12 +7,24 @@ import Head from "next/head";
 import "normalize.css";
 import React from "react";
 import { Provider } from "react-redux";
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   body {
     font-family: "Open Sans", sans-serif;
     background-color: #f1f4f9;
+  }
+`;
+
+const Content = styled.main`
+  line-height: 1.5em;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & > * {
+    max-width: 1000px;
   }
 `;
 
@@ -38,7 +50,9 @@ class NextApp extends App {
             <title>Oslo Pride</title>
           </Head>
           <Header />
-          <Component {...pageProps} />
+          <Content>
+            <Component {...pageProps} />
+          </Content>
         </Provider>
       </Container>
     );
