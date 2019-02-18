@@ -1,4 +1,5 @@
 import { call, put, takeLeading } from "redux-saga/effects";
+import api from "../api";
 import {
   createAction,
   webResponseFailure,
@@ -34,14 +35,11 @@ export const aboutReducer = (state = initialState, action) => {
 
 function* fetchAbout() {
   try {
-    const apiCall = () =>
-      new Promise(resolve => {
-        setTimeout(() => resolve({ body: "kul text" }), 2000);
-      });
-    const response = yield call(apiCall);
+    const getAbout = () => api.getDocument("global-about");
+    const response = yield call(getAbout);
     yield put(aboutActions.success(response));
   } catch (e) {
-    yield put(aboutActions.failure(":("));
+    yield put(aboutActions.failure(`${e}`));
   }
 }
 
