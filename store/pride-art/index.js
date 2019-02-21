@@ -1,5 +1,4 @@
 import { call, put, takeLeading } from "redux-saga/effects";
-import api from "../api";
 import {
   createAction,
   webResponseFailure,
@@ -7,6 +6,7 @@ import {
   webResponseRequest,
   webResponseSuccess
 } from "../helpers";
+import sanity from "../sanity";
 
 const REQUEST_PRIDE_ART_CONTENT = "REQUEST_PRIDE_ART_CONTENT";
 const SUCCESS_PRIDE_ART_CONTENT = "SUCCESS_PRIDE_ART_CONTENT";
@@ -33,7 +33,7 @@ export const prideArtReducer = (state = initialState, action) => {
   }
 };
 
-export const getPrideArt = () => api.getDocument("global-pride-art");
+export const getPrideArt = () => sanity.getDocument("global-pride-art");
 
 function* fetchPrideArt() {
   try {
