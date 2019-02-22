@@ -2,7 +2,7 @@ import Sheet from "@/components/Sheet";
 import { webResponseInitial } from "@/store/helpers";
 import { getPrideArt, prideArtActions } from "@/store/pride-art";
 import { imageUrlFor } from "@/store/sanity";
-import blocksToHtml from "@sanity/block-content-to-html";
+import BockContent from "@sanity/block-content-to-react";
 import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
@@ -19,19 +19,16 @@ const PrideArt = props => {
     return <div>Laster ...</div>;
   }
 
-  const content = blocksToHtml({ blocks: prideArt.data.body });
-  const preamble = blocksToHtml({ blocks: prideArt.data.preamble });
-  const image = imageUrlFor(prideArt.data.image);
-
   return (
     <Sheet>
       <h1>Pride Art</h1>
       <article>
-        {/* eslint-disable-next-line react/no-danger */}
-        <div dangerouslySetInnerHTML={{ __html: preamble }} />
-        <PrideArtImage src={image.url()} alt="pride art illustrasjon" />
-        {/* eslint-disable-next-line react/no-danger */}
-        <div dangerouslySetInnerHTML={{ __html: content }} />
+        <BockContent blocks={prideArt.data.preamble} />
+        <PrideArtImage
+          src={imageUrlFor(prideArt.data.image).url()}
+          alt="pride art illustrasjon"
+        />
+        <BockContent blocks={prideArt.data.body} />
       </article>
     </Sheet>
   );
