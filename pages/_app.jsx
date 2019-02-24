@@ -4,12 +4,14 @@ import withReduxSaga from "next-redux-saga";
 import withRedux from "next-redux-wrapper";
 import App, { Container } from "next/app";
 import Head from "next/head";
-import "normalize.css";
+import { normalize } from "polished";
 import React from "react";
 import { Provider } from "react-redux";
 import styled, { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+  ${normalize()}
+
   body {
     font-family: "Open Sans", sans-serif;
     background-color: #f1f4f9;
