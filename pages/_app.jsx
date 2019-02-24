@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Content = styled.main`
-  line-height: 1.5em;
+  line-height: 1.5;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
