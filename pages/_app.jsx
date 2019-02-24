@@ -30,7 +30,11 @@ const Content = styled.main`
   align-items: center;
 
   & > * {
-    max-width: 1000px;
+    width: 100%;
+
+    @media (min-width: 1000px) {
+      width: 1000px;
+    }
   }
 `;
 
