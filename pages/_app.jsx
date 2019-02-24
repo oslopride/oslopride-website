@@ -16,6 +16,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: "Open Sans", sans-serif;
     background-color: #f1f4f9;
   }
+
+  * {
+    box-sizing: border-box;
+  }
 `;
 
 const Content = styled.main`
