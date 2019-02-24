@@ -47,8 +47,8 @@ const TextWrapper = styled.div`
   }
 `;
 
-const Hero = ({ imageURL, title, subtitle }) => (
-  <Wrapper>
+const Hero = ({ className, imageURL, title, subtitle }) => (
+  <Wrapper className={className}>
     <ImageWrapper>
       <Image src={imageURL} alt="hero" />
     </ImageWrapper>
