@@ -1,3 +1,5 @@
+import FeaturedCallToActionList from "@/components/FeaturedCallToActionList";
+import FeaturedDatesTable from "@/components/FeaturedDatesTable";
 import Hero from "@/components/Hero";
 import { frontPageActions, getFrontPage } from "@/store/front-page";
 import { webResponseInitial } from "@/store/helpers";
@@ -5,6 +7,9 @@ import { imageUrlFor } from "@/store/sanity";
 import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
+
+const prideOrange = "#EF5E2B";
+const pridePurple = "#3A1A7B";
 
 const ContentWrapper = styled.div`
   width: 100%;
@@ -29,6 +34,51 @@ const FrontPageHero = styled(Hero)`
   margin-bottom: 30px;
 `;
 
+const SubContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  @media (min-width: 800px) {
+    flex-direction: row;
+
+    & > * + * {
+      margin-left: 40px;
+      flex-grow: 1;
+    }
+  }
+`;
+
+const FeaturedDatesWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const CallToActionWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const FrontPageFeaturedDatesTable = styled(FeaturedDatesTable)`
+  flex-grow: 1;
+`;
+
+const FrontPageCallToActionList = styled(FeaturedCallToActionList)`
+  flex-grow: 1;
+
+  & > li + li {
+    margin-top: 15px;
+  }
+`;
+
+const FeaturedDatesTitle = styled.h2`
+  color: ${pridePurple};
+`;
+
+const FeaturedCallToActionTitle = styled.h2`
+  color: ${prideOrange};
+`;
+
 const FrontPage = props => {
   const { frontPage } = props;
 
@@ -44,7 +94,20 @@ const FrontPage = props => {
         title={frontPage.data.callToActionTitle}
         subtitle={frontPage.data.callToActionBody}
       />
-      <ContentWrapper />
+      <ContentWrapper>
+        <SubContentWrapper>
+          <FeaturedDatesWrapper>
+            <FeaturedDatesTitle>HOVEDDATOER 2019</FeaturedDatesTitle>
+            <FrontPageFeaturedDatesTable dates={frontPage.data.featuredDates} />
+          </FeaturedDatesWrapper>
+          <CallToActionWrapper>
+            <FeaturedCallToActionTitle>ENGASJER DEG</FeaturedCallToActionTitle>
+            <FrontPageCallToActionList
+              featuredCallToActions={frontPage.data.featuredCallToActions}
+            />
+          </CallToActionWrapper>
+        </SubContentWrapper>
+      </ContentWrapper>
     </>
   );
 };
