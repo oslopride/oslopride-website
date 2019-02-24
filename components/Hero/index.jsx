@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   & > * + * {
     margin-top: 15px;
   }
+
   @media (min-width: 800px) {
     flex-direction: row;
     justify-content: space-between;
@@ -32,19 +33,17 @@ const Image = styled.img`
   }
 `;
 
-const TextWrapper = styled.div`
-  & > h1 {
-    text-align: center;
-    color: #401080;
-    margin: 0;
-    font-size: 50px;
-    line-height: 1;
-  }
+const Title = styled.h1`
+  text-align: center;
+  color: #401080;
+  margin: 0;
+  font-size: 50px;
+  line-height: 1;
+`;
 
-  & > p {
-    text-align: justify;
-    margin-bottom: 0;
-  }
+const Subtitle = styled.p`
+  text-align: justify;
+  margin-bottom: 0;
 `;
 
 const Hero = ({ className, imageURL, title, subtitle }) => (
@@ -52,10 +51,10 @@ const Hero = ({ className, imageURL, title, subtitle }) => (
     <ImageWrapper>
       <Image src={imageURL} alt="hero" />
     </ImageWrapper>
-    <TextWrapper>
-      <h1>{title}</h1>
-      <p>{subtitle}</p>
-    </TextWrapper>
+    <div>
+      <Title>{title}</Title>
+      <Subtitle>{subtitle}</Subtitle>
+    </div>
   </Wrapper>
 );
 
