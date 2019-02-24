@@ -3,14 +3,19 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
-  & > * {
-    padding: 0 15px;
-    width: 100%;
 
-    @media (min-width: 800px) {
-      width: 50%;
+  & > * + * {
+    margin-top: 15px;
+  }
+  @media (min-width: 800px) {
+    flex-direction: row;
+    justify-content: space-between;
+
+    & > * {
+      max-width: 50%;
+      margin-top: 0;
     }
   }
 `;
@@ -28,27 +33,17 @@ const Image = styled.img`
 `;
 
 const TextWrapper = styled.div`
-  margin-top: 15px;
-
   & > h1 {
     text-align: center;
     color: #401080;
     margin: 0;
     font-size: 50px;
     line-height: 1;
-
-    @media (min-width: 800px) {
-      text-align: left;
-    }
   }
 
   & > p {
     text-align: justify;
     margin-bottom: 0;
-
-    @media (min-width: 800px) {
-      text-align: left;
-    }
   }
 `;
 
