@@ -7,6 +7,10 @@ const Table = styled.table`
 
 const TableRow = styled.tr`
   border-bottom: 3px solid #ddd;
+
+  :first-child {
+    border-top: 3px solid #ddd;
+  }
 `;
 
 const TableData = styled.td`
