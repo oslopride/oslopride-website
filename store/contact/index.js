@@ -34,9 +34,10 @@ export const contactReducer = (state = initialState, action) => {
   }
 };
 
+export const getContact = () => api.getDocument("global-contact");
+
 function* fetchContact() {
   try {
-    const getContact = () => api.getDocument("global-contact");
     const response = yield call(getContact);
     yield put(contactActions.success(response));
   } catch (e) {
