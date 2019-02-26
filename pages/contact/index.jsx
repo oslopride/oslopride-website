@@ -1,14 +1,12 @@
 import SanityBlockContent from "@/components/SanityBlockContent";
 import Sheet from "@/components/Sheet";
-import { contactActions } from "@/store/contact";
+import { getContact, contactActions } from "@/store/contact";
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 const Contact = props => {
   const { contact } = props;
-  useEffect(() => {
-    props.fetchContactContent();
-  }, []);
+
   if (contact.status !== "SUCCESS"){
     // TODO: Make a better UX while loading
     return <div>Laster ...</div>;
@@ -21,17 +19,31 @@ const Contact = props => {
       <SanityBlockContent blocks={contact.data.body} />
     </Sheet>
   );
-  };
+};
 
-  const mapStateToProps = state => ({
+Contact.getInitialProps = async ({ store, isServer }) => {
+  if (store.getState().contact.status === webResponseInitial().status) {
+    store.dispatch(contactActions.request());
+    if (isServer) {
+      try {
+        const response = await getContact();
+        store.dispatch(contactActions.success(response));
+      } catch (e) {
+        store.dispatch(contactActions.failure(`${e}`));
+      }
+    }
+  }
+};
+
+const mapStateToProps = state => ({
   contact: state.contact
-  });
+});
 
-  const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = dispatch => ({
   fetchContactContent: () => dispatch(contactActions.request())
-  });
+});
 
-  export default connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Contact);
