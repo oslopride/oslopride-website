@@ -1,5 +1,5 @@
 import { call, put, takeLeading } from "redux-saga/effects";
-import api from "../api";
+import sanity from "../sanity";
 import {
   createAction,
   webResponseFailure,
@@ -34,7 +34,7 @@ export const contactReducer = (state = initialState, action) => {
   }
 };
 
-export const getContact = () => api.getDocument("global-contact");
+export const getContact = () => sanity.getDocument("global-contact");
 
 function* fetchContact() {
   try {
