@@ -40,14 +40,6 @@ const Content = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  & > * {
-    width: 100%;
-
-    @media (min-width: 1000px) {
-      width: 1000px;
-    }
-  }
 `;
 
 class NextApp extends App {
