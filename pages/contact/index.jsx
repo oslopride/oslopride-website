@@ -20,7 +20,7 @@ const Contact = props => {
   // eslint-disable-next-line react/no-danger
   return (
     <Sheet>
-      <h1>Om Oss</h1>
+      <h1>Kontakt oss</h1>
       <article dangerouslySetInnerHTML={{ __html: content }} />
     </Sheet>
   );
