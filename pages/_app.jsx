@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import createStore from "@/store/store";
+import theme from "@/utils/theme";
 import withReduxSaga from "next-redux-saga";
 import withRedux from "next-redux-wrapper";
 import App, { Container } from "next/app";
@@ -19,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: "Open Sans", sans-serif;
-    background-color: #f1f4f9;
+    background-color: ${theme.background};
   }
 
   * {
