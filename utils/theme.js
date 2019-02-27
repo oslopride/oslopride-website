@@ -1,16 +1,14 @@
 import { rgb } from "polished";
 
-const colors = {
-  red: rgb(193, 23, 44),
-  orange: rgb(239, 82, 27),
-  yellow: rgb(255, 193, 0),
-  green: rgb(66, 140, 99),
+export default {
+  red: rgb(164, 29, 47),
+  orange: rgb(239, 94, 44),
+  yellow: rgb(255, 193, 1),
+  green: rgb(65, 140, 98),
   blue: rgb(51, 80, 185),
-  purple: rgb(57, 27, 123),
-  pink: rgb(227, 80, 161)
+  lightBlue: rgb(167, 195, 245),
+  purple: rgb(53, 32, 118),
+  pink: rgb(227, 80, 161),
+  gray: rgb(204, 204, 204),
+  background: rgb(241, 244, 249)
 };
-
-colors.main = colors.purple;
-colors.accent = colors.punk;
-
-export default colors;
