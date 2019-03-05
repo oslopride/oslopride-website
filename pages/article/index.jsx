@@ -1,8 +1,8 @@
 import SanityBlockContent from "@/components/SanityBlockContent";
 import Sheet from "@/components/Sheet";
+import Error from "@/pages/_error";
 import { articleActions, getArticle } from "@/store/articles";
 import { webResponseFailure, webResponseRequest } from "@/store/helpers";
-import Error from "next/error";
 import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
