@@ -1,6 +1,7 @@
 import FeaturedCallToActionList from "@/components/FeaturedCallToActionList";
 import FeaturedDatesTable from "@/components/FeaturedDatesTable";
 import Hero from "@/components/Hero";
+import { articleActions } from "@/store/articles";
 import { frontPageActions, getFrontPage } from "@/store/front-page";
 import { webResponseInitial } from "@/store/helpers";
 import { imageUrlFor } from "@/store/sanity";
@@ -127,6 +128,9 @@ FrontPage.getInitialProps = async ({ store, isServer }) => {
     if (isServer) {
       try {
         const response = await getFrontPage();
+        response.featuredArticles.forEach(article =>
+          store.dispatch(articleActions.success(article))
+        );
         store.dispatch(frontPageActions.success(response));
       } catch (e) {
         store.dispatch(frontPageActions.failure(`${e}`));
