@@ -33,7 +33,10 @@ export const partnersReducer = (state = initialState, action) => {
   }
 };
 
-export const getPartners = () => sanity.getDocument("global-partners");
+export const getPartners = () => {
+  const query = "*[_type == 'partner']";
+  return sanity.fetch(query);
+};
 
 function* fetchPartners() {
   try {

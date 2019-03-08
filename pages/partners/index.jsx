@@ -1,9 +1,32 @@
+import SanityBlockContent from "@/components/SanityBlockContent";
 import Sheet from "@/components/Sheet";
 import { webResponseInitial } from "@/store/helpers";
 import { getPartners, partnersActions } from "@/store/partners";
-import sanity from "@/store/sanity";
+import { imageUrlFor } from "@/store/sanity";
 import React from "react";
 import { connect } from "react-redux";
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+  margin: 20px;
+  max-width: 1088px;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
+const List = styled.ul``;
+
+const ListItem = styled(Sheet)`
+  margin: 20px 0;
+`;
+
+const Title = styled.h2``;
+
+const Description = styled(SanityBlockContent)``;
+
+const Image = styled.img`
+  max-width: 200px;
+`;
 
 const Partners = props => {
   const { partners } = props;
@@ -13,23 +36,33 @@ const Partners = props => {
     return <div>Laster ...</div>;
   }
 
-  const query = '*[_type == "partner" && type == "partner"] {name, type}';
+  const PartnerList = ({ partnerType }) => {
+    const partnerItems = partners.data
+      .filter(partnerItem => partnerItem.type === partnerType)
+      .map(partnerItem => (
+        <ListItem>
+          <Image
+            src={imageUrlFor(partnerItem.image)
+              .maxWidth(200)
+              .url()}
+            alt={partnerItem.name}
+          />
+          <Title>{partnerItem.name}</Title>
+          <Description blocks={partnerItem.description} />
+        </ListItem>
+      ));
 
-  sanity.fetch(query).then(items => {
-    items.forEach(partner => {
-      console.log(`${partner.name}: ${partner.type}`);
-    });
-  });
+    return <List>{partnerItems}</List>;
+  };
 
   return (
-    <div>
+    <Wrapper>
       <h1>Partnere</h1>
       <h2>Hovedpartnere</h2>
-      <Sheet />
-      <Sheet />
+      <PartnerList partnerType="mainpartner" />
       <h2>Partnere</h2>
-      <Sheet />
-    </div>
+      <PartnerList partnerType="partner" />
+    </Wrapper>
   );
 };
 
