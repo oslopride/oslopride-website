@@ -19,23 +19,23 @@ const Partners = props => {
   const PartnerList = ({ partnerType }) => {
     const partnerItems = partners.data
       .filter(partnerItem => partnerItem.type === partnerType)
-      .map(partnerItem => (
-        <Partner>
+      .map(({ _id, partnerUrl, image, name, description }) => (
+        <Partner key={_id}>
           <PartnerImage>
-            <a href={partnerItem.partnerUrl}>
+            <a href={partnerUrl}>
               <img
-                src={imageUrlFor(partnerItem.image)
+                src={imageUrlFor(image)
                   .maxWidth(200)
                   .url()}
-                alt={partnerItem.name}
+                alt={name}
               />
             </a>
           </PartnerImage>
           <PartnerText>
             <h3>
-              <a href={partnerItem.partnerUrl}>{partnerItem.name}</a>
+              <a href={partnerUrl}>{name}</a>
             </h3>
-            <SanityBlockContent blocks={partnerItem.description} />
+            <SanityBlockContent blocks={description} />
           </PartnerText>
         </Partner>
       ));
