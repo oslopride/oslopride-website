@@ -118,10 +118,12 @@ const Partner = styled(Sheet)`
 
 const PartnerImage = styled.div`
   width: 100%;
+  max-width: 200px;
   text-align: center;
 
   img {
-    max-height: 200px;
+    height: auto;
+    max-width: 100%;
   }
 
   @media (min-width: 800px) {
