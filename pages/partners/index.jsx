@@ -21,16 +21,20 @@ const Partners = props => {
       .filter(partnerItem => partnerItem.type === partnerType)
       .map(partnerItem => (
         <Partner>
-          <PartnerImage
-            src={imageUrlFor(partnerItem.image)
-              .maxWidth(200)
-              .url()}
-            alt={partnerItem.name}
-          />
+          <PartnerImage>
+            <a href={partnerItem.partnerUrl}>
+              <img
+                src={imageUrlFor(partnerItem.image)
+                  .maxWidth(200)
+                  .url()}
+                alt={partnerItem.name}
+              />
+            </a>
+          </PartnerImage>
           <PartnerText>
-            <PartnerName>
+            <h3>
               <a href={partnerItem.partnerUrl}>{partnerItem.name}</a>
-            </PartnerName>
+            </h3>
             <SanityBlockContent blocks={partnerItem.description} />
           </PartnerText>
         </Partner>
@@ -104,7 +108,7 @@ const Partner = styled(Sheet)`
   flex-direction: column;
   align-items: center;
   max-width: 1088px;
-  margin: 20px 0;
+  margin: 20px;
 
   @media (min-width: 800px) {
     flex-direction: row;
@@ -112,18 +116,30 @@ const Partner = styled(Sheet)`
   }
 `;
 
-const PartnerImage = styled.img`
-  max-width: 150px;
-  margin: 20px;
+const PartnerImage = styled.div`
+  width: 100%;
+  text-align: center;
+
+  img {
+    max-height: 200px;
+  }
+
+  @media (min-width: 800px) {
+    width: 20%;
+  }
 `;
 
 const PartnerText = styled.div`
-  max-width: 700px;
-`;
+  width: 100%;
 
-const PartnerName = styled.h3`
-  a {
-    text-decoration: none;
-    color: ${theme.purple};
+  h3 {
+    a {
+      text-decoration: none;
+      color: ${theme.purple};
+    }
+  }
+
+  @media (min-width: 800px) {
+    width: 70%;
   }
 `;
