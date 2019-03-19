@@ -82,7 +82,7 @@ class NextApp extends App {
         <SocialProfileJsonLd
           type="Organization"
           name="Oslo Pride"
-          url="http://oslopride.no"
+          url="https://oslopride.no"
           sameAs={[
             "https://www.facebook.com/oslopride",
             "https://twitter.com/oslopride",
