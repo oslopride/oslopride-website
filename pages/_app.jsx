@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import createStore from "@/store/store";
 import theme from "@/utils/theme";
 import withReduxSaga from "next-redux-saga";
@@ -65,6 +66,7 @@ class NextApp extends App {
           <Content>
             <Component {...pageProps} />
           </Content>
+          <Footer />
         </Provider>
 
         <NextSeo
