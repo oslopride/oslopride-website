@@ -1,20 +1,88 @@
+import theme from "@/utils/theme";
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
 
-const Container = styled.footer`
-  background-color: white;
-  border-top: 3px solid #ddd;
-  justify-content: space-around;
-  padding: 0 40px;
-  display: wrap;
+const Wrapper = styled.footer`
+  background-color: ${theme.blue};
+  color: white;
+  padding-bottom: 20px;
+  width: 100%;
 `;
 
-const Footer = () => {
-  return (
+const Container = styled.footer`
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+`;
+
+const OrgInfo = styled.div`
+  margin-right: 30px;
+  margin-top: 50px;
+  text-align: right;
+`;
+
+const LinkWrapper = styled.div`
+  margin: 30px 30px 0 30px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  @media (min-width: 600px) {
+    flex-direction: row;
+  }
+`;
+
+const LinkSection = styled.div``;
+
+const FooterLinks = styled.a`
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+
+  :hover,
+  :focus {
+    text-decoration: underline;
+  }
+`;
+
+const Footer = () => (
+  <Wrapper>
     <Container>
-      <div>
-        <h3>Oslo Pride AS</h3>
+      <LinkWrapper>
+        <LinkSection>
+          <Link href="/about" passHref>
+            <FooterLinks>
+              <h3>OM OSS</h3>
+            </FooterLinks>
+          </Link>
+          <Link href="/contact" passHref>
+            <FooterLinks>Kontakt</FooterLinks>
+          </Link>
+          <Link href="/partners" passHref>
+            <FooterLinks>Partnere</FooterLinks>
+          </Link>
+        </LinkSection>
+        <LinkSection>
+          <FooterLinks href="https://www.facebook.com/oslopride/">
+            <h3>FØLG OSS</h3>
+          </FooterLinks>
+          <FooterLinks href="https://www.facebook.com/oslopride/">
+            Facebook
+          </FooterLinks>
+          <FooterLinks href="https://www.instagram.com/oslopride/">
+            Instagram
+          </FooterLinks>
+        </LinkSection>
+        <Link href="/interpride2020" passHref>
+          <FooterLinks>
+            <h3>INTERPRIDE AGM 2020</h3>
+          </FooterLinks>
+        </Link>
+      </LinkWrapper>
+      <OrgInfo>
+        <h3>OSLO PRIDE AS</h3>
         <p>
           c/o Foreningen FRI
           <br />
@@ -24,35 +92,9 @@ const Footer = () => {
         </p>
         <p>Tlf: 915 44 090</p>
         <p>Org.nr: 986 625 860</p>
-      </div>
-      <div>
-        <Link href="/about">
-          <h3>Om oss</h3>
-        </Link>
-        <Link href="/contact">
-          <p>Kontakt</p>
-        </Link>
-        <Link href="/">
-          <p>Partnere-kommer snart</p>
-        </Link>
-      </div>
-      <div>
-        <Link href="https://www.facebook.com/oslopride/">
-          <h3>Følg oss</h3>
-        </Link>
-        <Link href="https://www.facebook.com/oslopride/">
-          <p>Facebook</p>
-        </Link>
-        <Link href="https://www.instagram.com/oslopride/">
-          <p>Instagram</p>
-        </Link>
-      </div>
-      <div>
-        <h3>INTERPRIDE AGM 2020</h3>
-        <p>mer info kommer snart</p>
-      </div>
+      </OrgInfo>
     </Container>
-  );
-};
+  </Wrapper>
+);
 
 export default Footer;

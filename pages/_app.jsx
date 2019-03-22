@@ -1,5 +1,5 @@
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import createStore from "@/store/store";
 import theme from "@/utils/theme";
 import withReduxSaga from "next-redux-saga";
