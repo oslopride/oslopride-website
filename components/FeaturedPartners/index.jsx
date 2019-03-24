@@ -1,5 +1,4 @@
-import { webResponseInitial } from "@/store/helpers";
-import { getPartners, partnersActions } from "@/store/partners";
+import { partnersActions } from "@/store/partners";
 import { imageUrlFor } from "@/store/sanity";
 import theme from "@/utils/theme";
 import React from "react";
@@ -43,20 +42,6 @@ const FeaturedPartners = props => {
       <PartnerList partnerType="partner" />
     </Wrapper>
   );
-};
-
-FeaturedPartners.getInitialProps = async ({ store, isServer }) => {
-  if (store.getState().partners.status === webResponseInitial().status) {
-    store.dispatch(partnersActions.request());
-    if (isServer) {
-      try {
-        const response = await getPartners();
-        store.dispatch(partnersActions.success(response));
-      } catch (e) {
-        store.dispatch(partnersActions.failure(`${e}`));
-      }
-    }
-  }
 };
 
 const mapStateToProps = state => ({
