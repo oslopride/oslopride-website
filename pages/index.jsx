@@ -206,7 +206,6 @@ const FeaturedArticlesWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  margin-top: 30px;
 
   max-width: 1200px;
 `;

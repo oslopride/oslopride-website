@@ -1,4 +1,3 @@
-import Sheet from "@/components/Sheet";
 import { webResponseInitial } from "@/store/helpers";
 import { getPartners, partnersActions } from "@/store/partners";
 import { imageUrlFor } from "@/store/sanity";
@@ -19,18 +18,16 @@ const FeaturedPartners = props => {
     const partnerItems = partners.data
       .filter(partnerItem => partnerItem.type === partnerType)
       .map(({ _id, partnerUrl, image, name }) => (
-        <Partner key={_id}>
-          <PartnerImage>
-            <a href={partnerUrl}>
-              <img
-                src={imageUrlFor(image)
-                  .maxWidth(200)
-                  .url()}
-                alt={name}
-              />
-            </a>
-          </PartnerImage>
-        </Partner>
+        <PartnerImage key={_id}>
+          <a href={partnerUrl}>
+            <img
+              src={imageUrlFor(image)
+                .maxWidth(200)
+                .url()}
+              alt={name}
+            />
+          </a>
+        </PartnerImage>
       ));
     return <List>{partnerItems}</List>;
   };
@@ -96,29 +93,21 @@ const PageSubtitle = styled.h2`
 
 const List = styled.ul`
   padding: 0;
-`;
-
-const Partner = styled(Sheet)`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 1088px;
-  margin: 20px;
-
-  @media (min-width: 800px) {
-    flex-direction: row;
-    justify-content: space-around;
-  }
+  justify-content: center;
+  width: 100%;
 `;
 
 const PartnerImage = styled.div`
   width: 100%;
-  max-width: 200px;
-  text-align: center;
+  border: 1px solid ${theme.gray};
+  margin: 0 10px;
 
   img {
     height: auto;
     max-width: 100%;
+    display: block;
+    margin: auto;
   }
 
   @media (min-width: 800px) {
