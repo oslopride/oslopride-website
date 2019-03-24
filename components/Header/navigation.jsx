@@ -8,7 +8,7 @@ const Container = styled.nav`
   transition: max-height 0.3s ease-in-out;
   height: auto;
   overflow: hidden;
-  max-height: ${({ visible }) => (visible ? "1000px" : "0")};
+  max-height: ${({ visible }) => (visible ? "250px" : "0")};
 `;
 
 const NavigationGroup = styled.div`
