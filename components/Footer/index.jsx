@@ -82,9 +82,10 @@ const LinkWrapper = styled.div`
   justify-content: space-between;
   flex-direction: column;
 
-  @media (min-width: 600px) {
+  /* TODO: Add this when we get more stuff inside the LinkWrapper component */
+  /* @media (min-width: 600px) {
     flex-direction: row;
-  }
+  } */
 `;
 
 const FooterLinks = styled.a`
