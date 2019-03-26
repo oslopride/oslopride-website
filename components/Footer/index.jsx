@@ -31,11 +31,6 @@ const Footer = () => (
             Instagram
           </FooterLinks>
         </div>
-        <Link href="/interpride2020" passHref>
-          <FooterLinks>
-            <h3>INTERPRIDE AGM 2020</h3>
-          </FooterLinks>
-        </Link>
       </LinkWrapper>
       <OrgInfo>
         <h3>OSLO PRIDE AS</h3>
