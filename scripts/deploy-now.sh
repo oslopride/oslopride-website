@@ -12,6 +12,6 @@ elif [ $TRAVIS_BRANCH = "master" ]; then
   now alias set $NOW_DEPLOYMENT beta.oslopride.no --token=$NOW_TOKEN --scope oslopride;
 
 # Release
-elif [ $TRAVIS_TAG =~ ^v([0-9]+)\.([0-9]+)\.([0-9]+)$ ] && [ $TRAVIS_BRANCH = $TRAVIS_TAG ]; then
+elif [[ $TRAVIS_TAG =~ ^v([0-9]+)\.([0-9]+)\.([0-9]+)$ ]] && [ $TRAVIS_BRANCH = $TRAVIS_TAG ]; then
 	now alias set $NOW_DEPLOYMENT oslopride.no --token=$NOW_TOKEN --scope oslopride;
 fi
