@@ -22,6 +22,4 @@ script:
   - yarn build
 
 after_success:
-  - source ./scripts/deploy-now.sh
-  - ./scripts/pridebot-comment.sh
-  - ./scripts/alias-now.sh
+  - ./scripts/deploy-now.sh
