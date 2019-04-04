@@ -17,7 +17,7 @@ const Partners = props => {
     return <div>Laster ...</div>;
   }
 
-  const PartnerList = ({ partnerType }) => {
+  const PartnerList = ({ partnerType, partnerSubtitle }) => {
     const partnerItems = partners.data
       .filter(partnerItem => partnerItem.type === partnerType)
       .map(({ _id, partnerUrl, image, name, description }) => (
@@ -42,16 +42,28 @@ const Partners = props => {
           </PartnerCard>
         </PartnerItem>
       ));
-    return <List>{partnerItems}</List>;
+    if (partnerItems.length > 0) {
+      return (
+        <div>
+          <PageSubtitle>{partnerSubtitle}</PageSubtitle>
+          <List>{partnerItems}</List>
+        </div>
+      );
+    }
+    return null;
   };
-
+  if (!partners.data.length) {
+    return (
+      <Sheet>
+        <p>Oversikt over våre partnere for Oslo Pride 2019 kommer snart.</p>
+      </Sheet>
+    );
+  }
   return (
     <Wrapper>
       <PageTitle>Partnere</PageTitle>
-      <PageSubtitle>Hovedpartnere</PageSubtitle>
-      <PartnerList partnerType="mainpartner" />
-      <PageSubtitle>Partnere</PageSubtitle>
-      <PartnerList partnerType="partner" />
+      <PartnerList partnerSubtitle="Hovedpartnere" partnerType="mainpartner" />
+      <PartnerList partnerSubtitle="Partnere" partnerType="partner" />
 
       <NextSeo
         config={{
