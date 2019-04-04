@@ -13,7 +13,7 @@ const FeaturedPartners = props => {
     return <div>Laster ...</div>;
   }
 
-  const PartnerList = ({ partnerType }) => {
+  const PartnerList = ({ partnerType, partnerSubtitle }) => {
     const partnerItems = partners.data
       .filter(partnerItem => partnerItem.type === partnerType)
       .map(({ _id, partnerUrl, image, name }) => (
@@ -28,18 +28,30 @@ const FeaturedPartners = props => {
           </PartnerImage>
         </PartnerItem>
       ));
-    return <List>{partnerItems}</List>;
+    if (partnerItems.length > 0) {
+      return (
+        <div>
+          <PageSubtitle>{partnerSubtitle}</PageSubtitle>
+          <List>{partnerItems}</List>
+        </div>
+      );
+    }
+    return null;
   };
 
+  if (partners.status !== "SUCCESS") {
+    // TODO: Make a better UX while loading
+    return <div>Laster ...</div>;
+  }
+  if (!partners.data.length) {
+    return null;
+  }
   return (
     <Wrapper>
       <PageTitle>Partnere</PageTitle>
-      <PageSubtitle>Eier og arrangør</PageSubtitle>
-      <PartnerList partnerType="owner" />
-      <PageSubtitle>Hovedpartnere</PageSubtitle>
-      <PartnerList partnerType="mainpartner" />
-      <PageSubtitle>Partnere</PageSubtitle>
-      <PartnerList partnerType="partner" />
+      <PartnerList partnerSubtitle="Eier og arrangør" partnerType="owner" />
+      <PartnerList partnerSubtitle="Hovedpartner" partnerType="mainpartner" />
+      <PartnerList partnerSubtitle="Partnere" partnerType="partner" />
     </Wrapper>
   );
 };
