@@ -8,11 +8,6 @@ import styled from "styled-components";
 const FeaturedPartners = props => {
   const { partners } = props;
 
-  if (partners.status !== "SUCCESS") {
-    // TODO: Make a better UX while loading
-    return <div>Laster ...</div>;
-  }
-
   const PartnerList = ({ partnerType, partnerSubtitle }) => {
     const partnerItems = partners.data
       .filter(partnerItem => partnerItem.type === partnerType)
