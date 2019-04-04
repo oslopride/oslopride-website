@@ -12,11 +12,6 @@ import styled from "styled-components";
 const Partners = props => {
   const { partners } = props;
 
-  if (partners.status !== "SUCCESS") {
-    // TODO: Make a better UX while loading
-    return <div>Laster ...</div>;
-  }
-
   const PartnerList = ({ partnerType, partnerSubtitle }) => {
     const partnerItems = partners.data
       .filter(partnerItem => partnerItem.type === partnerType)
@@ -52,6 +47,11 @@ const Partners = props => {
     }
     return null;
   };
+
+  if (partners.status !== "SUCCESS") {
+    // TODO: Make a better UX while loading
+    return <div>Laster ...</div>;
+  }
   if (!partners.data.length) {
     return (
       <Sheet>
