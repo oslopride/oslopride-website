@@ -19,6 +19,9 @@ const Footer = () => (
           <Link href="/partners" passHref>
             <FooterLinks>Partnere</FooterLinks>
           </Link>
+		  <Link href="https://eventregistration.oslopride.no/" passHref>
+			<FooterLinks>Meld inn ditt arrangement til programmet</FooterLinks>
+		  </Link>
         </div>
         <div>
           <FooterLinks href="https://www.facebook.com/oslopride/">
