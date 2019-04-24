@@ -37,7 +37,12 @@ const Footer = () => (
         <div>
           <Link href="/press-releases" passHref>
             <FooterLinks>
-              <h3>PRESSEMEDLINGER</h3>
+              <H3NoBottomMargin>PRESSEMEDLINGER</H3NoBottomMargin>
+            </FooterLinks>
+          </Link>
+          <Link href="/a/cookie-policy" passHref>
+            <FooterLinks>
+              <H3NoBottomMargin>COOKIE POLICY</H3NoBottomMargin>
             </FooterLinks>
           </Link>
         </div>
@@ -119,4 +124,8 @@ const TlfOrgNrLink = styled.a`
   :focus {
     text-decoration: underline;
   }
+`;
+
+const H3NoBottomMargin = styled.h3`
+  margin-bottom: 0;
 `;
