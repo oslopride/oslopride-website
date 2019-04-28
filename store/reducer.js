@@ -3,6 +3,7 @@ import { aboutReducer } from "./about";
 import { articleReducer } from "./articles";
 import { becomePartnerReducer } from "./become-partner";
 import { contactReducer } from "./contact";
+import { eventsReducer } from "./events";
 import { frontPageReducer } from "./front-page";
 import { interPrideReducer } from "./interpride";
 import { partnersReducer } from "./partners";
@@ -12,7 +13,6 @@ import { prideArtReducer } from "./pride-art";
 import { prideHouseReducer } from "./pride-house";
 import { prideParadeReducer } from "./pride-parade";
 import { prideParkReducer } from "./pride-park";
-import { eventsReducer } from "./program";
 
 export default combineReducers({
   about: aboutReducer,

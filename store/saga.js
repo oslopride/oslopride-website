@@ -3,6 +3,7 @@ import { aboutSaga } from "./about";
 import { articleSaga } from "./articles";
 import { becomePartnerSaga } from "./become-partner";
 import { contactSaga } from "./contact";
+import { eventsSaga } from "./events";
 import { frontPageSaga } from "./front-page";
 import { interPrideSaga } from "./interpride";
 import { partnersSaga } from "./partners";
@@ -12,7 +13,6 @@ import { prideArtSaga } from "./pride-art";
 import { prideHouseSaga } from "./pride-house";
 import { prideParadeSaga } from "./pride-parade";
 import { prideParkSaga } from "./pride-park";
-import { eventsSaga } from "./program";
 
 export default function* rootSaga() {
   yield all([
