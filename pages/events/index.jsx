@@ -1,6 +1,6 @@
 import Sheet from "@/components/Sheet";
+import { eventsActions, getEvents } from "@/store/events";
 import { webResponseInitial } from "@/store/helpers";
-import { eventsActions, getEvents } from "@/store/program";
 import NextSeo from "next-seo";
 import React from "react";
 import { connect } from "react-redux";
@@ -11,7 +11,7 @@ const Wrapper = styled(Sheet)`
   max-width: 1000px;
 `;
 
-const Program = props => {
+const Events = props => {
   const { events } = props;
 
   if (events.status !== "SUCCESS") {
@@ -49,7 +49,7 @@ const Program = props => {
   );
 };
 
-Program.getInitialProps = async ({ store, isServer }) => {
+Events.getInitialProps = async ({ store, isServer }) => {
   if (store.getState().events.status === webResponseInitial().status) {
     store.dispatch(eventsActions.request());
     if (isServer) {
@@ -67,4 +67,4 @@ const mapStateToProps = state => ({
   events: state.events
 });
 
-export default connect(mapStateToProps)(Program);
+export default connect(mapStateToProps)(Events);
