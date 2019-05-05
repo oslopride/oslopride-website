@@ -28,6 +28,7 @@
     "@sanity/client": "^0.140.8",
     "@sanity/image-url": "^0.140.8",
     "@zeit/next-css": "^1.0.1",
+    "dayjs": "^1.8.13",
     "next": "^8.0.0",
     "next-redux-saga": "^3.0.0",
     "next-redux-wrapper": "^3.0.0-alpha.1",
