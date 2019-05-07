@@ -7,6 +7,7 @@ import {
   mapWebResponse,
   webResponseStatus
 } from "@/store/helpers";
+import { capitalizeString } from "@/utils";
 import theme from "@/utils/theme";
 import dayjs from "dayjs";
 import NextSeo from "next-seo";
@@ -123,10 +124,11 @@ const Event = ({ event }) =>
           <NextSeo
             config={{
               title: title,
-              description: `${start.format(
-                "dddd D. MMMM YYYY HH:mm"
-              )} - ${end.format("HH:mm")} @ ${location.name &&
-                location.name + ", "}${location.address}`,
+              description: `${capitalizeString(
+                start.format("dddd D. MMMM YYYY")
+              )} ${start.format("HH:mm")} - ${end.format(
+                "HH:mm"
+              )} @ ${location.name && location.name + ", "}${location.address}`,
               openGraph: {
                 type: "website",
                 url: `https://oslopride.no/events/${_id}`,
@@ -134,10 +136,13 @@ const Event = ({ event }) =>
                 locale: "nb_NO",
                 site_name: "Oslo Pride",
                 title: title,
-                description: `${start.format(
-                  "dddd D. MMMM YYYY HH:mm"
-                )} - ${end.format("HH:mm")} @ ${location.name &&
-                  location.name + ", "}${location.address}`,
+                description: `${capitalizeString(
+                  start.format("dddd D. MMMM YYYY")
+                )} ${start.format("HH:mm")} - ${end.format(
+                  "HH:mm"
+                )} @ ${location.name && location.name + ", "}${
+                  location.address
+                }`,
                 images: [
                   { url: "https://oslopride.no/static/logo.jpg" },
                   { url: "https://oslopride.no/static/prideheart.jpg" }
