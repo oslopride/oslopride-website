@@ -51,6 +51,12 @@ const Events = props => {
     <>
       <PageTitle>Program 2019</PageTitle>
 
+      {!events.data.length ? (
+        <Sheet>
+          <p>Kommer snart!</p>
+        </Sheet>
+      ) : null}
+
       {groupEventsByDay(events.data).map(day => {
         const currentDay = dayjs(day[0].startingTime);
         return (
