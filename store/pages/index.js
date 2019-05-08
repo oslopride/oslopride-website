@@ -55,6 +55,8 @@ export const getPage = slug => {
     body,
     slug,
     seo,
+    _createdAt,
+    _updatedAt,
     articles[]->
   }`;
   const params = { slug };
