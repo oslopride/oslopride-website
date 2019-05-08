@@ -49,9 +49,14 @@ const Page = ({ page }) => {
     seo: { description, image }
   } = page.data;
 
-  const imageUrl = imageUrlFor(image)
-    .maxWidth(1000)
-    .url();
+  const seoImage = image
+    ? imageUrlFor(image)
+        .maxWidth(1000)
+        .url()
+    : "https://oslopride.no/static/prideheart.jpg";
+  const seoDescription =
+    description ||
+    "Oslo Pride er Norges største og viktigste feiring av skeiv kjærlighet og mangfold.";
 
   return (
     <>
@@ -76,12 +81,12 @@ const Page = ({ page }) => {
             url: `https://oslopride.no/p/${slug}`,
             title,
             locale: "nb_NO",
-            description,
+            description: seoDescription,
             page: {
               publishedTime: _createdAt,
               modifiedTime: _updatedAt
             },
-            images: [{ url: imageUrl }]
+            images: [{ url: seoImage }]
           }
         }}
       />
@@ -93,8 +98,8 @@ const Page = ({ page }) => {
         authorName="Oslo Pride"
         publisherName="Oslo Pride"
         publisherLogo="https://oslopride.no/static/logo.jpg"
-        description={description}
-        images={[imageUrl]}
+        description={seoDescription}
+        images={[seoImage]}
       />
     </>
   );
