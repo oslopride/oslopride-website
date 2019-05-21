@@ -188,6 +188,7 @@ const EventLink = styled.div`
   & > a {
     display: flex;
     flex-direction: row;
+    align-items: center;
     text-decoration: none;
 
     :hover {
