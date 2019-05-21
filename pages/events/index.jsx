@@ -49,46 +49,44 @@ const Events = props => {
 
   return (
     <>
-      <PageTitle>Program 2019</PageTitle>
+      <Sheet>
+        <PageTitle>Program 2019</PageTitle>
 
-      {!events.data.length ? (
-        <Sheet>
-          <p>Kommer snart!</p>
-        </Sheet>
-      ) : null}
+        {!events.data.length ? <p>Kommer snart!</p> : null}
 
-      {groupEventsByDay(events.data).map(day => {
-        const currentDay = dayjs(day[0].startingTime);
-        return (
-          <Event key={currentDay.format("YYYY-MM-DD")}>
-            <div>
+        {groupEventsByDay(events.data).map(day => {
+          const currentDay = dayjs(day[0].startingTime);
+          return (
+            <Event key={currentDay.format("YYYY-MM-DD")}>
               <EventDay>
-                {currentDay.format("dddd")}{" "}
-                <EventDate>{currentDay.format("D. MMMM")}</EventDate>
+                <h2>
+                  {currentDay.format("dddd")}{" "}
+                  <span>{currentDay.format("D. MMMM")}</span>
+                </h2>
               </EventDay>
-            </div>
-            <div>
-              {day.map(event => (
-                <Link
-                  key={event._id}
-                  href={`/event?id=${event._id}`}
-                  as={`/events/${event._id}`}
-                >
-                  <EventLink>
-                    <a>
-                      <EventTime>
-                        {dayjs(event.startingTime).format("HH:mm")}-
-                        {dayjs(event.endingTime).format("HH:mm")}
-                      </EventTime>
-                      <EventTitle>{event.title}</EventTitle>
-                    </a>
-                  </EventLink>
-                </Link>
-              ))}
-            </div>
-          </Event>
-        );
-      })}
+              <div>
+                {day.map(event => (
+                  <Link
+                    key={event._id}
+                    href={`/event?id=${event._id}`}
+                    as={`/events/${event._id}`}
+                  >
+                    <EventLink>
+                      <a>
+                        <EventTime>
+                          {dayjs(event.startingTime).format("HH:mm")}-
+                          {dayjs(event.endingTime).format("HH:mm")}
+                        </EventTime>
+                        <EventTitle>{event.title}</EventTitle>
+                      </a>
+                    </EventLink>
+                  </Link>
+                ))}
+              </div>
+            </Event>
+          );
+        })}
+      </Sheet>
 
       <NextSeo
         config={{
@@ -137,23 +135,24 @@ export default connect(mapStateToProps)(Events);
 const PageTitle = styled.h1`
   color: ${theme.purple};
   text-transform: uppercase;
+  text-align: center;
 `;
 
-const Event = styled(Sheet)`
+const Event = styled.div`
   width: 100%;
   max-width: 1000px;
-  margin: 20px;
 `;
 
-const EventDay = styled.h2`
-  font-size: 25px;
-  color: ${theme.orange};
-  text-transform: uppercase;
-`;
+const EventDay = styled.div`
+  background-color: ${theme.purple};
+  width: 100%;
 
-const EventDate = styled.span`
-  text-transform: uppercase;
-  color: initial;
+  h2 {
+    font-size: 25px;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+  }
 `;
 
 const EventLink = styled.div`
