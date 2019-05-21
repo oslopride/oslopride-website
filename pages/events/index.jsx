@@ -1,6 +1,7 @@
 import Sheet from "@/components/Sheet";
 import { eventsActions, getEvents } from "@/store/events";
 import { webResponseInitial } from "@/store/helpers";
+import { imageUrlFor } from "@/store/sanity";
 import theme from "@/utils/theme";
 import dayjs from "dayjs";
 import NextSeo from "next-seo";
@@ -73,11 +74,25 @@ const Events = props => {
                   >
                     <EventLink>
                       <a>
-                        <EventTime>
-                          {dayjs(event.startingTime).format("HH:mm")}-
-                          {dayjs(event.endingTime).format("HH:mm")}
-                        </EventTime>
-                        <EventTitle>{event.title}</EventTitle>
+                        {event.image ? (
+                          <EventImage
+                            src={imageUrlFor(event.image)
+                              .height(250)
+                              .url()}
+                            alt="arrangementsbilde"
+                          />
+                        ) : null}
+
+                        <EventInfo>
+                          <EventTitle>{event.title}</EventTitle>
+                          <EventTime>
+                            {dayjs(event.startingTime).format("HH:mm")}-
+                            {dayjs(event.endingTime).format("HH:mm")}
+                          </EventTime>
+                          <EventPlace>
+                            {event.location.name}, {event.location.address}
+                          </EventPlace>
+                        </EventInfo>
                       </a>
                     </EventLink>
                   </Link>
@@ -149,6 +164,7 @@ const EventDay = styled.div`
 
   h2 {
     font-size: 25px;
+    font-weight: 200;
     color: white;
     text-transform: uppercase;
     text-align: center;
@@ -159,20 +175,42 @@ const EventLink = styled.div`
   cursor: pointer;
   border-bottom: 2px solid lightgrey;
   padding: 10px 0;
+
   &:last-child {
     border-bottom: 0;
   }
 
   & > a {
+    display: flex;
+    flex-direction: row;
     text-decoration: none;
   }
 `;
 
+const EventImage = styled.img`
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+`;
+
+const EventInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+`;
+
 const EventTime = styled.div`
-  font-weight: bold;
-  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: 600;
+  color: ${theme.orange};
+`;
+
+const EventPlace = styled.div`
+  font-size: 18px;
+  font-weight: 400;
 `;
 
 const EventTitle = styled.div`
-  text-decoration: underline;
+  font-size: 20px;
+  font-weight: 500;
 `;
