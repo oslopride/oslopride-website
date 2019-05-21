@@ -83,7 +83,7 @@ const Events = props => {
                           />
                         ) : (
                           <EventImage
-                            src="https://oslopride.no/static/prideheart.jpg"
+                            src="static/placeholder.jpg"
                             alt="arrangementsbilde"
                           />
                         )}
@@ -164,13 +164,13 @@ const Event = styled.div`
 `;
 
 const EventDay = styled.div`
-  background-color: ${theme.lightPurple};
+  background-color: ${theme.purple};
   width: 100%;
 
   h2 {
     font-size: 25px;
     font-weight: 500;
-    color: black;
+    color: white;
     text-transform: uppercase;
     text-align: center;
   }
@@ -207,7 +207,7 @@ const EventInfo = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
-  margin-left: 10px;
+  margin-left: 20px;
   width: 100%;
 `;
 
