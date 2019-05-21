@@ -81,7 +81,12 @@ const Events = props => {
                               .url()}
                             alt="arrangementsbilde"
                           />
-                        ) : null}
+                        ) : (
+                          <EventImage
+                            src="https://oslopride.no/static/prideheart.jpg"
+                            alt="arrangementsbilde"
+                          />
+                        )}
 
                         <EventInfo>
                           <EventTitle>{event.title}</EventTitle>
@@ -159,13 +164,13 @@ const Event = styled.div`
 `;
 
 const EventDay = styled.div`
-  background-color: ${theme.purple};
+  background-color: ${theme.lightPurple};
   width: 100%;
 
   h2 {
     font-size: 25px;
-    font-weight: 200;
-    color: white;
+    font-weight: 500;
+    color: black;
     text-transform: uppercase;
     text-align: center;
   }
@@ -184,33 +189,41 @@ const EventLink = styled.div`
     display: flex;
     flex-direction: row;
     text-decoration: none;
+
+    :hover {
+      text-decoration: underline;
+    }
   }
 `;
 
 const EventImage = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   object-fit: cover;
 `;
 
 const EventInfo = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-flow: row wrap;
+  justify-content: flex-start;
   margin-left: 10px;
+  width: 100%;
+`;
+
+const EventTitle = styled.div`
+  width: 100%;
+  font-size: 20px;
+  font-weight: 500;
 `;
 
 const EventTime = styled.div`
   font-size: 18px;
   font-weight: 600;
   color: ${theme.orange};
+  margin-right: 10px;
 `;
 
 const EventPlace = styled.div`
   font-size: 18px;
-  font-weight: 400;
-`;
-
-const EventTitle = styled.div`
-  font-size: 20px;
-  font-weight: 500;
+  font-weight: 300;
 `;
