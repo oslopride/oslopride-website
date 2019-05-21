@@ -40,6 +40,20 @@ const groupEventsByDay = events => {
   return groupedEvents;
 };
 
+const displayArena = event => {
+  if (event.category == 0) {
+    return "Ekstern arena";
+  } else if (event.category == 1) {
+    return "Pride Parade";
+  } else if (event.category == 2) {
+    return "Pride Park";
+  } else if (event.category == 3) {
+    return "Pride House";
+  } else if (event.category == 4) {
+    return "Pride Art";
+  }
+};
+
 const Events = props => {
   const { events } = props;
 
@@ -95,7 +109,9 @@ const Events = props => {
                             {dayjs(event.endingTime).format("HH:mm")}
                           </EventTime>
                           <EventPlace>
-                            {event.location.name}, {event.location.address}
+                            {displayArena(event)},{" "}
+                            {event.venue ? event.venue : event.location.name}
+                            {console.log(event.venue)}
                           </EventPlace>
                         </EventInfo>
                       </a>
