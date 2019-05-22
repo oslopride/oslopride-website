@@ -119,7 +119,6 @@ const Events = props => {
                             {event.location.venue
                               ? getVenueName(event.location.venue._ref)
                               : event.location.name}
-                            {console.log(event.location)}
                           </EventPlace>
                         </EventInfo>
                       </a>
