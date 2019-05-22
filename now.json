@@ -22,7 +22,7 @@
       "headers": { "Location": "https://www.oslopride.no/events" }
     },
     {
-      "src": "/om-oss/pride-art/(/.*)?",
+      "src": "/om-oss/pride-art(/.*)?",
       "status": 301,
       "headers": { "Location": "https://www.oslopride.no/pride-art" }
     }
