@@ -2,6 +2,7 @@ import Sheet from "@/components/Sheet";
 import { eventsActions, getEvents } from "@/store/events";
 import { webResponseInitial } from "@/store/helpers";
 import { imageUrlFor } from "@/store/sanity";
+import { getVenues, venuesActions } from "@/store/venues";
 import theme from "@/utils/theme";
 import dayjs from "dayjs";
 import NextSeo from "next-seo";
@@ -55,12 +56,17 @@ const displayArena = event => {
 };
 
 const Events = props => {
-  const { events } = props;
+  const { events, venues } = props;
 
   if (events.status !== "SUCCESS") {
     // TODO: Make a better UX while loading
     return <div>Laster ...</div>;
   }
+
+  const getVenueName = reference => {
+    const venueData = venues.data.find(venue => venue._id === reference);
+    return venueData.name;
+  };
 
   return (
     <>
@@ -110,8 +116,10 @@ const Events = props => {
                           </EventTime>
                           <EventPlace>
                             {displayArena(event)},{" "}
-                            {event.venue ? event.venue : event.location.name}
-                            {console.log(event.venue)}
+                            {event.location.venue
+                              ? getVenueName(event.location.venue._ref)
+                              : event.location.name}
+                            {console.log(event.location)}
                           </EventPlace>
                         </EventInfo>
                       </a>
@@ -160,10 +168,22 @@ Events.getInitialProps = async ({ store, isServer }) => {
       }
     }
   }
+  if (store.getState().venues.status === webResponseInitial().status) {
+    store.dispatch(venuesActions.request());
+    if (isServer) {
+      try {
+        const response = await getVenues();
+        store.dispatch(venuesActions.success(response));
+      } catch (e) {
+        store.dispatch(venuesActions.failure(`${e}`));
+      }
+    }
+  }
 };
 
 const mapStateToProps = state => ({
-  events: state.events
+  events: state.events,
+  venues: state.venues
 });
 
 export default connect(mapStateToProps)(Events);
