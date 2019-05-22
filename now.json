@@ -9,12 +9,12 @@
     { "src": "/personvern", "dest": "/p/privacy" },
     { "src": "/privacy", "dest": "/p/privacy" },
     {
-      "src": "/program/.*",
+      "src": "^/.*program",
       "status": 301,
       "headers": { "Location": "https://www.oslopride.no/events" }
     },
     {
-      "src": "/om-oss/pride-art/.*",
+      "src": "^/.*om-oss/pride-art",
       "status": 301,
       "headers": { "Location": "https://www.oslopride.no/pride-art" }
     }
