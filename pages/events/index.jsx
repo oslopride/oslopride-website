@@ -42,16 +42,42 @@ const groupEventsByDay = events => {
 };
 
 const displayArena = event => {
-  if (event.category == 0) {
-    return "Ekstern arena";
-  } else if (event.category == 1) {
-    return "Pride Parade";
-  } else if (event.category == 2) {
-    return "Pride Park";
-  } else if (event.category == 3) {
-    return "Pride House";
-  } else if (event.category == 4) {
-    return "Pride Art";
+  switch (event.category) {
+    case "0":
+      return "Ekstern arena";
+      break;
+    case "1":
+      return "Pride Parade";
+      break;
+    case "2":
+      return "Pride Park";
+      break;
+    case "3":
+      return "Pride House";
+      break;
+    case "4":
+      return "Pride Art";
+      break;
+  }
+};
+
+const displayEventType = event => {
+  switch (event.eventType) {
+    case "0":
+      return "Annet";
+      break;
+    case "1":
+      return "Konsert";
+      break;
+    case "2":
+      return "Debatt";
+      break;
+    case "3":
+      return "Utstilling";
+      break;
+    case "4":
+      return "Fest";
+      break;
   }
 };
 
@@ -115,11 +141,16 @@ const Events = props => {
                             {dayjs(event.endingTime).format("HH:mm")}
                           </EventTime>
                           <EventPlace>
+                            <Descriptor> Hvor: </Descriptor>
                             {displayArena(event)},{" "}
                             {event.location.venue
                               ? getVenueName(event.location.venue._ref)
                               : event.location.name}
                           </EventPlace>
+                          <EventType>
+                            <Descriptor> Type: </Descriptor>
+                            {displayEventType(event)}
+                          </EventType>
                         </EventInfo>
                       </a>
                     </EventLink>
@@ -262,4 +293,15 @@ const EventTime = styled.div`
 const EventPlace = styled.div`
   font-size: 18px;
   font-weight: 300;
+  margin-right: 10px;
+`;
+
+const EventType = styled.div`
+  font-size: 18px;
+  font-weight: 300;
+`;
+
+const Descriptor = styled.span`
+  font-size: 18px;
+  font-weight: 500;
 `;
