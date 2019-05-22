@@ -6,15 +6,23 @@
     { "src": "/a/(?<slug>[^/]+)$", "dest": "/article?slug=$slug" },
     { "src": "/events/(?<id>[^/]+)$", "dest": "/event?id=$id" },
     { "src": "/p/(?<slug>[^/]+)$", "dest": "/page?slug=$slug" },
-    { "src": "/personvern", "dest": "/p/privacy" },
-    { "src": "/privacy", "dest": "/p/privacy" },
     {
-      "src": "^/program/?.*",
+      "src": "/personvern",
+      "status": 301,
+      "headers": { "Location": "https://www.oslopride.no/p/privacy" }
+    },
+    {
+      "src": "/privacy",
+      "status": 301,
+      "headers": { "Location": "https://www.oslopride.no/p/privacy" }
+    },
+    {
+      "src": "/program/?.*",
       "status": 301,
       "headers": { "Location": "https://www.oslopride.no/events" }
     },
     {
-      "src": "^/om-oss/pride-art/?.*",
+      "src": "/om-oss/pride-art/?.*",
       "status": 301,
       "headers": { "Location": "https://www.oslopride.no/pride-art" }
     }
