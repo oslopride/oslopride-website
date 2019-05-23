@@ -6,9 +6,6 @@ import FilterButton from "./button.jsx";
 const EventFilter = props => {
   const { events, visible } = props;
 
-  const filterType = (events, whichButton) => {};
-  const filterCategory = (events, whichButton) => {};
-
   return (
     <Container visible={props.visible}>
       <Row>
