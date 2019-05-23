@@ -34,7 +34,6 @@ const EventList = props => {
         groupedEvents.push([event]);
       }
     });
-
     return groupedEvents;
   };
 
