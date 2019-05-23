@@ -1,7 +1,7 @@
 import theme from "@/utils/theme";
 import React from "react";
 import styled from "styled-components";
-import FilterButton from "./filterButton.jsx";
+import FilterButton from "./button.jsx";
 
 const EventFilter = props => {
   const { events, visible } = props;
