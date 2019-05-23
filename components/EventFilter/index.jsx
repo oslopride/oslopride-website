@@ -13,6 +13,12 @@ const EventFilter = props => {
     <Container visible={props.visible}>
       <Row>
         <RowButton
+          title="Alle"
+          buttonColor={theme.lightPink}
+          selectedColor={theme.pink}
+          clicked={true}
+        />
+        <RowButton
           title="Universelt utformet"
           buttonColor={theme.lightBlue}
           selectedColor={theme.blue}
@@ -92,7 +98,7 @@ const Container = styled.div`
   transition: max-height 0.3s ease-in-out;
   height: auto;
   overflow: hidden;
-  max-height: ${({ visible }) => (visible ? "300px" : "0")};
+  max-height: ${({ visible }) => (visible ? "auto" : "0")};
   margin: ${({ visible }) => (visible ? "10px 0" : "0")};
 `;
 
