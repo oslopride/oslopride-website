@@ -22,9 +22,11 @@ const Events = props => {
       <Sheet>
         <PageTitle>Program 2019</PageTitle>
 
-        {!events.data.length ? <p>Kommer snart!</p> : null}
-
-        <EventList events={events} venues={venues} />
+        {events.data.length ? (
+          <EventList events={events} venues={venues} />
+        ) : (
+          <p>Kommer snart!</p>
+        )}
       </Sheet>
 
       <NextSeo
