@@ -119,8 +119,6 @@ const PageTitle = styled.h1`
 
 const FilterButton = styled(Button)`
   width: 100%;
-  background-color: ${props => (props.visible ? theme.lightPurple : "white")};
-  border: ${props => (props.visible ? "none" : null)};
 `;
 
 const RotatingChevron = styled(FontAwesomeIcon)`
