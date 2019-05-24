@@ -98,9 +98,10 @@ const Events = props => {
     <>
       <Sheet>
         <PageTitle>Program 2019</PageTitle>
-
+        <Message role="img" aria-label="Konstruksjonssymbol">
+          🚧 Mulighet for filtrering av arrangementer kommer snart! 🚧
+        </Message>
         {!events.data.length ? <p>Kommer snart!</p> : null}
-
         {groupEventsByDay(events.data).map(day => {
           const currentDay = dayjs(day[0].startingTime);
           return (
@@ -261,6 +262,10 @@ const EventLink = styled.div`
       text-decoration: underline;
     }
   }
+`;
+
+const Message = styled.div`
+  text-align: center;
 `;
 
 const EventImage = styled.img`
