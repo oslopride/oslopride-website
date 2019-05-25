@@ -56,9 +56,7 @@ const PrideDate = styled.div`
 `;
 
 const MenuIcon = styled(FontAwesomeIcon)`
-  transform: ${props => (props.rotate ? "rotate(180deg)" : "0")};
-  transition: transform 0.2s ease;
-  color: ${theme.purple};
+  color: black;
 `;
 
 const MenuButton = styled(Button)`
@@ -97,11 +95,7 @@ const Header = () => {
         </DateWrapper>
         <MenuButtonWrapper>
           <MenuButton onClick={() => setOpen(!isOpen)}>
-            <MenuIcon
-              rotate={isOpen ? "true" : undefined}
-              icon={faBars}
-              size="2x"
-            />
+            <MenuIcon icon={faBars} size="2x" />
           </MenuButton>
         </MenuButtonWrapper>
       </TopHeader>
