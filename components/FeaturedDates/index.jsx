@@ -22,7 +22,7 @@ const TableData = styled.td`
   }
 `;
 
-const FeaturedDatesTable = ({ className, dates }) => (
+const FeaturedDates = ({ className, dates }) => (
   <Table className={className}>
     <tbody>
       {dates.map(({ _key: key, date, title }) => (
@@ -35,4 +35,4 @@ const FeaturedDatesTable = ({ className, dates }) => (
   </Table>
 );
 
-export default FeaturedDatesTable;
+export default FeaturedDates;
