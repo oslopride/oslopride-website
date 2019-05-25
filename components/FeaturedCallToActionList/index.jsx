@@ -1,4 +1,4 @@
-import { imageUrlFor } from "@/store/sanity";
+/* import { imageUrlFor } from "@/store/sanity";
 import React from "react";
 import styled from "styled-components";
 import Button from "../Button";
@@ -54,3 +54,4 @@ const FeaturedCallToActionList = ({ className, featuredCallToActions }) => (
 );
 
 export default FeaturedCallToActionList;
+ */
