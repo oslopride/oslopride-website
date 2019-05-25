@@ -1,38 +1,79 @@
 import React from "react";
 import styled from "styled-components";
 
-const Table = styled.table`
-  border-collapse: collapse;
-`;
+const DateTitleColors = [
+  "#CD424D",
+  "#D17A61",
+  "#D5A43E",
+  "#25A081",
+  "#93ADC3",
+  "#625887"
+];
 
-const TableRow = styled.tr`
-  border-bottom: 3px solid #ddd;
-
-  :first-child {
-    border-top: 3px solid #ddd;
-  }
-`;
-
-const TableData = styled.td`
-  padding: 10px 0;
-
-  :first-child {
-    font-weight: bold;
-    padding-right: 10px;
-  }
-`;
-
-const FeaturedDates = ({ className, dates }) => (
-  <Table className={className}>
-    <tbody>
-      {dates.map(({ _key: key, date, title }) => (
-        <TableRow key={key}>
-          <TableData>{title}</TableData>
-          <TableData>{date}</TableData>
-        </TableRow>
-      ))}
-    </tbody>
-  </Table>
-);
+const FeaturedDates = ({ dates }) => {
+  return (
+    <>
+      <TitleWrapper>
+        <h2>Hoveddatoer</h2>
+        <h2>Gå til programmet</h2>
+      </TitleWrapper>
+      <div>
+        {dates.map(({ _key: key, date, title }, index) => (
+          <DateWrapper key={key}>
+            <DateTime>{date}</DateTime>
+            <div>
+              <DateTitle
+                color={DateTitleColors[index % DateTitleColors.length]}
+              >
+                {title}
+              </DateTitle>
+              <div>Konserter, debatter, utsttillinger og fester!</div>
+            </div>
+          </DateWrapper>
+        ))}
+      </div>
+    </>
+  );
+};
 
 export default FeaturedDates;
+
+const TitleWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const DateWrapper = styled.div`
+  text-align: center;
+  margin-bottom: 50px;
+
+  @media (min-width: 1025px) {
+    display: flex;
+    float: left;
+    clear: both;
+    text-align: left;
+    align-items: center;
+
+    :nth-of-type(2n) {
+      float: right;
+    }
+  }
+`;
+
+const DateTitle = styled.div`
+  font-size: 40px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  color: ${props => props.color};
+  
+  @media (min-width: 1025px) {
+    display: inline-block;
+    font-size: 50px;
+`;
+
+const DateTime = styled.span`
+  font-size: 20px;
+  font-weight: 600;
+  margin-right: 20px;
+`;

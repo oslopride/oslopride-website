@@ -6,7 +6,6 @@ import { frontPageActions, getFrontPage } from "@/store/front-page";
 import { webResponseInitial } from "@/store/helpers";
 import { getPartners, partnersActions } from "@/store/partners";
 import { imageUrlFor } from "@/store/sanity";
-import theme from "@/utils/theme";
 import NextSeo from "next-seo";
 import React from "react";
 import { connect } from "react-redux";
@@ -31,7 +30,6 @@ const FrontPage = props => {
       </HeroWrapper>
       <ContentWrapper>
         <FeaturedDatesWrapper>
-          <FeaturedDatesTitle>HOVEDDATOER 2019</FeaturedDatesTitle>
           <FeaturedDates dates={frontPage.data.featuredDates} />
         </FeaturedDatesWrapper>
         {/*           <CallToActionWrapper>
@@ -184,10 +182,6 @@ const FrontPageFeaturedDates = styled(FeaturedDates)`
     margin-top: 15px;
   }
 `; */
-
-const FeaturedDatesTitle = styled.h1`
-  color: ${theme.purple};
-`;
 
 /* const FeaturedCallToActionTitle = styled.h1`
   color: ${theme.orange};
