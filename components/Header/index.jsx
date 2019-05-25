@@ -14,7 +14,7 @@ const TopHeader = styled.header`
   align-items: center;
   padding: 10px 10px;
 
-  @media (min-width: 600px) {
+  @media (min-width: 1025px) {
     padding: 10px 40px;
   }
 `;
@@ -33,7 +33,7 @@ const MenuButtonWrapper = styled.div`
 const Logo = styled.img`
   display: none;
 
-  @media (min-width: 600px) {
+  @media (min-width: 1025px) {
     display: inline-block;
     width: 100%;
   }
@@ -42,7 +42,7 @@ const Logo = styled.img`
 const LogoMobile = styled.img`
   width: 50px;
 
-  @media (min-width: 600px) {
+  @media (min-width: 1025px) {
     display: none;
   }
 `;
@@ -61,9 +61,6 @@ const MenuIcon = styled(FontAwesomeIcon)`
 
 const MenuButton = styled(Button)`
   max-width: 50px;
-
-  @media (min-width: 600px) {
-  }
 `;
 
 const Header = () => {

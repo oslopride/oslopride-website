@@ -1,6 +1,5 @@
 import ArticlePreview from "@/components/ArticlePreview";
-import FeaturedDatesTable from "@/components/FeaturedDatesTable";
-import FeaturedPartners from "@/components/FeaturedPartners";
+import FeaturedDates from "@/components/FeaturedDates";
 import Hero from "@/components/Hero";
 import { articleActions } from "@/store/articles";
 import { frontPageActions, getFrontPage } from "@/store/front-page";
@@ -31,18 +30,16 @@ const FrontPage = props => {
         />
       </HeroWrapper>
       <ContentWrapper>
-        <SubContentWrapper>
-          <FeaturedDatesWrapper>
-            <FeaturedDatesTitle>HOVEDDATOER 2019</FeaturedDatesTitle>
-            <FrontPageFeaturedDatesTable dates={frontPage.data.featuredDates} />
-          </FeaturedDatesWrapper>
-          {/*           <CallToActionWrapper>
+        <FeaturedDatesWrapper>
+          <FeaturedDatesTitle>HOVEDDATOER 2019</FeaturedDatesTitle>
+          <FeaturedDates dates={frontPage.data.featuredDates} />
+        </FeaturedDatesWrapper>
+        {/*           <CallToActionWrapper>
             <FeaturedCallToActionTitle>ENGASJER DEG</FeaturedCallToActionTitle>
             <FrontPageCallToActionList
               featuredCallToActions={frontPage.data.featuredCallToActions}
             />
           </CallToActionWrapper> */}
-        </SubContentWrapper>
       </ContentWrapper>
       <FeaturedArticlesWrapper>
         {frontPage.data.featuredArticles.map(article => (
@@ -53,9 +50,9 @@ const FrontPage = props => {
         ))}
       </FeaturedArticlesWrapper>
 
-      <ContentWrapper>
+      {/*       <ContentWrapper>
         <FeaturedPartners />
-      </ContentWrapper>
+      </ContentWrapper> */}
 
       <NextSeo
         config={{
@@ -146,7 +143,7 @@ const ContentWrapper = styled.div`
   & > * {
     width: 100%;
 
-    @media (min-width: 1030px) {
+    @media (min-width: 1025px) {
       width: 1000px;
     }
   }
@@ -161,23 +158,8 @@ const HeroWrapper = styled.div`
 const FrontPageHero = styled(Hero)`
   width: 100%;
   margin: 0 auto;
-  @media (min-width: 1030px) {
+  @media (min-width: 1025px) {
     width: 1000px;
-  }
-`;
-
-const SubContentWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-
-  @media (min-width: 800px) {
-    flex-direction: row;
-
-    & > * + * {
-      margin-left: 40px;
-      flex-grow: 1;
-    }
   }
 `;
 
@@ -191,7 +173,7 @@ const FeaturedDatesWrapper = styled.div`
   flex-direction: column;
 `; */
 
-const FrontPageFeaturedDatesTable = styled(FeaturedDatesTable)`
+const FrontPageFeaturedDates = styled(FeaturedDates)`
   flex-grow: 1;
 `;
 
@@ -223,7 +205,7 @@ const FeaturedArticle = styled(ArticlePreview)`
   margin: 10px;
   width: 100%;
 
-  @media (min-width: 800px) {
+  @media (min-width: 1025px) {
     width: 350px;
   }
 `;
