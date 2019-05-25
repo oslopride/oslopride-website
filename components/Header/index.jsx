@@ -30,7 +30,7 @@ const Logo = styled.img`
 `;
 
 const PrideDate = styled.div`
-  color: ${darken(0.2, theme.gray)};
+  color: ${darken(0.2, theme.lightGray)};
   text-align: center;
 
   font-size: 12px;
