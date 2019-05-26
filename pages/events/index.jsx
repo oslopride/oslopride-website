@@ -1,4 +1,9 @@
 import EventList from "@/components/EventList";
+import Filter from "@/components/Filter";
+import useURLFilter, {
+  resetFilter,
+  setFilter
+} from "@/components/Filter/useURLFilter";
 import Sheet from "@/components/Sheet";
 import { eventsActions, getEvents } from "@/store/events";
 import { webResponseInitial } from "@/store/helpers";
@@ -9,11 +14,30 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
+const arenaNameMapper = arena => {
+  switch (arena) {
+    case "0":
+      return "Ekstern arena";
+    case "1":
+      return "Pride Parade";
+    case "2":
+      return "Pride Park";
+    case "3":
+      return "Pride House";
+    case "4":
+      return "Pride Art";
+    default:
+      return "Ukjent";
+  }
+};
+
 const Events = props => {
-  const { events, venues } = props;
+  const { events, venues, query } = props;
   const [visible, setVisible] = useState(false);
+  const filteredEvents = useURLFilter(events.data || [], query);
 
   const toggleFilter = () => setVisible(!visible);
+  const defaultSelector = [query.category || "-1"].flat()[0];
 
   if (events.status !== "SUCCESS" || venues.status !== "SUCCESS") {
     // TODO: Make a better UX while loading
@@ -25,8 +49,41 @@ const Events = props => {
       <Sheet>
         <PageTitle>Program 2019</PageTitle>
 
+        <Filter
+          selector={{
+            defaultSelector,
+            selectors: [
+              {
+                name: "Alle",
+                value: "-1",
+                callback: value => resetFilter("category")
+              },
+              {
+                name: "Pride Parade",
+                value: "1",
+                callback: value => setFilter("category", "1")
+              },
+              {
+                name: "Pride Park",
+                value: "2",
+                callback: value => setFilter("category", "2")
+              },
+              {
+                name: "Pride House",
+                value: "3",
+                callback: value => setFilter("category", "3")
+              },
+              {
+                name: "Pride Art",
+                value: "4",
+                callback: value => setFilter("category", "4")
+              }
+            ]
+          }}
+        />
+
         {events.data.length ? (
-          <EventList events={events} venues={venues} />
+          <EventList events={filteredEvents} venues={venues} />
         ) : (
           <p>Kommer snart!</p>
         )}
@@ -56,7 +113,8 @@ const Events = props => {
   );
 };
 
-Events.getInitialProps = async ({ store, isServer }) => {
+Events.getInitialProps = async ({ store, isServer, query }) => {
+  console.log(query);
   if (store.getState().events.status === webResponseInitial().status) {
     store.dispatch(eventsActions.request());
     if (isServer) {
@@ -79,6 +137,8 @@ Events.getInitialProps = async ({ store, isServer }) => {
       }
     }
   }
+
+  return { query };
 };
 
 const mapStateToProps = state => ({

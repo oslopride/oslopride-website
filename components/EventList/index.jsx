@@ -8,35 +8,6 @@ import styled from "styled-components";
 const EventList = props => {
   const { events, venues } = props;
 
-  const groupEventsByDay = events => {
-    if (events.length === 0) {
-      return [];
-    }
-
-    const sortedEvents = [...events];
-
-    sortedEvents.sort(
-      (a, b) => dayjs(a.startingTime).unix() - dayjs(b.startingTime).unix()
-    );
-
-    const groupedEvents = [[sortedEvents[0]]];
-
-    sortedEvents.slice(1).forEach(event => {
-      const lastGroup = groupedEvents[groupedEvents.length - 1];
-      const lastEvent = lastGroup[lastGroup.length - 1];
-
-      const lastEventStart = dayjs(lastEvent.startingTime);
-      const currentEventStart = dayjs(event.startingTime);
-
-      if (lastEventStart.format("dddd") === currentEventStart.format("dddd")) {
-        lastGroup.push(event);
-      } else {
-        groupedEvents.push([event]);
-      }
-    });
-    return groupedEvents;
-  };
-
   const displayArena = event => {
     switch (event.category) {
       case "0":
@@ -84,7 +55,7 @@ const EventList = props => {
 
   return (
     <>
-      {groupEventsByDay(events.data).map(day => {
+      {groupEventsByDay(events).map(day => {
         const currentDay = dayjs(day[0].startingTime);
         return (
           <Event key={currentDay.format("YYYY-MM-DD")}>
@@ -145,6 +116,35 @@ const EventList = props => {
       })}
     </>
   );
+};
+
+const groupEventsByDay = events => {
+  if (events.length === 0) {
+    return [];
+  }
+
+  const sortedEvents = [...events];
+
+  sortedEvents.sort(
+    (a, b) => dayjs(a.startingTime).unix() - dayjs(b.startingTime).unix()
+  );
+
+  const groupedEvents = [[sortedEvents[0]]];
+
+  sortedEvents.slice(1).forEach(event => {
+    const lastGroup = groupedEvents[groupedEvents.length - 1];
+    const lastEvent = lastGroup[lastGroup.length - 1];
+
+    const lastEventStart = dayjs(lastEvent.startingTime);
+    const currentEventStart = dayjs(event.startingTime);
+
+    if (lastEventStart.format("dddd") === currentEventStart.format("dddd")) {
+      lastGroup.push(event);
+    } else {
+      groupedEvents.push([event]);
+    }
+  });
+  return groupedEvents;
 };
 
 export default EventList;
