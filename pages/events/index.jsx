@@ -1,19 +1,13 @@
-import Button from "@/components/Button";
-import EventFilter from "@/components/EventFilter";
 import EventList from "@/components/EventList";
 import Sheet from "@/components/Sheet";
 import { eventsActions, getEvents } from "@/store/events";
 import { webResponseInitial } from "@/store/helpers";
 import { getVenues, venuesActions } from "@/store/venues";
 import theme from "@/utils/theme";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import NextSeo from "next-seo";
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
-
-const handleFilter = events => {};
 
 const Events = props => {
   const { events, venues } = props;
@@ -29,19 +23,8 @@ const Events = props => {
   return (
     <>
       <Sheet>
-        <Header>
-          <PageTitle>Program 2019</PageTitle>
+        <PageTitle>Program 2019</PageTitle>
 
-          <FilterButton onClick={toggleFilter} visible={visible}>
-            Filter{" "}
-            <RotatingChevron
-              rotate={visible ? "true" : undefined}
-              icon={faChevronDown}
-            />
-          </FilterButton>
-
-          <Filters visible={visible} />
-        </Header>
         {events.data.length ? (
           <EventList events={events} venues={venues} />
         ) : (
@@ -105,25 +88,8 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps)(Events);
 
-const Header = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-`;
-
 const PageTitle = styled.h1`
-  width: 100%;
   color: ${theme.purple};
   text-transform: uppercase;
   text-align: center;
 `;
-
-const FilterButton = styled(Button)`
-  width: 100%;
-`;
-
-const RotatingChevron = styled(FontAwesomeIcon)`
-  transform: ${props => (props.rotate ? "rotate(180deg)" : "0")};
-  transition: transform 0.2s ease;
-`;
-
-const Filters = styled(EventFilter)``;
