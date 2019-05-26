@@ -1,11 +1,14 @@
 import Router from "next/router";
 import { useMemo } from "react";
 
+const toArray = val =>
+  val === undefined ? [] : Array.isArray(val) ? val : [val];
+
 export default (objects, query) =>
   useMemo(() => {
     let filteredObjects = objects;
     Object.keys(query).forEach(key => {
-      const filters = [query[key] || []].flat();
+      const filters = toArray(query[key]);
       filteredObjects =
         filters.length === 0
           ? objects // Return all objects if no filtes are applied
@@ -15,7 +18,7 @@ export default (objects, query) =>
   }, [objects, query]);
 
 export const addFilter = (key, value) => {
-  const prevFilterList = [Router.query[key] || []].flat();
+  const prevFilterList = toArray(Router.query[key]);
   const newFilterList = prevFilterList.includes(value)
     ? prevFilterList
     : [...prevFilterList, value];
@@ -36,7 +39,7 @@ export const setFilter = (key, value) => {
 };
 
 export const removeFilter = (key, value) => {
-  const prevFilterList = [Router.query[key] || []].flat();
+  const prevFilterList = toArray(Router.query[key]);
   const newFilterList = prevFilterList.filter(v => v !== value);
   Router.replace({
     pathname: Router.route,

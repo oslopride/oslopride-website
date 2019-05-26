@@ -37,7 +37,7 @@ const Events = props => {
   const filteredEvents = useURLFilter(events.data || [], query);
 
   const toggleFilter = () => setVisible(!visible);
-  const defaultSelector = [query.category || "-1"].flat()[0];
+  const defaultSelector = query.category || "-1";
 
   if (events.status !== "SUCCESS" || venues.status !== "SUCCESS") {
     // TODO: Make a better UX while loading
