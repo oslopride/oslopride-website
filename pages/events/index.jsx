@@ -114,7 +114,6 @@ const Events = props => {
 };
 
 Events.getInitialProps = async ({ store, isServer, query }) => {
-  console.log(query);
   if (store.getState().events.status === webResponseInitial().status) {
     store.dispatch(eventsActions.request());
     if (isServer) {
