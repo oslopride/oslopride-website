@@ -1,27 +1,14 @@
-import React, { useCallback, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
-const Selector = ({ selectors, defaultSelector, className }) => {
-  const [checked, setChecked] = useState(defaultSelector);
-  const onChange = useCallback(
-    (value, callback) => () => {
-      setChecked(value);
-      callback(value);
-    },
-    [setChecked]
-  );
-
-  const inspectedChecked = selectors.some(({ value }) => value === checked)
-    ? checked
-    : defaultSelector;
-
-  const selectorElements = selectors.map(({ name, value, callback }) => (
+const Selectors = ({ selectors, className }) => {
+  const selectorElements = selectors.map(({ name, selected, callback }) => (
     <label key={name}>
       <input
         type="radio"
         name="event-filter-selectors"
-        onChange={onChange(value, callback)}
-        checked={value === inspectedChecked}
+        onChange={callback}
+        checked={selected}
       />
       <SelectorLabel>{name}</SelectorLabel>
     </label>
@@ -35,7 +22,7 @@ const Selector = ({ selectors, defaultSelector, className }) => {
   );
 };
 
-export default Selector;
+export default Selectors;
 
 const Container = styled.div`
   width: 100%;

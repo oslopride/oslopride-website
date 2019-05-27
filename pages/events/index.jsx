@@ -50,41 +50,39 @@ const Events = props => {
         <PageTitle>Program 2019</PageTitle>
 
         <Filter
-          selector={{
-            defaultSelector,
-            selectors: [
-              {
-                name: "Alle",
-                value: "-1",
-                callback: value => resetFilter("category")
-              },
-              {
-                name: "Pride Parade",
-                value: "1",
-                callback: value => setFilter("category", "1")
-              },
-              {
-                name: "Pride Park",
-                value: "2",
-                callback: value => setFilter("category", "2")
-              },
-              {
-                name: "Pride House",
-                value: "3",
-                callback: value => setFilter("category", "3")
-              },
-              {
-                name: "Pride Art",
-                value: "4",
-                callback: value => setFilter("category", "4")
-              },
-              {
-                name: "Eksterne",
-                value: "0",
-                callback: value => setFilter("category", "0")
-              }
-            ]
-          }}
+          selectors={[
+            {
+              name: "Alle",
+              selected: query.category === undefined,
+              callback: () => resetFilter("category")
+            },
+            {
+              name: "Pride Parade",
+              selected: query.category === "1",
+              callback: () => setFilter("category", "1")
+            },
+            {
+              name: "Pride Park",
+              selected: query.category === "2",
+              callback: () => setFilter("category", "2")
+            },
+            {
+              name: "Pride House",
+              selected: query.category === "3",
+              callback: () => setFilter("category", "3")
+            },
+            {
+              name: "Pride Art",
+              selected: query.category === "4",
+              callback: () => setFilter("category", "4")
+            },
+            {
+              name: "Eksterne",
+              selected: query.category === "0",
+              callback: () => setFilter("category", "0")
+            }
+          ]}
+          defaultSelector={defaultSelector}
         />
 
         {events.data.length ? (

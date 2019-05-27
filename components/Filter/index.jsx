@@ -1,10 +1,12 @@
 import theme from "@/utils/theme";
 import React from "react";
 import styled from "styled-components";
-import Selector from "./Selector";
+import Selectors from "./Selectors";
 
-const Filter = ({ selector }) => (
-  <Wrapper>{selector && <Selector {...selector} />}</Wrapper>
+const Filter = ({ selectors, defaultSelector, toggles }) => (
+  <Wrapper>
+    <Selectors selectors={selectors} defaultSelector={defaultSelector} />
+  </Wrapper>
 );
 
 export default Filter;
