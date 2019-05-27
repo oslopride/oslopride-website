@@ -1,17 +1,18 @@
+import theme from "@/utils/theme";
 import React from "react";
 import styled from "styled-components";
 
 const Selectors = ({ selectors, className }) => {
   const selectorElements = selectors.map(({ name, selected, callback }) => (
-    <label key={name}>
-      <input
+    <SelectBox key={name} checked={selected}>
+      <InvisibleInput
         type="radio"
         name="event-filter-selectors"
         onChange={callback}
         checked={selected}
       />
       <SelectorLabel>{name}</SelectorLabel>
-    </label>
+    </SelectBox>
   ));
 
   return (
@@ -23,6 +24,24 @@ const Selectors = ({ selectors, className }) => {
 };
 
 export default Selectors;
+
+const SelectBox = styled.label`
+  flex-grow: 1;
+  cursor: pointer;
+  text-align: center;
+  color: ${({ checked }) => (checked ? "white" : "inherit")};
+  background-color: ${({ checked }) => (checked ? theme.purple : "inherit")};
+
+  &:not(:last-child) {
+    border-right: 2px solid ${theme.purple};
+  }
+`;
+
+const InvisibleInput = styled.input`
+  opacity: 0;
+  height: 0;
+  width: 0;
+`;
 
 const Container = styled.div`
   width: 100%;
@@ -37,11 +56,7 @@ const SelectorTitle = styled.div`
 const SelectorList = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-
-  label {
-    margin: 2px 8px;
-  }
+  border: 2px solid ${theme.purple};
 `;
 
 const SelectorLabel = styled.span`
