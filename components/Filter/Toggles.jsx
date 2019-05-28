@@ -46,10 +46,16 @@ const OffIcon = styled(FaToggleOff)`
 const ToggleWrapper = styled.div`
   display: flex;
   align-items: center;
+
+  &:not(:last-child) {
+    margin-right: 40px;
+  }
 `;
 
 export default Toggles;
 
 const Container = styled.div`
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 `;
