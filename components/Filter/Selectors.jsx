@@ -26,15 +26,17 @@ const Selectors = ({ selectors, className }) => {
 export default Selectors;
 
 const SelectBox = styled.label`
+  height: 2em;
+  min-width: 100px;
   flex-grow: 1;
   cursor: pointer;
-  text-align: center;
   color: ${({ checked }) => (checked ? "white" : "inherit")};
   background-color: ${({ checked }) => (checked ? theme.purple : "inherit")};
-
-  &:not(:last-child) {
-    border-right: 2px solid ${theme.purple};
-  }
+  border-bottom: 2px solid ${theme.purple};
+  border-right: 2px solid ${theme.purple};
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const InvisibleInput = styled.input`
@@ -56,9 +58,10 @@ const SelectorTitle = styled.div`
 const SelectorList = styled.div`
   display: flex;
   flex-wrap: wrap;
-  border: 2px solid ${theme.purple};
+  border-top: 2px solid ${theme.purple};
+  border-left: 2px solid ${theme.purple};
 `;
 
 const SelectorLabel = styled.span`
-  margin-left: 5px;
+  padding: 0 5px;
 `;
