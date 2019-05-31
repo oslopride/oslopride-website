@@ -33,12 +33,6 @@ const FrontPage = props => {
         <FeaturedDatesWrapper>
           <FeaturedDates dates={frontPage.data.featuredDates} />
         </FeaturedDatesWrapper>
-        {/*           <CallToActionWrapper>
-            <FeaturedCallToActionTitle>ENGASJER DEG</FeaturedCallToActionTitle>
-            <FrontPageCallToActionList
-              featuredCallToActions={frontPage.data.featuredCallToActions}
-            />
-          </CallToActionWrapper> */}
       </ContentWrapper>
       <FeaturedArticlesWrapper>
         {frontPage.data.featuredArticles.map(article => (
@@ -167,26 +161,9 @@ const FeaturedDatesWrapper = styled.div`
   flex-direction: column;
 `;
 
-/* const CallToActionWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`; */
-
 const FrontPageFeaturedDates = styled(FeaturedDates)`
   flex-grow: 1;
 `;
-
-/* const FrontPageCallToActionList = styled(FeaturedCallToActionList)`
-  flex-grow: 1;
-
-  & > li + li {
-    margin-top: 15px;
-  }
-`; */
-
-/* const FeaturedCallToActionTitle = styled.h1`
-  color: ${theme.orange};
-`; */
 
 const FeaturedArticlesWrapper = styled.div`
   display: flex;
