@@ -1,9 +1,8 @@
 import Button from "@/components/Button";
 import theme from "@/utils/theme";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import React, { useState } from "react";
+import { FaBars } from "react-icons/fa";
 import styled from "styled-components";
 import Navigation from "./navigation";
 
@@ -55,7 +54,7 @@ const PrideDate = styled.div`
   text-transform: uppercase;
 `;
 
-const MenuIcon = styled(FontAwesomeIcon)`
+const MenuIcon = styled(FaBars)`
   color: black;
 `;
 
@@ -92,7 +91,7 @@ const Header = () => {
         </DateWrapper>
         <MenuButtonWrapper>
           <MenuButton onClick={() => setOpen(!isOpen)}>
-            <MenuIcon icon={faBars} size="2x" />
+            <MenuIcon size={32} />
           </MenuButton>
         </MenuButtonWrapper>
       </TopHeader>
