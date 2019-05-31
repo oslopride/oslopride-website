@@ -15,9 +15,6 @@ const DateTitleColors = [
 const FeaturedDates = ({ dates }) => {
   return (
     <>
-      <TopButtonWrapper>
-        <ProgramLink href="/events">Se hele festivalprogrammet</ProgramLink>
-      </TopButtonWrapper>
       <DatesWrapper>
         {dates.map(
           ({ _key: key, date, title, description, subtitle, link }, index) => (
@@ -42,36 +39,20 @@ const FeaturedDates = ({ dates }) => {
           )
         )}
       </DatesWrapper>
-      <BottomButtonWrapper>
+      <ProgramLinkWrapper>
         <ProgramLink href="/events">Se hele festivalprogrammet</ProgramLink>
-      </BottomButtonWrapper>
+      </ProgramLinkWrapper>
     </>
   );
 };
 
 export default FeaturedDates;
 
-const TopButtonWrapper = styled.div`
+const ProgramLinkWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
-
-  @media (min-width: 1025px) {
-    justify-content: flex-end;
-  }
-`;
-
-const BottomButtonWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  @media (min-width: 1025px) {
-    justify-content: flex-end;
-  }
 `;
 
 const ProgramLink = styled(Link)`
