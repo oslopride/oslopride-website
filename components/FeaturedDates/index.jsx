@@ -98,7 +98,7 @@ const DateTime = styled.div`
   margin-right: 20px;
 `;
 
-const DateTitle = styled.p`
+const DateTitle = styled.h2`
   font-size: 40px;
   font-weight: bolder;
   line-height: 1em;
