@@ -18,23 +18,21 @@ const FeaturedDates = ({ dates }) => {
       <DatesWrapper>
         {dates.map(
           ({ _key: key, date, title, description, subtitle, link }, index) => (
-            <DateWrapper key={key}>
-              <Link href={link}>
-                <DateTime>{date}</DateTime>
-                <div>
-                  <DateTitle
-                    color={DateTitleColors[index % DateTitleColors.length]}
-                  >
-                    {title}
-                  </DateTitle>
-                  <DateDescription>{description}</DateDescription>
-                  <DateSubtitle
-                    color={DateTitleColors[index % DateTitleColors.length]}
-                  >
-                    {subtitle}
-                  </DateSubtitle>
-                </div>
-              </Link>
+            <DateWrapper href={link} key={key}>
+              <DateTime>{date}</DateTime>
+              <div>
+                <DateTitle
+                  color={DateTitleColors[index % DateTitleColors.length]}
+                >
+                  {title}
+                </DateTitle>
+                <DateDescription>{description}</DateDescription>
+                <DateSubtitle
+                  color={DateTitleColors[index % DateTitleColors.length]}
+                >
+                  {subtitle}
+                </DateSubtitle>
+              </div>
             </DateWrapper>
           )
         )}
@@ -74,8 +72,8 @@ const DatesWrapper = styled.div`
   margin-bottom: 50px;
 `;
 
-const DateWrapper = styled.div`
-  display: flex;
+const DateWrapper = styled(Link)`
+  display: block;
   transition: all 0.2s ease-in-out;
   padding: 30px;
 
@@ -85,27 +83,14 @@ const DateWrapper = styled.div`
   }
 
   @media (min-width: 620px) {
-    float: left;
-    clear: both;
-    text-align: left;
+    display: flex;
     align-items: center;
-    padding: 0;
+    justify-content: flex-start;
+    padding: 10px 0;
 
     :nth-of-type(2n) {
-      float: right;
+      justify-content: flex-end;
     }
-  }
-`;
-
-const DateTitle = styled.div`
-  font-size: 40px;
-  font-weight: bolder;
-  text-transform: uppercase;
-  color: ${props => props.color};
-
-  @media (min-width: 1025px) {
-    display: inline-block;
-    font-size: 50px;
   }
 `;
 
@@ -113,6 +98,19 @@ const DateTime = styled.div`
   font-size: 20px;
   font-weight: 600;
   margin-right: 20px;
+`;
+
+const DateTitle = styled.p`
+  font-size: 40px;
+  font-weight: bolder;
+  margin: 0;
+  text-transform: uppercase;
+  color: ${props => props.color};
+
+  @media (min-width: 1025px) {
+    display: inline-block;
+    font-size: 50px;
+  }
 `;
 
 const DateDescription = styled.p`
