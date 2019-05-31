@@ -86,7 +86,7 @@ const DateWrapper = styled(Link)`
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 10px 0;
+    padding: 20px 0;
 
     :nth-of-type(2n) {
       justify-content: flex-end;
