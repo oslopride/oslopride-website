@@ -1,4 +1,5 @@
 import Link from "@/components/Link";
+import theme from "@/utils/theme";
 import React from "react";
 import styled from "styled-components";
 
@@ -16,7 +17,7 @@ const FeaturedDates = ({ dates }) => {
     <>
       <TitleWrapper>
         <h2>Hoveddatoer</h2>
-        <h2>Gå til programmet</h2>
+        <ProgramLink href="/events">Gå til programmet</ProgramLink>
       </TitleWrapper>
       <div>
         {dates.map(
@@ -50,17 +51,40 @@ const TitleWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+`;
+
+const ProgramLink = styled(Link)`
+  font-size: 20px;
+  font-weight: 600;
+  position: relative;
+  color: ${theme.blue};
+
+  :before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: ${theme.blue};
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+
+  :hover:before {
+    visibility: visible;
+    width: 100%;
+  }
 `;
 
 const DateWrapper = styled(Link)`
   text-align: center;
   transition: all 0.2s ease-in-out;
-  box-shadow: none;
 
   :hover,
   :focus {
     transform: scale(1.05);
-    box-shadow: none;
   }
 
   @media (min-width: 1025px) {
