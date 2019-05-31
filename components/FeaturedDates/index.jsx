@@ -88,7 +88,7 @@ const ProgramLink = styled(Link)`
 `;
 
 const DateWrapper = styled(Link)`
-  text-align: center;
+  text-align: left;
   transition: all 0.2s ease-in-out;
 
   :hover,
@@ -96,7 +96,7 @@ const DateWrapper = styled(Link)`
     transform: scale(1.05);
   }
 
-  @media (min-width: 1025px) {
+  @media (min-width: 600px) {
     display: flex;
     float: left;
     clear: both;
@@ -111,7 +111,6 @@ const DateWrapper = styled(Link)`
 
 const DateTitle = styled.div`
   font-size: 40px;
-  text-align: center;
   font-weight: bolder;
   text-transform: uppercase;
   color: ${props => props.color};
@@ -130,7 +129,7 @@ const DateTime = styled.div`
 
 const DateDescription = styled.p`
   font-size: 18px;
-  margin: 0 auto;
+  margin: 0;
   max-width: 350px;
 `;
 
