@@ -1,6 +1,4 @@
 import Link from "@/components/Link";
-import theme from "@/utils/theme";
-import { lighten } from "polished";
 import React from "react";
 import styled from "styled-components";
 
@@ -19,9 +17,6 @@ const NavigationGroup = styled.div`
 `;
 
 const NavigationLink = styled(Link)`
-  color: black;
-  font-weight: bold;
-  text-transform: uppercase;
   font-size: 18px;
   margin: 5px 8px;
 `;
@@ -29,59 +24,43 @@ const NavigationLink = styled(Link)`
 const Navigation = ({ className, visible, callback }) => (
   <Container className={className} visible={visible}>
     <NavigationGroup>
-      <NavigationLink
-        href="/events"
-        onClick={callback}
-        color={lighten(0.1, theme.yellow)}
-      >
+      <NavigationLink href="/events" onClick={callback} arrow={false}>
         Program 2019
       </NavigationLink>
     </NavigationGroup>
     <NavigationGroup>
-      <NavigationLink
-        href="/pride-parade"
-        onClick={callback}
-        color={lighten(0.3, theme.red)}
-      >
+      <NavigationLink href="/pride-parade" onClick={callback} arrow={false}>
         Pride Parade
       </NavigationLink>
-      <NavigationLink
-        href="/pride-park"
-        onClick={callback}
-        color={lighten(0.2, theme.green)}
-      >
+      <NavigationLink href="/pride-park" onClick={callback} arrow={false}>
         Pride Park
       </NavigationLink>
-      <NavigationLink
-        href="/pride-house"
-        onClick={callback}
-        color={theme.lightBlue}
-      >
+      <NavigationLink href="/pride-house" onClick={callback} arrow={false}>
         Pride House
       </NavigationLink>
-      <NavigationLink
-        href="/pride-art"
-        onClick={callback}
-        color={lighten(0.45, theme.purple)}
-      >
+      <NavigationLink href="/pride-art" onClick={callback} arrow={false}>
         Pride Art
       </NavigationLink>
     </NavigationGroup>
 
     <NavigationGroup>
-      <NavigationLink href="/contact" onClick={callback}>
+      <NavigationLink href="/contact" onClick={callback} arrow={false}>
         Kontakt
       </NavigationLink>
-      <NavigationLink href="/about" onClick={callback}>
+      <NavigationLink href="/about" onClick={callback} arrow={false}>
         Om Oss
       </NavigationLink>
-      <NavigationLink href="/partners" onClick={callback}>
+      <NavigationLink href="/partners" onClick={callback} arrow={false}>
         Partnere
       </NavigationLink>
-      <NavigationLink href="/become-partner" onClick={callback}>
+      <NavigationLink href="/become-partner" onClick={callback} arrow={false}>
         Bli Partner
       </NavigationLink>
-      <NavigationLink href="https://butikk.oslopride.no/" onClick={callback}>
+      <NavigationLink
+        href="https://butikk.oslopride.no/"
+        onClick={callback}
+        arrow={false}
+      >
         Pridebutikken
       </NavigationLink>
     </NavigationGroup>
