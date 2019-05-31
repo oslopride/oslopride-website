@@ -30,9 +30,7 @@ const FrontPage = props => {
         />
       </HeroWrapper>
       <ContentWrapper>
-        <FeaturedDatesWrapper>
-          <FeaturedDates dates={frontPage.data.featuredDates} />
-        </FeaturedDatesWrapper>
+        <FeaturedDates dates={frontPage.data.featuredDates} />
       </ContentWrapper>
       <FeaturedArticlesWrapper>
         {frontPage.data.featuredArticles.map(article => (
