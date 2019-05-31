@@ -15,10 +15,9 @@ const DateTitleColors = [
 const FeaturedDates = ({ dates }) => {
   return (
     <>
-      <TitleWrapper>
-        <h2>Hoveddatoer</h2>
-        <ProgramLink href="/events">Gå til programmet</ProgramLink>
-      </TitleWrapper>
+      <TopButtonWrapper>
+        <ProgramLink href="/events">Se hele festivalprogrammet</ProgramLink>
+      </TopButtonWrapper>
       <div>
         {dates.map(
           ({ _key: key, date, title, description, subtitle, link }, index) => (
@@ -41,40 +40,50 @@ const FeaturedDates = ({ dates }) => {
           )
         )}
       </div>
+      <BottomButtonWrapper>
+        <ProgramLink href="/events">Se hele festivalprogrammet</ProgramLink>
+      </BottomButtonWrapper>
     </>
   );
 };
 
 export default FeaturedDates;
 
-const TitleWrapper = styled.div`
+const TopButtonWrapper = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  margin-bottom: 50px;
+
+  @media (min-width: 1025px) {
+    justify-content: flex-end;
+  }
+`;
+
+const BottomButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (min-width: 1025px) {
+    justify-content: flex-end;
+  }
 `;
 
 const ProgramLink = styled(Link)`
   font-size: 20px;
   font-weight: 600;
   position: relative;
+  padding: 10px;
+  border: 1px solid ${theme.blue};
   color: ${theme.blue};
+  transition: all 0.2s ease-in-out;
 
-  :before {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: ${theme.blue};
-    visibility: hidden;
-    transition: all 0.3s ease-in-out;
-  }
-
-  :hover:before {
-    visibility: visible;
-    width: 100%;
+  :hover,
+  :focus {
+    transform: scale(1.05);
   }
 `;
 
@@ -132,8 +141,4 @@ const DateSubtitle = styled.p`
   margin-bottom: 50px;
   text-transform: uppercase;
   color: ${props => props.color};
-
-  @media (min-width: 1025px) {
-    margin-bottom: 0;
-  }
 `;
