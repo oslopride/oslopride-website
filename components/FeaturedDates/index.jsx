@@ -1,5 +1,4 @@
 import Link from "@/components/Link";
-import theme from "@/utils/theme";
 import React from "react";
 import styled from "styled-components";
 
@@ -47,25 +46,12 @@ const FeaturedDates = ({ dates }) => {
 export default FeaturedDates;
 
 const ProgramLinkWrapper = styled.div`
-  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
 `;
 
 const ProgramLink = styled(Link)`
   font-size: 20px;
-  font-weight: 600;
-  position: relative;
-  padding: 10px;
-  border: 1px solid ${theme.blue};
-  color: ${theme.blue};
-  transition: all 0.2s ease-in-out;
-
-  :hover,
-  :focus {
-    transform: scale(1.05);
-  }
 `;
 
 const DatesWrapper = styled.div`
