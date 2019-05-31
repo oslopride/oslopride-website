@@ -18,7 +18,7 @@ const FeaturedDates = ({ dates }) => {
       <TopButtonWrapper>
         <ProgramLink href="/events">Se hele festivalprogrammet</ProgramLink>
       </TopButtonWrapper>
-      <div>
+      <DatesWrapper>
         {dates.map(
           ({ _key: key, date, title, description, subtitle, link }, index) => (
             <DateWrapper key={key} href={link}>
@@ -39,7 +39,7 @@ const FeaturedDates = ({ dates }) => {
             </DateWrapper>
           )
         )}
-      </div>
+      </DatesWrapper>
       <BottomButtonWrapper>
         <ProgramLink href="/events">Se hele festivalprogrammet</ProgramLink>
       </BottomButtonWrapper>
@@ -87,16 +87,22 @@ const ProgramLink = styled(Link)`
   }
 `;
 
+const DatesWrapper = styled.div`
+  margin-bottom: 50px;
+`;
+
 const DateWrapper = styled(Link)`
-  text-align: left;
+  display: flex;
+  flex-flow: row wrap;
   transition: all 0.2s ease-in-out;
+  margin: 30px 10px;
 
   :hover,
   :focus {
     transform: scale(1.05);
   }
 
-  @media (min-width: 600px) {
+  @media (min-width: 550px) {
     display: flex;
     float: left;
     clear: both;
@@ -114,11 +120,6 @@ const DateTitle = styled.div`
   font-weight: bolder;
   text-transform: uppercase;
   color: ${props => props.color};
-
-  @media (min-width: 1025px) {
-    display: inline-block;
-    font-size: 50px;
-  }
 `;
 
 const DateTime = styled.div`
@@ -137,7 +138,6 @@ const DateSubtitle = styled.p`
   font-size: 18px;
   font-weight: 600;
   margin: 0 auto;
-  margin-bottom: 50px;
   text-transform: uppercase;
   color: ${props => props.color};
 `;
