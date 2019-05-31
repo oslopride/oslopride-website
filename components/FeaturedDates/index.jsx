@@ -21,21 +21,23 @@ const FeaturedDates = ({ dates }) => {
       <DatesWrapper>
         {dates.map(
           ({ _key: key, date, title, description, subtitle, link }, index) => (
-            <DateWrapper key={key} href={link}>
-              <DateTime>{date}</DateTime>
-              <div>
-                <DateTitle
-                  color={DateTitleColors[index % DateTitleColors.length]}
-                >
-                  {title}
-                </DateTitle>
-                <DateDescription>{description}</DateDescription>
-                <DateSubtitle
-                  color={DateTitleColors[index % DateTitleColors.length]}
-                >
-                  {subtitle}
-                </DateSubtitle>
-              </div>
+            <DateWrapper key={key}>
+              <Link href={link}>
+                <DateTime>{date}</DateTime>
+                <div>
+                  <DateTitle
+                    color={DateTitleColors[index % DateTitleColors.length]}
+                  >
+                    {title}
+                  </DateTitle>
+                  <DateDescription>{description}</DateDescription>
+                  <DateSubtitle
+                    color={DateTitleColors[index % DateTitleColors.length]}
+                  >
+                    {subtitle}
+                  </DateSubtitle>
+                </div>
+              </Link>
             </DateWrapper>
           )
         )}
@@ -91,23 +93,22 @@ const DatesWrapper = styled.div`
   margin-bottom: 50px;
 `;
 
-const DateWrapper = styled(Link)`
+const DateWrapper = styled.div`
   display: flex;
-  flex-flow: row wrap;
   transition: all 0.2s ease-in-out;
-  margin: 30px 10px;
+  padding: 30px;
 
   :hover,
   :focus {
     transform: scale(1.05);
   }
 
-  @media (min-width: 550px) {
-    display: flex;
+  @media (min-width: 620px) {
     float: left;
     clear: both;
     text-align: left;
     align-items: center;
+    padding: 0;
 
     :nth-of-type(2n) {
       float: right;
@@ -120,6 +121,11 @@ const DateTitle = styled.div`
   font-weight: bolder;
   text-transform: uppercase;
   color: ${props => props.color};
+
+  @media (min-width: 1025px) {
+    display: inline-block;
+    font-size: 50px;
+  }
 `;
 
 const DateTime = styled.div`
