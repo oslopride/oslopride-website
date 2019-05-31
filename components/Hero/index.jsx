@@ -11,7 +11,7 @@ const Wrapper = styled.div`
     margin-top: 15px;
   }
 
-  @media (min-width: 800px) {
+  @media (min-width: 1025px) {
     flex-direction: row;
     justify-content: space-between;
 
@@ -28,7 +28,7 @@ const ImageWrapper = styled.div`
 `;
 
 const TextWrapper = styled.div`
-  @media (min-width: 800px) {
+  @media (min-width: 1025px) {
     margin-left: 40px;
   }
 `;
@@ -36,7 +36,7 @@ const TextWrapper = styled.div`
 const Image = styled.img`
   height: 150px;
 
-  @media (min-width: 800px) {
+  @media (min-width: 1025px) {
     height: 200px;
   }
 `;
@@ -47,7 +47,7 @@ const Title = styled.h1`
   margin: 0;
   font-size: 50px;
   line-height: 1;
-  @media (min-width: 800px) {
+  @media (min-width: 1025px) {
     text-align: left;
   }
 `;

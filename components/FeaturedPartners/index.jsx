@@ -77,7 +77,7 @@ const PageTitle = styled.h1`
 `;
 
 const PageSubtitle = styled.h2`
-  color: ${theme.darkgray};
+  color: ${theme.gray};
   text-transform: uppercase;
   text-align: center;
   font-size: 30px;
@@ -94,7 +94,7 @@ const PartnerItem = styled.li`
   list-style: none;
 
   width: 100%;
-  border: 1px solid ${theme.gray};
+  border: 1px solid ${theme.lightGray};
   margin: 0 10px;
 
   @media (min-width: 800px) {
