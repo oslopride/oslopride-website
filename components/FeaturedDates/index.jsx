@@ -56,27 +56,39 @@ const ProgramLink = styled(Link)`
 
 const DatesWrapper = styled.div`
   margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 `;
 
-const DateWrapper = styled(Link)`
-  display: block;
-  transition: all 0.2s ease-in-out;
-  padding: 30px;
+const DateWrapper = styled.a`
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: initial;
+  transition: transform 0.2s ease-in-out;
+  padding: 10px;
+  margin-bottom: 20px;
 
   :hover,
-  :focus {
-    transform: scale(1.05);
+    :focus {
+      transform: scale(1.05);
+    }
+  }
+
+  @media (min-width: 500px) {
+    flex-direction: row;
   }
 
   @media (min-width: 620px) {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 20px 0;
-
+    flex-direction: column;
     :nth-of-type(2n) {
-      justify-content: flex-end;
+      align-self: flex-end;
     }
+  }
+
+  @media (min-width: 800px) {
+    flex-direction: row;
   }
 `;
 
@@ -89,14 +101,10 @@ const DateTime = styled.div`
 const DateTitle = styled.p`
   font-size: 40px;
   font-weight: bolder;
+  line-height: 1em;
   margin: 0;
   text-transform: uppercase;
   color: ${props => props.color};
-
-  @media (min-width: 1025px) {
-    display: inline-block;
-    font-size: 50px;
-  }
 `;
 
 const DateDescription = styled.p`
