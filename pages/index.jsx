@@ -1,5 +1,6 @@
 import ArticlePreview from "@/components/ArticlePreview";
 import FeaturedDates from "@/components/FeaturedDates";
+import FeaturedPartners from "@/components/FeaturedPartners";
 import Hero from "@/components/Hero";
 import { articleActions } from "@/store/articles";
 import { frontPageActions, getFrontPage } from "@/store/front-page";
@@ -48,9 +49,9 @@ const FrontPage = props => {
         ))}
       </FeaturedArticlesWrapper>
 
-      {/*       <ContentWrapper>
+      <ContentWrapper>
         <FeaturedPartners />
-      </ContentWrapper> */}
+      </ContentWrapper>
 
       <NextSeo
         config={{
