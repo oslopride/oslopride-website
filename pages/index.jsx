@@ -27,17 +27,19 @@ const FrontPage = props => {
             {
               image:
                 "https://images.ctfassets.net/r522rjz18n3u/58XT8KdYIwCSeAiQQ24YwO/1757190cacc1c0571a5bf17308e841c3/47744330842_635b05fc0e_o.jpg",
-              text: "Paraden",
-              link:
-                "https://www.oslopride.no/events/04e1f74c-5e46-4f1a-9ab8-e3420817b7f6"
-            },
-            {
-              image:
-                "https://blog.gotocon.com/wp-content/uploads/2018/01/7ee07c93-a7b6-4206-a9f5-c6e13931a136-1.jpg",
-              text: "Pride House",
+              title: "Oslo Pride",
+              body:
+                "Oslo Pride, Norges største feiring av skeiv kjærlighet og mangfold",
               link:
                 "https://www.oslopride.no/events/04e1f74c-5e46-4f1a-9ab8-e3420817b7f6"
             }
+            // {
+            //   image:
+            //     "https://blog.gotocon.com/wp-content/uploads/2018/01/7ee07c93-a7b6-4206-a9f5-c6e13931a136-1.jpg",
+            //   text: "Pride House",
+            //   link:
+            //     "https://www.oslopride.no/events/04e1f74c-5e46-4f1a-9ab8-e3420817b7f6"
+            // }
           ]}
         />
       </HeroWrapper>

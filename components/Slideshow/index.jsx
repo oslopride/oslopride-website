@@ -5,13 +5,13 @@ import Slide from "./slide";
 
 const Slideshow = ({ slides, className }) => {
   const settings = {
-    autoplay: true,
+    autoplay: slides.length > 1,
     autoplaySpeed: 5000,
     lazyLoad: true,
     pauseOnHover: false,
-    dots: true,
+    dots: slides.length > 1,
     arrows: false,
-    infinite: true,
+    infinite: slides.length > 1,
     slidesToShow: 1,
     slidesToScroll: 1
   };
@@ -21,7 +21,7 @@ const Slideshow = ({ slides, className }) => {
       <Overlay />
       <Carousel {...settings}>
         {slides.map((slide, index) => (
-          <div key={`${slide.text}-${index}`}>
+          <div key={`${slide.title}-${index}`}>
             <Slide {...slide} />
           </div>
         ))}
