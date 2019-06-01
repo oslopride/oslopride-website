@@ -57,18 +57,26 @@ const Hero = () => (
 
 const Wrapper = styled.div`
   position: relative;
-  height: 85vh;
+  height: 75vh;
   width: 100%;
   margin-top: -70px;
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
+
+  @media (min-width: 600px) {
+    height: 85vh;
+  }
 `;
 
 const Image = styled.img`
   width: 100%;
-  height: 70vh;
+  height: 60vh;
   object-fit: cover;
+
+  @media (min-width: 600px) {
+    height: 70vh;
+  }
 `;
 
 const CardWrapper = styled(Slider)`
