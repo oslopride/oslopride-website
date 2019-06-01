@@ -17,6 +17,7 @@ import Router from "next/router";
 import { normalize } from "polished";
 import React from "react";
 import { Provider } from "react-redux";
+import { ParallaxProvider } from "react-scroll-parallax";
 import styled, { createGlobalStyle } from "styled-components";
 
 dayjs.locale("nb"); // Use norwegian (bokmål) globally
@@ -47,7 +48,7 @@ const GlobalStyle = createGlobalStyle`
 
 const Content = styled.main`
   line-height: 1.5;
-  margin: 20px 0;
+  margin: 0 0 20px 0;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -98,9 +99,11 @@ class NextApp extends App {
         <Provider store={store}>
           <GlobalStyle />
           <Header />
-          <Content>
-            <Component {...pageProps} />
-          </Content>
+          <ParallaxProvider>
+            <Content>
+              <Component {...pageProps} />
+            </Content>
+          </ParallaxProvider>
           <Footer />
         </Provider>
 
