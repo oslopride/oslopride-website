@@ -157,7 +157,7 @@ const ContentWrapper = styled.div`
 `;
 
 const HeroWrapper = styled.div`
-  height: 300px;
+  height: 90vh;
   width: 100%;
 `;
 

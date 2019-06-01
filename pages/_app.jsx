@@ -47,7 +47,7 @@ const GlobalStyle = createGlobalStyle`
 
 const Content = styled.main`
   line-height: 1.5;
-  margin: 20px 0;
+  margin: 0 0 20px 0;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
