@@ -35,7 +35,7 @@ const LogoMobile = styled.img`
 `;
 
 const PrideDate = styled.div`
-  color: #333;
+  color: black;
   font-size: 16px;
   font-weight: 500;
   text-transform: uppercase;
