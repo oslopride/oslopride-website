@@ -38,8 +38,11 @@
     "react-icons": "^3.7.0",
     "react-redux": "^7.0.3",
     "react-sticky-el": "^1.0.20",
+    "react-scroll-parallax": "^2.1.2",
+    "react-slick": "^0.24.0",
     "redux": "^4.0.1",
     "redux-saga": "^1.0.2",
+    "slick-carousel": "^1.8.1",
     "styled-components": "^4.2.0"
   },
   "devDependencies": {

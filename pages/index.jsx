@@ -1,12 +1,11 @@
 import ArticlePreview from "@/components/ArticlePreview";
 import FeaturedDates from "@/components/FeaturedDates";
 import FeaturedPartners from "@/components/FeaturedPartners";
-import Hero from "@/components/Hero";
+import Slideshow from "@/components/Slideshow";
 import { articleActions } from "@/store/articles";
 import { frontPageActions, getFrontPage } from "@/store/front-page";
 import { webResponseInitial } from "@/store/helpers";
 import { getPartners, partnersActions } from "@/store/partners";
-import { imageUrlFor } from "@/store/sanity";
 import NextSeo from "next-seo";
 import React from "react";
 import { connect } from "react-redux";
@@ -23,10 +22,27 @@ const FrontPage = props => {
   return (
     <>
       <HeroWrapper>
-        <FrontPageHero
-          imageURL={imageUrlFor(frontPage.data.callToActionImage).url()}
-          title={frontPage.data.callToActionTitle}
-          subtitle={frontPage.data.callToActionBody}
+        <Slideshow
+          slides={[
+            {
+              image:
+                "https://images.ctfassets.net/r522rjz18n3u/58XT8KdYIwCSeAiQQ24YwO/1757190cacc1c0571a5bf17308e841c3/47744330842_635b05fc0e_o.jpg",
+              title: "Oslo Pride",
+              body:
+                "Oslo Pride, Norges største feiring av skeiv kjærlighet og mangfold",
+              link:
+                "https://www.oslopride.no/events/04e1f74c-5e46-4f1a-9ab8-e3420817b7f6"
+            },
+            {
+              image:
+                "https://blog.gotocon.com/wp-content/uploads/2018/01/7ee07c93-a7b6-4206-a9f5-c6e13931a136-1.jpg",
+              title: "Pride House",
+              body:
+                "Pride House synliggjør bredden i den skeive kulturen gjennom debatter, foredrag, workshops og ulike kulturuttrykk",
+              link:
+                "https://www.oslopride.no/events/04e1f74c-5e46-4f1a-9ab8-e3420817b7f6"
+            }
+          ]}
         />
       </HeroWrapper>
       <ContentWrapper>
@@ -141,17 +157,8 @@ const ContentWrapper = styled.div`
 `;
 
 const HeroWrapper = styled.div`
-  padding: 0 15px;
-  margin-bottom: 30px;
+  height: 90vh;
   width: 100%;
-`;
-
-const FrontPageHero = styled(Hero)`
-  width: 100%;
-  margin: 0 auto;
-  @media (min-width: 1025px) {
-    width: 1000px;
-  }
 `;
 
 const FeaturedDatesWrapper = styled.div`
