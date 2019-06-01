@@ -24,15 +24,19 @@ const Card = ({ className, title, body, index }) => {
 
 const Wrapper = styled.div`
   height: 250px;
-  margin: 0 auto;
-  max-width: 600px;
+  margin: 0 0.5em;
   background-color: ${({ backgroundColor }) => backgroundColor};
   color: #fafafa;
-  padding: 1em 2em;
+  padding: 1em;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+
+  @media (min-width: 600px) {
+    margin: 0 1em;
+  }
 `;
 
 const Title = styled.h1`
@@ -45,8 +49,12 @@ const Title = styled.h1`
 const Body = styled.p`
   line-height: 1.1em;
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
   margin: 15px 0 0 0;
+
+  @media (min-width: 600px) {
+    font-size: 18px;
+  }
 `;
 
 export default Card;
