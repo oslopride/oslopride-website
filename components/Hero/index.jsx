@@ -8,6 +8,7 @@ const settings = {
   autoplaySpeed: 5000,
   pauseOnHover: true,
   centerMode: true,
+  centerPadding: "60px",
   infinite: true,
   arrows: false,
   dots: true,
@@ -56,24 +57,24 @@ const Hero = () => (
 
 const Wrapper = styled.div`
   position: relative;
-  height: 80vh;
+  height: 85vh;
   width: 100%;
   margin-top: -70px;
   display: flex;
   flex-direction: column;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 `;
 
 const Image = styled.img`
   width: 100%;
-  height: 80vh;
+  height: 70vh;
   object-fit: cover;
 `;
 
 const CardWrapper = styled(Slider)`
   width: 100%;
   position: absolute;
-  bottom: calc(40vh - 200px);
+  bottom: 0;
 `;
 
 const Overlay = styled.div`
