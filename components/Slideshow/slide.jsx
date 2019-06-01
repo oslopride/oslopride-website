@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Parallax } from "react-scroll-parallax";
 
-const Slide = ({ image, title }) => (
+const Slide = ({ image, text }) => (
   <Wrapper>
     <div>
       <Parallax
@@ -12,10 +12,9 @@ const Slide = ({ image, title }) => (
       >
         <Image src={image} />
       </Parallax>
-      <ImageOverlay />
       <ContentWrapper>
         <Content>
-          <Title>{title}</Title>
+          <Title>{text}</Title>
         </Content>
       </ContentWrapper>
     </div>
@@ -32,20 +31,6 @@ const Wrapper = styled.div`
     height: 100%;
   }
 `;
-
-const ImageOverlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 150px;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.7) 0%,
-    rgba(255, 255, 255, 0) 150px
-  );
-`;
-
 const Image = styled.img`
   height: 100%;
   width: 100%;

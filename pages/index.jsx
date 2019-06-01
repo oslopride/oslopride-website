@@ -27,18 +27,14 @@ const FrontPage = props => {
             {
               image:
                 "https://images.ctfassets.net/r522rjz18n3u/58XT8KdYIwCSeAiQQ24YwO/1757190cacc1c0571a5bf17308e841c3/47744330842_635b05fc0e_o.jpg",
-              title: "Paraden",
-              body:
-                "Paraden er det store høydepunktet under Oslo Pride og er ett av de mest synlige arrangementene i Oslo i løpet av året. I 2018 samlet paraden utrolige 45 000 deltakere og 250 000 tilskuere. Dette er en folkefest og du er invitert!",
+              text: "Paraden",
               link:
                 "https://www.oslopride.no/events/04e1f74c-5e46-4f1a-9ab8-e3420817b7f6"
             },
             {
               image:
                 "https://blog.gotocon.com/wp-content/uploads/2018/01/7ee07c93-a7b6-4206-a9f5-c6e13931a136-1.jpg",
-              title: "Pride House",
-              body:
-                "Pride House synliggjør bredden i den skeive kulturen gjennom debatter, foredrag, workshops og ulike kulturuttrykk.",
+              text: "Pride House",
               link:
                 "https://www.oslopride.no/events/04e1f74c-5e46-4f1a-9ab8-e3420817b7f6"
             }

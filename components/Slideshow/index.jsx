@@ -5,10 +5,10 @@ import Slide from "./slide";
 
 const Slideshow = ({ slides, className }) => {
   const settings = {
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 5000,
     lazyLoad: true,
-    pauseOnHover: true,
+    pauseOnHover: false,
     dots: true,
     arrows: false,
     infinite: true,
@@ -17,17 +17,20 @@ const Slideshow = ({ slides, className }) => {
   };
 
   return (
-    <Wrapper {...settings}>
-      {slides.map((slide, index) => (
-        <div key={`${slide.title}-${index}`}>
-          <Slide {...slide} />
-        </div>
-      ))}
+    <Wrapper>
+      <Overlay />
+      <Carousel {...settings}>
+        {slides.map((slide, index) => (
+          <div key={`${slide.text}-${index}`}>
+            <Slide {...slide} />
+          </div>
+        ))}
+      </Carousel>
     </Wrapper>
   );
 };
 
-const Wrapper = styled(Slider)`
+const Carousel = styled(Slider)`
   display: flex;
   height: 100%;
   flex-direction: column;
@@ -46,6 +49,24 @@ const Wrapper = styled(Slider)`
   & > ul {
     position: unset;
   }
+`;
+
+const Overlay = styled.div`
+  position: absolute;
+  z-index: 500;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0) 150px
+  );
+`;
+
+const Wrapper = styled.div`
+  height: 100%;
 `;
 
 export default Slideshow;
