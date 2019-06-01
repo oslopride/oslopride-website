@@ -31,7 +31,12 @@ const Slideshow = ({ slides, className }) => {
       <Carousel {...settings}>
         {slides.map((slide, index) => (
           <div key={`${slide.title}-${index}`}>
-            <Slide {...slide} color={SlideColors[index % SlideColors.length]} />
+            <Slide
+              {...slide}
+              color={
+                SlideColors[Math.floor(Math.random() * SlideColors.length)]
+              }
+            />
           </div>
         ))}
       </Carousel>
