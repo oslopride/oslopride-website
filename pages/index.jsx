@@ -32,14 +32,16 @@ const FrontPage = props => {
                 "Oslo Pride, Norges største feiring av skeiv kjærlighet og mangfold",
               link:
                 "https://www.oslopride.no/events/04e1f74c-5e46-4f1a-9ab8-e3420817b7f6"
+            },
+            {
+              image:
+                "https://blog.gotocon.com/wp-content/uploads/2018/01/7ee07c93-a7b6-4206-a9f5-c6e13931a136-1.jpg",
+              title: "Pride House",
+              body:
+                "Pride House synliggjør bredden i den skeive kulturen gjennom debatter, foredrag, workshops og ulike kulturuttrykk",
+              link:
+                "https://www.oslopride.no/events/04e1f74c-5e46-4f1a-9ab8-e3420817b7f6"
             }
-            // {
-            //   image:
-            //     "https://blog.gotocon.com/wp-content/uploads/2018/01/7ee07c93-a7b6-4206-a9f5-c6e13931a136-1.jpg",
-            //   text: "Pride House",
-            //   link:
-            //     "https://www.oslopride.no/events/04e1f74c-5e46-4f1a-9ab8-e3420817b7f6"
-            // }
           ]}
         />
       </HeroWrapper>

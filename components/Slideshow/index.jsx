@@ -3,6 +3,15 @@ import styled from "styled-components";
 import Slider from "react-slick";
 import Slide from "./slide";
 
+const SlideColors = [
+  "#CD424D",
+  "#D17A61",
+  "#D5A43E",
+  "#25A081",
+  "#93ADC3",
+  "#625887"
+];
+
 const Slideshow = ({ slides, className }) => {
   const settings = {
     autoplay: slides.length > 1,
@@ -22,7 +31,7 @@ const Slideshow = ({ slides, className }) => {
       <Carousel {...settings}>
         {slides.map((slide, index) => (
           <div key={`${slide.title}-${index}`}>
-            <Slide {...slide} />
+            <Slide {...slide} color={SlideColors[index % SlideColors.length]} />
           </div>
         ))}
       </Carousel>

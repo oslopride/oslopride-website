@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Parallax } from "react-scroll-parallax";
 import { FaLongArrowAltRight } from "react-icons/fa";
 
-const Slide = ({ image, title, body, link }) => (
+const Slide = ({ image, title, body, link, color }) => (
   <Wrapper>
     <div>
       <Parallax
@@ -14,7 +14,7 @@ const Slide = ({ image, title, body, link }) => (
         <Image src={image} />
       </Parallax>
       <ContentWrapper>
-        <Content href={link}>
+        <Content href={link} color={color}>
           <Title>{title}</Title>
           <Body>{body}</Body>
         </Content>
@@ -53,8 +53,8 @@ const ContentWrapper = styled.div`
 const Content = styled.a`
   max-width: 600px;
   margin: 0 1em;
-  padding: 1em;
-  background-color: #cd424d;
+  padding: 1em 2em;
+  background-color: ${({ color }) => color};
   color: inherit;
   text-decoration: none;
   display: flex;
