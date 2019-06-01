@@ -90,10 +90,6 @@ const Header = () => {
 };
 
 const Wrapper = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
   z-index: 9001;
 `;
 
