@@ -1,7 +1,6 @@
 import ArticlePreview from "@/components/ArticlePreview";
 import FeaturedDates from "@/components/FeaturedDates";
 import FeaturedPartners from "@/components/FeaturedPartners";
-import Slideshow from "@/components/Slideshow";
 import { articleActions } from "@/store/articles";
 import { frontPageActions, getFrontPage } from "@/store/front-page";
 import { webResponseInitial } from "@/store/helpers";
