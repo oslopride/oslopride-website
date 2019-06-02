@@ -13,7 +13,6 @@ const FeaturedPartners = props => {
       .filter(partnerItem => partnerItem.type === partnerType)
       .map(({ _id, partnerUrl, image, name }) => (
         <PartnerItem key={_id}>
-          <PartnerType>{partnerSubtitle}</PartnerType>
           <PartnerImage href={partnerUrl}>
             <img
               src={imageUrlFor(image)
@@ -25,7 +24,12 @@ const FeaturedPartners = props => {
         </PartnerItem>
       ));
     if (partnerItems.length > 0) {
-      return <>{partnerItems}</>;
+      return (
+        <>
+          <PartnerType>{partnerSubtitle}</PartnerType>
+          <List>{partnerItems}</List>
+        </>
+      );
     }
     return null;
   };
@@ -39,11 +43,13 @@ const FeaturedPartners = props => {
   }
   return (
     <Wrapper>
-      <PageTitle>Partnere</PageTitle>
       <ListWrapper>
         <PartnerList partnerSubtitle="Eier og arrangør" partnerType="owner" />
-        <PartnerList partnerSubtitle="Hovedpartner" partnerType="mainpartner" />
-        <PartnerList partnerSubtitle="Partner" partnerType="partner" />
+        <PartnerList
+          partnerSubtitle="Hovedpartnere"
+          partnerType="mainpartner"
+        />
+        <PartnerList partnerSubtitle="Partnere" partnerType="partner" />
       </ListWrapper>
     </Wrapper>
   );
@@ -71,6 +77,14 @@ const PageTitle = styled.h1`
   text-align: center;
   text-transform: uppercase;
   font-size: 30px;
+  width: 100%;
+`;
+
+const List = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
   width: 100%;
 `;
 
