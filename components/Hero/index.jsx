@@ -2,13 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import Card from "./card";
 import Slider from "react-slick";
+import { ParallaxBanner } from "react-scroll-parallax";
 
 const settings = {
   autoplay: true,
   autoplaySpeed: 5000,
   pauseOnHover: true,
   centerMode: true,
-  centerPadding: "60px",
   infinite: true,
   arrows: false,
   dots: true,
@@ -19,7 +19,16 @@ const settings = {
 const Hero = () => (
   <Wrapper>
     <Overlay />
-    <Image src="https://images.ctfassets.net/r522rjz18n3u/58XT8KdYIwCSeAiQQ24YwO/1757190cacc1c0571a5bf17308e841c3/47744330842_635b05fc0e_o.jpg" />
+    <Banner
+      layers={[
+        {
+          image:
+            "https://images.ctfassets.net/r522rjz18n3u/58XT8KdYIwCSeAiQQ24YwO/1757190cacc1c0571a5bf17308e841c3/47744330842_635b05fc0e_o.jpg",
+          amount: 0.3
+        }
+      ]}
+      style={{ height: undefined, width: undefined }}
+    />
     <CardWrapper {...settings}>
       <Card
         title="Oslo Pride"
@@ -57,22 +66,21 @@ const Hero = () => (
 
 const Wrapper = styled.div`
   position: relative;
-  height: 75vh;
+  height: 60vh;
   width: 100%;
   margin-top: -70px;
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 
   @media (min-width: 600px) {
-    height: 85vh;
+    height: 80vh;
   }
 `;
 
-const Image = styled.img`
+const Banner = styled(ParallaxBanner)`
   width: 100%;
-  height: 60vh;
-  object-fit: cover;
+  height: 50vh;
 
   @media (min-width: 600px) {
     height: 70vh;

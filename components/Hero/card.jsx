@@ -23,7 +23,7 @@ const Card = ({ className, title, body, index }) => {
 };
 
 const Wrapper = styled.div`
-  height: 250px;
+  height: 200px;
   margin: 0 0.5em;
   background-color: ${({ backgroundColor }) => backgroundColor};
   color: #fafafa;
@@ -36,6 +36,7 @@ const Wrapper = styled.div`
 
   @media (min-width: 600px) {
     margin: 0 1em;
+    height: 250px;
   }
 `;
 
