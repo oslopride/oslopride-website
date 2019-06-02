@@ -1,5 +1,3 @@
-import Button from "@/components/Button";
-import theme from "@/utils/theme";
 import Link from "next/link";
 import React, { useState } from "react";
 import { FaBars } from "react-icons/fa";
@@ -8,10 +6,11 @@ import Navigation from "./navigation";
 
 const TopHeader = styled.header`
   width: 100%;
+  padding: 5px 10px;
+  height: 70px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 10px 10px;
+  justify-content: space-between;
 
   @media (min-width: 1025px) {
     padding: 10px 40px;
@@ -47,19 +46,35 @@ const LogoMobile = styled.img`
 `;
 
 const PrideDate = styled.div`
-  color: ${theme.gray};
   text-align: center;
-  font-size: 18px;
+  color: black;
+  font-size: 16px;
   font-weight: 500;
   text-transform: uppercase;
+  height: initial;
+`;
+
+const ButtonWrapper = styled.div`
+  width: 50px;
+  text-align: right;
+  margin-right: 5px;
+
+  @media (min-width: 1025px) {
+    width: 103px;
+    margin-right: 10px;
+  }
+`;
+
+const MenuButton = styled.button`
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
 `;
 
 const MenuIcon = styled(FaBars)`
   color: black;
-`;
-
-const MenuButton = styled(Button)`
-  max-width: 50px;
+  width: 30px;
 `;
 
 const Header = () => {
@@ -70,30 +85,27 @@ const Header = () => {
   return (
     <>
       <TopHeader>
-        <LogoWrapper>
-          <Link href="/">
-            <a>
-              <Logo
-                src="/static/oslopride.svg"
-                alt="Oslo Pride Logo"
-                onClick={close}
-              />
-              <LogoMobile
-                src="/static/prideheart.jpg"
-                alt="Oslo Pride Logo"
-                onClick={close}
-              />
-            </a>
-          </Link>
-        </LogoWrapper>
-        <DateWrapper>
-          <PrideDate>14. juni – 23. juni 2019</PrideDate>
-        </DateWrapper>
-        <MenuButtonWrapper>
-          <MenuButton onClick={() => setOpen(!isOpen)}>
-            <MenuIcon size={32} />
+        <Link href="/">
+          <a>
+            <Logo
+              src="/static/oslopride.svg"
+              alt="Oslo Pride Logo"
+              onClick={close}
+            />
+            <LogoMobile
+              src="/static/prideheart.svg"
+              alt="Oslo Pride Logo"
+              onClick={close}
+            />
+          </a>
+        </Link>
+
+        <PrideDate>14. juni – 23. juni 2019</PrideDate>
+        <ButtonWrapper>
+          <MenuButton onClick={() => setOpen(!isOpen)} aria-label="Meny d">
+            <MenuIcon />
           </MenuButton>
-        </MenuButtonWrapper>
+        </ButtonWrapper>
       </TopHeader>
       <Navigation visible={isOpen} callback={close} />
     </>
