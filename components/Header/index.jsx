@@ -45,7 +45,7 @@ const PrideDate = styled.div`
 `;
 
 const ButtonWrapper = styled.div`
-  width: 60px;
+  width: 50px;
   text-align: right;
   margin-right: 5px;
 

@@ -4,9 +4,9 @@ import React from "react";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import styled from "styled-components";
 
-const Link = ({ className, href, children, onClick, arrow = true }) => (
+const Link = ({ className, href, children, onClick, arrow = true, color }) => (
   <NextLink href={href} passHref>
-    <A className={className} onClick={onClick} arrow={arrow}>
+    <A className={className} onClick={onClick} arrow={arrow} color={color}>
       {children}
       {arrow && <Arrow />}
     </A>
@@ -16,7 +16,7 @@ const Link = ({ className, href, children, onClick, arrow = true }) => (
 const A = styled.a`
   position: relative;
   text-transform: uppercase;
-  color: ${theme.blue};
+  color: ${props => (props.color ? props.color : theme.blue)};
   text-decoration: none;
   font-weight: bold;
   padding-right: ${({ arrow }) => (arrow ? "1.5em" : 0)};
@@ -29,7 +29,7 @@ const A = styled.a`
     left: 0;
     right: 0;
     height: 2px;
-    background-color: ${theme.blue};
+    background-color: ${props => (props.color ? props.color : theme.blue)};
     transform-origin: bottom right;
     transform: scaleX(1);
   }

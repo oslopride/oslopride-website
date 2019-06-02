@@ -1,14 +1,19 @@
 import Link from "@/components/Link";
 import React from "react";
 import styled from "styled-components";
+import theme from "@/utils/theme";
 
 const Container = styled.nav`
   transition: height 0.2s ease-in-out;
   overflow: hidden;
-  height: ${({ visible }) => (visible ? "300px" : "0")};
+  height: ${({ visible }) => (visible ? "550px" : "0")};
 
-  @media (min-width: 500px) {
-    height: ${({ visible }) => (visible ? "250px" : "0")};
+  @media (min-width: 450px) {
+    height: ${({ visible }) => (visible ? "500px" : "0")};
+  }
+
+  @media (min-width: 520px) {
+    height: ${({ visible }) => (visible ? "400px" : "0")};
   }
 `;
 
@@ -17,21 +22,38 @@ const NavigationGroup = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+`;
+
+const NavigationTitle = styled.p`
+width: 100%;
+text-align: center;
+  font-size 18px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 5px 8px;
 `;
 
 const NavigationLink = styled(Link)`
   font-size: 18px;
-  margin: 5px 8px;
+  margin: 15px 8px;
 `;
 
 const Navigation = ({ className, visible, callback }) => (
   <Container className={className} visible={visible}>
     <NavigationGroup>
-      <NavigationLink href="/events" onClick={callback} arrow={false}>
+      <NavigationLink
+        href="/events"
+        onClick={callback}
+        arrow={false}
+        color={theme.orange}
+      >
         Program 2019
       </NavigationLink>
     </NavigationGroup>
+
     <NavigationGroup>
+      <NavigationTitle>Våre arenaer</NavigationTitle>
       <NavigationLink href="/pride-parade" onClick={callback} arrow={false}>
         Pride Parade
       </NavigationLink>
@@ -47,17 +69,35 @@ const Navigation = ({ className, visible, callback }) => (
     </NavigationGroup>
 
     <NavigationGroup>
-      <NavigationLink href="/contact" onClick={callback} arrow={false}>
-        Kontakt
-      </NavigationLink>
-      <NavigationLink href="/about" onClick={callback} arrow={false}>
-        Om Oss
-      </NavigationLink>
-      <NavigationLink href="/partners" onClick={callback} arrow={false}>
-        Partnere
+      <NavigationTitle>Engasjer deg</NavigationTitle>
+      <NavigationLink
+        href="/a/engasjer-deg-i-oslo-pride"
+        onClick={callback}
+        arrow={false}
+      >
+        Vær Frivillig
       </NavigationLink>
       <NavigationLink href="/become-partner" onClick={callback} arrow={false}>
         Bli Partner
+      </NavigationLink>
+      <NavigationLink
+        href="/a/registrering-av-arrangement"
+        onClick={callback}
+        arrow={false}
+      >
+        Registrer arrangement
+      </NavigationLink>
+    </NavigationGroup>
+
+    <NavigationGroup>
+      <NavigationLink href="/about" onClick={callback} arrow={false}>
+        Om Oss
+      </NavigationLink>
+      <NavigationLink href="/contact" onClick={callback} arrow={false}>
+        Kontakt
+      </NavigationLink>
+      <NavigationLink href="/partners" onClick={callback} arrow={false}>
+        Partnere
       </NavigationLink>
       <NavigationLink
         href="https://butikk.oslopride.no/"
