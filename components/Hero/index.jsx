@@ -1,3 +1,4 @@
+import Link from "@/components/Link";
 import theme from "@/utils/theme";
 import React from "react";
 import styled from "styled-components";
@@ -47,6 +48,7 @@ const Title = styled.h1`
   margin: 0;
   font-size: 50px;
   line-height: 1;
+
   @media (min-width: 1025px) {
     text-align: left;
   }
@@ -54,7 +56,15 @@ const Title = styled.h1`
 
 const Subtitle = styled.p`
   text-align: justify;
-  margin-bottom: 0;
+`;
+
+const ProgramLinkWrapper = styled.div`
+  margin-top: 20px;
+  text-align: center;
+
+  @media (min-width: 1025px) {
+    text-align: left;
+  }
 `;
 
 const Hero = ({ className, imageURL, title, subtitle }) => (
@@ -65,6 +75,9 @@ const Hero = ({ className, imageURL, title, subtitle }) => (
     <TextWrapper>
       <Title>{title}</Title>
       <Subtitle>{subtitle}</Subtitle>
+      <ProgramLinkWrapper>
+        <Link href="/events">Se årets program</Link>
+      </ProgramLinkWrapper>
     </TextWrapper>
   </Wrapper>
 );
