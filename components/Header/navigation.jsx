@@ -3,10 +3,13 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.nav`
-  transition: max-height 0.3s ease-in-out;
-  height: auto;
+  transition: height 0.2s ease-in-out;
   overflow: hidden;
-  max-height: ${({ visible }) => (visible ? "250px" : "0")};
+  height: ${({ visible }) => (visible ? "300px" : "0")};
+
+  @media (min-width: 500px) {
+    height: ${({ visible }) => (visible ? "250px" : "0")};
+  }
 `;
 
 const NavigationGroup = styled.div`
