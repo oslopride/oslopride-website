@@ -8,7 +8,6 @@ const settings = {
   autoplaySpeed: 5000,
   pauseOnHover: true,
   centerMode: true,
-  centerPadding: "60px",
   infinite: true,
   arrows: false,
   dots: true,
