@@ -1,19 +1,19 @@
 import Link from "@/components/Link";
+import theme from "@/utils/theme";
 import React from "react";
 import styled from "styled-components";
-import theme from "@/utils/theme";
 
 const Container = styled.nav`
   transition: height 0.2s ease-in-out;
   overflow: hidden;
-  height: ${({ visible }) => (visible ? "550px" : "0")};
+  height: ${({ visible }) => (visible ? "500px" : "0")};
 
   @media (min-width: 450px) {
-    height: ${({ visible }) => (visible ? "500px" : "0")};
+    height: ${({ visible }) => (visible ? "450px" : "0")};
   }
 
   @media (min-width: 520px) {
-    height: ${({ visible }) => (visible ? "400px" : "0")};
+    height: ${({ visible }) => (visible ? "350px" : "0")};
   }
 `;
 

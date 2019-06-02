@@ -12,33 +12,22 @@ const TopHeader = styled.header`
   align-items: center;
   justify-content: space-between;
 
-  @media (min-width: 1025px) {
-    padding: 10px 40px;
+  * {
+    height: 100%;
   }
-`;
-
-const LogoWrapper = styled.div`
-  width: 150px;
-`;
-const DateWrapper = styled.div`
-  width: 190px;
-`;
-const MenuButtonWrapper = styled.div`
-  width: 150px;
-  text-align: right;
 `;
 
 const Logo = styled.img`
   display: none;
+  width: auto;
 
   @media (min-width: 1025px) {
     display: inline-block;
-    width: 100%;
   }
 `;
 
 const LogoMobile = styled.img`
-  width: 50px;
+  width: auto;
 
   @media (min-width: 1025px) {
     display: none;
@@ -83,7 +72,7 @@ const Header = () => {
   const close = () => setOpen(false);
 
   return (
-    <>
+    <Wrapper>
       <TopHeader>
         <Link href="/">
           <a>
@@ -108,8 +97,12 @@ const Header = () => {
         </ButtonWrapper>
       </TopHeader>
       <Navigation visible={isOpen} callback={close} />
-    </>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  z-index: 9001;
+`;
 
 export default Header;
