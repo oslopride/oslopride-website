@@ -41,9 +41,7 @@ const FrontPage = props => {
         ))}
       </FeaturedArticlesWrapper>
 
-      <ContentWrapper>
-        <FeaturedPartners />
-      </ContentWrapper>
+      <FeaturedPartners />
 
       <NextSeo
         config={{
