@@ -72,14 +72,6 @@ const Wrapper = styled.div`
   width: 100%;
 `;
 
-const PageTitle = styled.h1`
-  color: ${theme.purple};
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 30px;
-  width: 100%;
-`;
-
 const List = styled.div`
   display: flex;
   flex-flow: row wrap;
@@ -96,10 +88,11 @@ const ListWrapper = styled.div`
 `;
 
 const PartnerType = styled.p`
-  color: ${theme.gray};
+  color: black;
   text-transform: uppercase;
   text-align: center;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 600;
 `;
 
 const PartnerItem = styled.div`
