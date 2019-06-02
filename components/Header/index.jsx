@@ -21,15 +21,15 @@ const Logo = styled.img`
   display: none;
   width: auto;
 
-  @media (min-width: 1025px) {
+  @media (min-width: 500px) {
     display: inline-block;
   }
 `;
 
 const LogoMobile = styled.img`
-  width: auto;
+  width: 70px;
 
-  @media (min-width: 1025px) {
+  @media (min-width: 500px) {
     display: none;
   }
 `;
@@ -44,11 +44,11 @@ const PrideDate = styled.div`
 `;
 
 const ButtonWrapper = styled.div`
-  width: 50px;
+  width: 70px;
   text-align: right;
   margin-right: 5px;
 
-  @media (min-width: 1025px) {
+  @media (min-width: 500px) {
     width: 103px;
     margin-right: 10px;
   }
@@ -82,7 +82,7 @@ const Header = () => {
               onClick={close}
             />
             <LogoMobile
-              src="/static/prideheart.svg"
+              src="/static/oslopride.svg"
               alt="Oslo Pride Logo"
               onClick={close}
             />
