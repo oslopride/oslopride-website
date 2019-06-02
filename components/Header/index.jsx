@@ -7,11 +7,11 @@ import Navigation from "./navigation";
 
 const TopHeader = styled.header`
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 5px 10px;
   height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
   * {
     height: 100%;
@@ -29,32 +29,42 @@ const Logo = styled.img`
 
 const LogoMobile = styled.img`
   width: auto;
+
   @media (min-width: 1025px) {
     display: none;
   }
 `;
 
 const PrideDate = styled.div`
+  text-align: center;
   color: black;
   font-size: 16px;
   font-weight: 500;
   text-transform: uppercase;
   height: initial;
-  text-align: center;
-  padding: 0 1em;
 `;
 
-const MenuIcon = styled(FaBars)`
-  color: black;
-  width: auto;
+const ButtonWrapper = styled.div`
+  width: 50px;
+  text-align: right;
+  margin-right: 5px;
+
+  @media (min-width: 1025px) {
+    width: 103px;
+    margin-right: 10px;
+  }
 `;
 
 const MenuButton = styled.button`
   border: none;
   background: transparent;
   padding: 0;
-  display: inline-block;
   cursor: pointer;
+`;
+
+const MenuIcon = styled(FaBars)`
+  color: black;
+  width: 30px;
 `;
 
 const Header = () => {
@@ -79,10 +89,13 @@ const Header = () => {
             />
           </a>
         </Link>
+
         <PrideDate>14. juni – 23. juni 2019</PrideDate>
-        <MenuButton onClick={() => setOpen(!isOpen)} aria-label="Meny d">
-          <MenuIcon />
-        </MenuButton>
+        <ButtonWrapper>
+          <MenuButton onClick={() => setOpen(!isOpen)} aria-label="Meny d">
+            <MenuIcon />
+          </MenuButton>
+        </ButtonWrapper>
       </TopHeader>
       <Navigation visible={isOpen} callback={close} />
     </Wrapper>
