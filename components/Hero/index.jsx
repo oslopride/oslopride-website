@@ -57,7 +57,7 @@ const Hero = () => (
 
 const Wrapper = styled.div`
   position: relative;
-  height: 75vh;
+  height: 60vh;
   width: 100%;
   margin-top: -70px;
   display: flex;
@@ -65,13 +65,13 @@ const Wrapper = styled.div`
   margin-bottom: 20px;
 
   @media (min-width: 600px) {
-    height: 85vh;
+    height: 80vh;
   }
 `;
 
 const Image = styled.img`
   width: 100%;
-  height: 60vh;
+  height: 50vh;
   object-fit: cover;
 
   @media (min-width: 600px) {
