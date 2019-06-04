@@ -10,7 +10,7 @@ const FeaturedButton = ({ title, link, color }) => {
     <ButtonWrapper>
       <NextLink href={link} passHref>
         <a>
-          <ButtonStyle>{title}</ButtonStyle>
+          <ButtonStyle color={color}>{title}</ButtonStyle>
         </a>
       </NextLink>
     </ButtonWrapper>
@@ -23,11 +23,17 @@ const FeaturedButtons = () => {
       <FeaturedButton
         title="vær frivillig"
         link="/a/engasjer-deg-i-oslo-pride"
+        color={theme.green}
       />
-      <FeaturedButton title="bli partner" link="/become-partner" />
+      <FeaturedButton
+        title="bli partner"
+        link="/become-partner"
+        color={theme.green}
+      />
       <FeaturedButton
         title="registrer arrangement"
         link="/a/registrering-av-arrangement"
+        color={theme.green}
       />
     </Wrapper>
   );
@@ -67,8 +73,8 @@ const ButtonLink = styled(Link)`
 
 const ButtonStyle = styled(Button)`
   color: white;
-  background-color: ${theme.green};
-  padding: 10px;
+  background-color: ${props => props.color};
+  padding: 30px 10px;
   width: 100%;
   height: 100%;
 
