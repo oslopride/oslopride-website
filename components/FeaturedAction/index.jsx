@@ -70,6 +70,7 @@ const TextBox = styled.div`
 const Text = styled.a`
   margin: 20px;
   text-decoration: none;
+  line-height: 1.7;
 
   h2 {
     color: #25a081;
