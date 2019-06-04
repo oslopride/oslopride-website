@@ -1,5 +1,6 @@
 import ArticlePreview from "@/components/ArticlePreview";
 import Banner from "@/components/Banner";
+import FeaturedAction from "@/components/FeaturedAction";
 import FeaturedButtons from "@/components/FeaturedButtons";
 import FeaturedDates from "@/components/FeaturedDates";
 import FeaturedPartners from "@/components/FeaturedPartners";
@@ -34,6 +35,10 @@ const FrontPage = props => {
           url={frontPage.data.callToActionLink.link}
         />
       </HeroWrapper>
+
+      <ContentWrapper>
+        <FeaturedAction />
+      </ContentWrapper>
 
       <ContentWrapper>
         <FeaturedDates dates={frontPage.data.featuredDates} />
