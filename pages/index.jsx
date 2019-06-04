@@ -1,6 +1,6 @@
 import ArticlePreview from "@/components/ArticlePreview";
 import Banner from "@/components/Banner";
-import FeaturedAction from "@/components/FeaturedAction";
+import FeaturedActions from "@/components/FeaturedActions";
 import FeaturedButtons from "@/components/FeaturedButtons";
 import FeaturedDates from "@/components/FeaturedDates";
 import FeaturedPartners from "@/components/FeaturedPartners";
@@ -37,7 +37,7 @@ const FrontPage = props => {
       </HeroWrapper>
 
       <ContentWrapper>
-        <FeaturedAction />
+        <FeaturedActions />
       </ContentWrapper>
 
       <ContentWrapper>
