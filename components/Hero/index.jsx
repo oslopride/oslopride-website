@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   align-items: center;
 
   & > * + * {
-    margin-top: 15px;
+    margin: 15px 0;
   }
 
   @media (min-width: 1025px) {
@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 
     & > * {
       max-width: 50%;
-      margin-top: 0;
+      margin: 30px 0;
     }
   }
 `;
