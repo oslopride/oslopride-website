@@ -35,14 +35,6 @@ const FrontPage = props => {
         />
       </HeroWrapper>
 
-      <Banner
-        color={theme.lightGreen}
-        title="Engasjer deg"
-        textColor={theme.green}
-      >
-        <FeaturedButtons />
-      </Banner>
-
       <ContentWrapper>
         <FeaturedDates dates={frontPage.data.featuredDates} />
       </ContentWrapper>
