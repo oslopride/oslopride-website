@@ -4,11 +4,11 @@ import styled from "styled-components";
 const Banner = ({ children, color, title, textColor }) => {
   return (
     <Wrapper background={color}>
-      {title ? (
+      {title && (
         <TitleWrapper>
           <Title textColor={textColor}>{title}</Title>
         </TitleWrapper>
-      ) : null}
+      )}
       <Content>{children}</Content>
     </Wrapper>
   );
