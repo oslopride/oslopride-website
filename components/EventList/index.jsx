@@ -171,8 +171,7 @@ const EventDay = styled.h2`
 
 const EventLink = styled.a`
   cursor: pointer;
-  border-bottom: 2px solid lightgrey;
-  padding: 10px 0;
+  padding: 20px 0;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -193,8 +192,9 @@ const EventDayListWrapper = styled.div`
 `;
 
 const EventImage = styled.img`
-  width: 80px;
-  height: 80px;
+  width: 150px;
+  height: 120px;
+  max-width: 25%;
   object-fit: cover;
 `;
 
@@ -217,6 +217,7 @@ const EventTime = styled.div`
   font-weight: 600;
   color: ${theme.orange};
   margin-right: 10px;
+  width: 100%;
 `;
 
 const EventPlace = styled.div`

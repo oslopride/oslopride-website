@@ -27,6 +27,8 @@ const arenaNameMapper = arena => {
       return "Pride House";
     case "4":
       return "Pride Art";
+    case "5":
+      return "Rockefeller";
     default:
       return "Ukjent";
   }
@@ -49,7 +51,7 @@ const Events = props => {
         <Filter
           selectors={[
             {
-              name: "Alle",
+              name: "Vis alt",
               selected: query.category === undefined,
               callback: () => resetFilter("category")
             },
@@ -74,9 +76,9 @@ const Events = props => {
               callback: () => setFilter("category", "4")
             },
             {
-              name: "Eksterne",
-              selected: query.category === "0",
-              callback: () => setFilter("category", "0")
+              name: "Rockefeller",
+              selected: query.category === "5",
+              callback: () => setFilter("category", "5")
             }
           ]}
           defaultSelector={query.category || "-1"}
