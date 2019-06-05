@@ -1,19 +1,13 @@
-import Button from "@/components/Button";
 import Link from "@/components/Link";
 import theme from "@/utils/theme";
-import NextLink from "next/link";
 import React from "react";
 import styled from "styled-components";
 
 const FeaturedButton = ({ title, link, color }) => {
   return (
-    <ButtonWrapper>
-      <NextLink href={link} passHref>
-        <a>
-          <ButtonStyle color={color}>{title}</ButtonStyle>
-        </a>
-      </NextLink>
-    </ButtonWrapper>
+    <ButtonStyle href={link} color={color} arrow={false}>
+      {title}
+    </ButtonStyle>
   );
 };
 
@@ -50,10 +44,18 @@ const Wrapper = styled.div`
   justify-content: space-around;
 `;
 
-const ButtonWrapper = styled.div`
+const ButtonStyle = styled(Link)`
   margin: 10px;
   width: 100%;
   transition: transform 0.2s ease-in-out;
+  color: white;
+  background-color: ${props => props.color};
+  padding: 30px 10px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 2px;
 
   :hover,
   :focus {
@@ -61,29 +63,7 @@ const ButtonWrapper = styled.div`
   }
 
   @media (min-width: 1002px) {
-    width: 30%;
-  }
-`;
-const ButtonLink = styled(Link)`
-  :hover,
-  :focus {
-    text-decoration: none;
-  }
-`;
-
-const ButtonStyle = styled(Button)`
-  color: white;
-  background-color: ${props => props.color};
-  padding: 30px 10px;
-  width: 100%;
-  height: 100%;
-
-  font-size: 16px;
-  font-weight: 700;
-  text-transform: uppercase;
-  border-radius: 2px;
-
-  @media (min-width: 1002px) {
     font-size: 20px;
+    width: 30%;
   }
 `;

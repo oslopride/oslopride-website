@@ -1,3 +1,5 @@
+import Link from "@/components/Link";
+import theme from "@/utils/theme";
 import React from "react";
 import styled from "styled-components";
 
@@ -9,7 +11,11 @@ const FeaturedAction = () => {
         alt="Bilde av folk som går i paraden"
       />
       <TextBox>
-        <Text href="/a/registrering-av-arrangement">
+        <Text
+          href="/a/registrering-av-arrangement"
+          arrow={false}
+          color={theme.green}
+        >
           <h2>Registrer arrangement</h2>
           <p>Finn ut hvordan du kan registrere et arrangement i vårt program</p>
         </Text>
@@ -67,9 +73,8 @@ const TextBox = styled.div`
   }
 `;
 
-const Text = styled.a`
+const Text = styled(Link)`
   margin: 20px;
-  text-decoration: none;
   line-height: 1.7;
 
   h2 {
