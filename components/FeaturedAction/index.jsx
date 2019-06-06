@@ -77,6 +77,10 @@ const Text = styled(Link)`
   margin: 20px;
   line-height: 1.7;
 
+  :hover::before {
+    transform: scaleX(0);
+  }
+
   h2 {
     color: #25a081;
     text-transform: uppercase;
