@@ -70,7 +70,8 @@ const Text = styled(Link)`
   margin: 20px;
   line-height: 1.7;
 
-  :hover::before {
+  :hover::before,
+  :before {
     transform: scaleX(0);
   }
 
