@@ -3,21 +3,14 @@ import theme from "@/utils/theme";
 import React from "react";
 import styled from "styled-components";
 
-const FeaturedAction = () => {
+const FeaturedAction = ({ image, title, description, link }) => {
   return (
     <Wrapper>
-      <Image
-        src="/static/images/parade.jpg"
-        alt="Bilde av folk som går i paraden"
-      />
+      <Image src={image} />
       <TextBox>
-        <Text
-          href="/a/registrering-av-arrangement"
-          arrow={false}
-          color={theme.green}
-        >
-          <h2>Registrer arrangement</h2>
-          <p>Finn ut hvordan du kan registrere et arrangement i vårt program</p>
+        <Text href={link} arrow={false} color={theme.green}>
+          <h2>{title}</h2>
+          <p>{description}</p>
         </Text>
       </TextBox>
     </Wrapper>
