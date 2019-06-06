@@ -177,13 +177,16 @@ const EventLink = styled.a`
   align-items: center;
   text-decoration: none;
   color: inherit;
+  transition: transform 0.2s ease-in-out;
 
   &:last-child {
     border-bottom: 0;
   }
-
-  &:hover {
-    text-decoration: underline;
+  
+  :hover,
+    :focus {
+      transform: scale(1.05);
+    }
   }
 `;
 

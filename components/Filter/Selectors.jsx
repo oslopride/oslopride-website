@@ -32,6 +32,8 @@ const SelectBox = styled.label`
   cursor: pointer;
   color: ${({ checked }) => (checked ? "white" : "inherit")};
   background-color: ${({ checked }) => (checked ? theme.purple : "inherit")};
+  border-bottom: 2px solid ${theme.purple};
+  border-right: 2px solid ${theme.purple};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,6 +58,8 @@ const SelectorTitle = styled.div`
 const SelectorList = styled.div`
   display: flex;
   flex-wrap: wrap;
+  border-top: 2px solid ${theme.purple};
+  border-left: 2px solid ${theme.purple};
 `;
 
 const SelectorLabel = styled.span`

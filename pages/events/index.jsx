@@ -51,7 +51,7 @@ const Events = props => {
         <Filter
           selectors={[
             {
-              name: "Vis alt",
+              name: "Alle",
               selected: query.category === undefined,
               callback: () => resetFilter("category")
             },
@@ -83,6 +83,12 @@ const Events = props => {
           ]}
           defaultSelector={query.category || "-1"}
           toggles={[
+            {
+              off: "Alle",
+              on: "Kun Oslo Pride-arrangementer",
+              isOn: query.official === "true",
+              callback: value => toggleFilter("official", "true")
+            },
             {
               off: "Alle",
               on: "Universelt utformet",
