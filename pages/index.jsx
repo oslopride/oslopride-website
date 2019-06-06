@@ -38,7 +38,9 @@ const FrontPage = props => {
 
       <ContentWrapper>
         <FeaturedAction
-          image={imageUrlFor(frontPage.data.featuredAction.image).url()}
+          image={imageUrlFor(frontPage.data.featuredAction.image)
+            .width(500)
+            .url()}
           title={frontPage.data.featuredAction.title}
           description={frontPage.data.featuredAction.description}
           link={frontPage.data.featuredAction.link}
