@@ -59,7 +59,7 @@ const Subtitle = styled.p`
   text-align: justify;
   font-size: 18px;
   line-height: 1.7;
-  font-weight: 300;
+  font-weight: 400;
 `;
 
 const ProgramLinkWrapper = styled.div`

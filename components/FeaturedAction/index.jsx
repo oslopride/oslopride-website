@@ -90,7 +90,7 @@ const Text = styled(Link)`
   p {
     color: black;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 400;
   }
 
   @media (min-width: 500px) {
