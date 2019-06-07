@@ -43,40 +43,17 @@ const Event = ({ event }) =>
 
       const start = dayjs.utc(startingTime).add(2, "hour");
       const end = dayjs.utc(endingTime).add(2, "hour");
-      const singleDayEvent = start.diff(end, "day") === 0;
 
       return (
         <>
           <Sheet>
-            {singleDayEvent ? (
-              <>
-                <EventTimeDay>
-                  <OrangeColor>{start.format("dddd")} </OrangeColor>
-                  {start.format("D. MMMM YYYY")}
-                </EventTimeDay>
-                <EventTimeFromTo>
-                  {start.format("HH:mm")} - {end.format("HH:mm")}
-                </EventTimeFromTo>
-              </>
-            ) : (
-              <>
-                <EventTimeDay>
-                  <EventTimeLabel>Fra </EventTimeLabel>
-                  <OrangeColor>{start.format("dddd")} </OrangeColor>
-                  {start.format("D. MMMM YYYY")}
-                  <MultidayEventTime>
-                    {" "}
-                    {start.format("HH:mm")}
-                  </MultidayEventTime>
-                </EventTimeDay>
-                <EventTimeDay>
-                  <EventTimeLabel>Til </EventTimeLabel>
-                  <OrangeColor>{end.format("dddd")} </OrangeColor>
-                  {end.format("D. MMMM YYYY")}
-                  <MultidayEventTime> {end.format("HH:mm")}</MultidayEventTime>
-                </EventTimeDay>
-              </>
-            )}
+            <EventTimeDay>
+              <OrangeColor>{start.format("dddd")} </OrangeColor>
+              {start.format("D. MMMM YYYY")}
+            </EventTimeDay>
+            <EventTimeFromTo>
+              {start.format("HH:mm")} - {end.format("HH:mm")}
+            </EventTimeFromTo>
             <Title>{title}</Title>
             {image ? (
               <Image
@@ -178,8 +155,13 @@ const Event = ({ event }) =>
                   location.address
                 }`,
                 images: [
-                  { url: "https://oslopride.no/static/logo.jpg" },
-                  { url: "https://oslopride.no/static/prideheart.jpg" }
+                  {
+                    url: image
+                      ? imageUrlFor(image)
+                          .width(1000)
+                          .url()
+                      : "https://oslopride.no/static/logo.jpg"
+                  }
                 ]
               }
             }}
