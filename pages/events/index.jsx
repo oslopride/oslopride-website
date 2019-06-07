@@ -133,7 +133,6 @@ Events.getInitialProps = async ({ store, isServer, query }) => {
     if (isServer) {
       try {
         const response = await getEvents();
-        console.log(response);
         store.dispatch(eventsActions.success(response));
       } catch (e) {
         store.dispatch(eventsActions.failure(`${e}`));
