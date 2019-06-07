@@ -41,8 +41,8 @@ const Event = ({ event }) =>
         eventWebpage
       } = e;
 
-      const start = dayjs(startingTime);
-      const end = dayjs(endingTime);
+      const start = dayjs(startingTime).add(2, "hour");
+      const end = dayjs(endingTime).add(2, "hour");
       const singleDayEvent = start.diff(end, "day") === 0;
 
       return (
