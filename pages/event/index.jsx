@@ -79,11 +79,7 @@ const Event = ({ event }) =>
               </div>
               <div>
                 <strong>Tidspunkt: </strong>
-                {singleDayEvent
-                  ? `${start.format("HH:mm")} - ${end.format("HH:mm")}`
-                  : `${start.format("D. MMMM HH:mm")} - ${end.format(
-                      "D MMMM HH:mm"
-                    )}`}
+                {`${start.format("HH:mm")} - ${end.format("HH:mm")}`}
               </div>
               <div>
                 <strong>Pris: </strong>
