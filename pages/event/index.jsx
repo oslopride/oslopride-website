@@ -138,7 +138,7 @@ const Event = ({ event }) =>
               )} @ ${location.name && location.name + ", "}${location.address}`,
               openGraph: {
                 type: "website",
-                url: `https://oslopride.no/events/${_id}`,
+                url: `https://www.oslopride.no/events/${_id}`,
                 title,
                 locale: "nb_NO",
                 site_name: "Oslo Pride",
@@ -156,7 +156,7 @@ const Event = ({ event }) =>
                       ? imageUrlFor(image)
                           .width(1000)
                           .url()
-                      : "https://oslopride.no/static/logo.jpg"
+                      : "https://www.oslopride.no/static/logo.jpg"
                   }
                 ]
               }
