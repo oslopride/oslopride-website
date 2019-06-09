@@ -35,7 +35,7 @@ const FrontPage = props => {
         />
       </HeroWrapper>
 
-      {/* <ContentWrapper>
+      <ContentWrapper>
         <FeaturedAction
           image={imageUrlFor(frontPage.data.featuredAction.image)
             .width(500)
@@ -44,7 +44,7 @@ const FrontPage = props => {
           description={frontPage.data.featuredAction.description}
           link={frontPage.data.featuredAction.link}
         />
-      </ContentWrapper> */}
+      </ContentWrapper>
 
       <ContentWrapper>
         <FeaturedDates dates={frontPage.data.featuredDates} />
