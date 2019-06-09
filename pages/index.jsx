@@ -51,11 +51,7 @@ const FrontPage = props => {
         <FeaturedDates dates={frontPage.data.featuredDates} />
       </ContentWrapper>
 
-      <Banner
-        color={theme.lightOrange}
-        title="Artikler"
-        textColor={theme.orange}
-      >
+      <Banner color={theme.lightBlue} title="Artikler" textColor={theme.blue}>
         <FeaturedArticlesWrapper>
           {frontPage.data.featuredArticles.map(article => (
             <FeaturedArticle
@@ -64,6 +60,12 @@ const FrontPage = props => {
             />
           ))}
         </FeaturedArticlesWrapper>
+      </Banner>
+
+      <Banner>
+        <StoreWrapper>
+          <img src="/static/pridebutikk.svg" />
+        </StoreWrapper>
       </Banner>
 
       <Banner
@@ -206,4 +208,9 @@ const FeaturedArticle = styled(ArticlePreview)`
   @media (min-width: 1025px) {
     width: 350px;
   }
+`;
+
+const StoreWrapper = styled.div`
+  display: flex;
+  justify-content: center;
 `;
