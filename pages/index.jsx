@@ -5,6 +5,7 @@ import FeaturedButtons from "@/components/FeaturedButtons";
 import FeaturedDates from "@/components/FeaturedDates";
 import FeaturedPartners from "@/components/FeaturedPartners";
 import Hero from "@/components/Hero";
+import Link from "@/components/Link";
 import { articleActions } from "@/store/articles";
 import { frontPageActions, getFrontPage } from "@/store/front-page";
 import { webResponseInitial } from "@/store/helpers";
@@ -64,7 +65,12 @@ const FrontPage = props => {
 
       <Banner>
         <StoreWrapper>
-          <img src="/static/pridebutikk.svg" />
+          <StoreImage>
+            <img src="/static/pridebutikk.svg" alt="Pridebutikken logo" />
+          </StoreImage>
+          <StoreLink href="https://butikk.oslopride.no/">
+            Gå til butikken
+          </StoreLink>
         </StoreWrapper>
       </Banner>
 
@@ -212,5 +218,17 @@ const FeaturedArticle = styled(ArticlePreview)`
 
 const StoreWrapper = styled.div`
   display: flex;
+  flex-flow: column wrap;
   justify-content: center;
+  align-items: center;
 `;
+
+const StoreImage = styled.div`
+  max-width: 500px;
+
+  img {
+    width: 100%;
+  }
+`;
+
+const StoreLink = styled(Link)``;
