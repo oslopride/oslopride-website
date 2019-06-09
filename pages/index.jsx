@@ -50,14 +50,21 @@ const FrontPage = props => {
       <ContentWrapper>
         <FeaturedDates dates={frontPage.data.featuredDates} />
       </ContentWrapper>
-      <FeaturedArticlesWrapper>
-        {frontPage.data.featuredArticles.map(article => (
-          <FeaturedArticle
-            slug={article.slug.current}
-            key={article.slug.current}
-          />
-        ))}
-      </FeaturedArticlesWrapper>
+
+      <Banner
+        color={theme.lightOrange}
+        title="Artikler"
+        textColor={theme.orange}
+      >
+        <FeaturedArticlesWrapper>
+          {frontPage.data.featuredArticles.map(article => (
+            <FeaturedArticle
+              slug={article.slug.current}
+              key={article.slug.current}
+            />
+          ))}
+        </FeaturedArticlesWrapper>
+      </Banner>
 
       <Banner
         color={theme.lightGreen}
@@ -189,9 +196,7 @@ const FrontPageFeaturedDates = styled(FeaturedDates)`
 const FeaturedArticlesWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-
-  max-width: 1200px;
+  justify-content: center;
 `;
 
 const FeaturedArticle = styled(ArticlePreview)`
