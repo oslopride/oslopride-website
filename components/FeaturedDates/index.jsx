@@ -55,7 +55,7 @@ const ProgramLink = styled(Link)`
 `;
 
 const DatesWrapper = styled.div`
-  margin-bottom: 50px;
+  margin: 80px 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -69,6 +69,7 @@ const DateWrapper = styled.a`
   transition: transform 0.2s ease-in-out;
   padding: 10px;
   margin-bottom: 20px;
+  line-height: 1.7;
 
   :hover,
     :focus {
