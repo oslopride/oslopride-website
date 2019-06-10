@@ -60,7 +60,7 @@ const EventList = props => {
         const currentDay = dayjs.utc(day[0].startingTime).add(2, "hour");
         return (
           <Event key={currentDay.format("YYYY-MM-DD")}>
-            <Sticky>
+            <Sticky style={{ zIndex: 2, position: "relative" }}>
               <EventDay>
                 {currentDay.format("dddd")}{" "}
                 <span>{currentDay.format("D. MMMM")}</span>
