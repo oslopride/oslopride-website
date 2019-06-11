@@ -85,7 +85,7 @@ PressReleases.getInitialProps = async ctx => {
         store.dispatch(pressReleasesActions.success(response));
       } catch (e) {
         logError(e, ctx);
-        store.dispatch(pressReleasesActions.failure(`${e}`));
+        store.dispatch(pressReleasesActions.failure());
       }
     }
   }
