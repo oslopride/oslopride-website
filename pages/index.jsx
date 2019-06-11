@@ -5,6 +5,7 @@ import FeaturedButtons from "@/components/FeaturedButtons";
 import FeaturedDates from "@/components/FeaturedDates";
 import FeaturedPartners from "@/components/FeaturedPartners";
 import Hero from "@/components/Hero";
+import Link from "@/components/Link";
 import { articleActions } from "@/store/articles";
 import { frontPageActions, getFrontPage } from "@/store/front-page";
 import { webResponseInitial } from "@/store/helpers";
@@ -50,14 +51,28 @@ const FrontPage = props => {
       <ContentWrapper>
         <FeaturedDates dates={frontPage.data.featuredDates} />
       </ContentWrapper>
-      <FeaturedArticlesWrapper>
-        {frontPage.data.featuredArticles.map(article => (
-          <FeaturedArticle
-            slug={article.slug.current}
-            key={article.slug.current}
-          />
-        ))}
-      </FeaturedArticlesWrapper>
+
+      <Banner color={theme.lightBlue} title="Artikler" textColor={theme.blue}>
+        <FeaturedArticlesWrapper>
+          {frontPage.data.featuredArticles.map(article => (
+            <FeaturedArticle
+              slug={article.slug.current}
+              key={article.slug.current}
+            />
+          ))}
+        </FeaturedArticlesWrapper>
+      </Banner>
+
+      <Banner>
+        <StoreWrapper>
+          <StoreImage>
+            <img src="/static/pridebutikk.svg" alt="Pridebutikken logo" />
+          </StoreImage>
+          <StoreLink href="https://butikk.oslopride.no/">
+            Gå til butikken
+          </StoreLink>
+        </StoreWrapper>
+      </Banner>
 
       <Banner
         color={theme.lightGreen}
@@ -76,7 +91,7 @@ const FrontPage = props => {
             "Norges største feiring av skeiv kjærlighet og mangfold. En festival der alle har lov til å være akkurat den de er.",
           openGraph: {
             type: "website",
-            url: "https://oslopride.no/",
+            url: "https://www.oslopride.no/",
             locale: "nb_NO",
             site_name: "Oslo Pride",
             title: "Oslo Pride",
@@ -84,13 +99,13 @@ const FrontPage = props => {
               "Norges største feiring av skeiv kjærlighet og mangfold. En festival der alle har lov til å være akkurat den de er.",
             images: [
               {
-                url: "https://oslopride.no/static/logo.jpg",
+                url: "https://www.oslopride.no/static/logo.jpg",
                 alt: "Oslo Pride Logo",
                 width: "2110",
                 height: "1218"
               },
               {
-                url: "https://oslopride.no/static/prideheart.jpg",
+                url: "https://www.oslopride.no/static/prideheart.jpg",
                 alt: "Oslo Pride Hjerte",
                 width: "1458",
                 height: "1458"
@@ -189,9 +204,7 @@ const FrontPageFeaturedDates = styled(FeaturedDates)`
 const FeaturedArticlesWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-
-  max-width: 1200px;
+  justify-content: center;
 `;
 
 const FeaturedArticle = styled(ArticlePreview)`
@@ -202,3 +215,20 @@ const FeaturedArticle = styled(ArticlePreview)`
     width: 350px;
   }
 `;
+
+const StoreWrapper = styled.div`
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+`;
+
+const StoreImage = styled.div`
+  max-width: 500px;
+
+  img {
+    width: 100%;
+  }
+`;
+
+const StoreLink = styled(Link)``;
