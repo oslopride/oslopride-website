@@ -76,17 +76,21 @@ const EventList = props => {
                 >
                   <EventLink>
                     {event.image ? (
-                      <EventImage
-                        src={imageUrlFor(event.image)
-                          .height(250)
-                          .url()}
-                        alt="arrangementsbilde"
-                      />
+                      <EventImageContainer>
+                        <EventImage
+                          src={imageUrlFor(event.image)
+                            .height(250)
+                            .url()}
+                          alt="arrangementsbilde"
+                        />
+                      </EventImageContainer>
                     ) : (
-                      <EventImage
-                        src="/static/placeholder.jpg"
-                        alt="arrangementsbilde"
-                      />
+                      <EventImageContainer>
+                        <EventImage
+                          src="/static/placeholder.jpg"
+                          alt="arrangementsbilde"
+                        />
+                      </EventImageContainer>
                     )}
 
                     <EventInfo>
@@ -202,10 +206,15 @@ const EventDayListWrapper = styled.div`
   margin-top: 20px;
 `;
 
-const EventImage = styled.img`
+const EventImageContainer = styled.div`
   width: 150px;
   height: 120px;
   max-width: 25%;
+`;
+
+const EventImage = styled.img`
+  width: 150px;
+  height: 120px;
   object-fit: cover;
 `;
 

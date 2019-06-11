@@ -83,7 +83,7 @@ const Events = props => {
           toggles={[
             {
               off: "Alle",
-              on: "Kun Oslo Pride-arrangementer",
+              on: "Arrangert av Oslo Pride",
               isOn: query.official === "true",
               callback: value => toggleFilter("official", "true")
             },
