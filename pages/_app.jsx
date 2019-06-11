@@ -3,7 +3,11 @@ import Header from "@/components/Header";
 import { configActions, getConfig } from "@/store/config";
 import { webResponseStatus } from "@/store/helpers";
 import createStore from "@/store/store";
-import { initializeGoogleAnalytics, logPageView } from "@/utils/google-analytics";
+import {
+  initializeGoogleAnalytics,
+  logPageView
+} from "@/utils/google-analytics";
+import logError, { initializeSentry } from "@/utils/sentry";
 import dayjs from "dayjs";
 import "dayjs/locale/nb";
 import utc from "dayjs/plugin/utc";
@@ -55,6 +59,9 @@ const Content = styled.main`
 
 class NextApp extends App {
   static async getInitialProps({ Component, ctx }) {
+    // Initialize sentry
+    initializeSentry(ctx);
+
     let pageProps = {};
 
     const { store, isServer } = ctx;
@@ -66,7 +73,8 @@ class NextApp extends App {
           const response = await getConfig();
           store.dispatch(configActions.success(response));
         } catch (e) {
-          store.dispatch(configActions.failure(`${e}`));
+          logError(e, ctx);
+          store.dispatch(configActions.failure());
         }
       }
     }

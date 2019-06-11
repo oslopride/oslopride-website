@@ -8,11 +8,6 @@ cache: yarn
 notifications:
   email: false
 
-branches:
-  only:
-  - master
-  - /^v([0-9]+)\.([0-9]+)\.([0-9]+)$/
-
 install:
   - yarn
   - yarn global add now
