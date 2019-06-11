@@ -1,20 +1,17 @@
 import * as Sentry from "@sentry/node";
 
-let initialized = false;
+const SANITY_DNS = "https://785a889b53d9402c93bfea0bd999401d@sentry.io/1475905";
 const PROD_HOST = "www.oslopride.no";
 const isProd = process.env.NODE_ENV === "production";
+let initialized = false;
 
 export function initializeSentry(ctx) {
   if (!initialized && isProd) {
     // Initialize sentry
     initialized = true;
 
-    console.log("=== SENTRY INFO ===");
-    console.log(process.env.SENTRY_DSN);
-    console.log(process.env.SENTRY_RELEASE);
-
     const sentryOptions = {
-      dsn: process.env.SENTRY_DSN,
+      dsn: SANITY_DNS,
       release: process.env.SENTRY_RELEASE,
       maxBreadcrumbs: 50,
       attachStacktrace: true

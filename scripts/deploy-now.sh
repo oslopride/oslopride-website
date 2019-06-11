@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Deploy
-NOW_DEPLOYMENT=$(now -e SENTRY_DSN="$SENTRY_DSN" --token=$NOW_TOKEN --scope oslopride --no-clipboard)
+NOW_DEPLOYMENT=$(now --token=$NOW_TOKEN --scope oslopride --no-clipboard)
 
 # Pull Request
 if [ $TRAVIS_PULL_REQUEST != "false" ]; then
