@@ -9,9 +9,13 @@ export function initializeSentry(ctx) {
     // Initialize sentry
     initialized = true;
 
+    console.log("=== SENTRY INFO ===");
+    console.log(process.env.SENTRY_DSN);
+    console.log(process.env.SENTRY_RELEASE);
+
     const sentryOptions = {
       dsn: process.env.SENTRY_DSN,
-      release: process.env.buildId,
+      release: process.env.SENTRY_RELEASE,
       maxBreadcrumbs: 50,
       attachStacktrace: true
     };
