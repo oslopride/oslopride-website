@@ -208,15 +208,13 @@ const EventDayListWrapper = styled.div`
 
 const EventImageContainer = styled.div`
   width: 140px;
+  height: 120px;
   max-width: 30%;
 `;
 
 const EventImage = styled.img`
-  height: 120px;
-  width: 140px;
-  max-width: 100%;
-  object-fit: cover;
-  -o-object-fit: cover;
+  height: 100%;
+  width: 100%;
   object-fit: cover;
 `;
 
@@ -230,8 +228,12 @@ const EventInfo = styled.div`
 
 const EventTitle = styled.div`
   width: 100%;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
+
+  @media (min-width: 500px) {
+    font-size: 20px;
+  }
 `;
 
 const EventTime = styled.div`
