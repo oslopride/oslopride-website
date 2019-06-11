@@ -185,7 +185,7 @@ const EventLink = styled.a`
   cursor: pointer;
   padding: 20px 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   text-decoration: none;
   color: inherit;
@@ -200,10 +200,6 @@ const EventLink = styled.a`
       transform: scale(1.05);
     }
   }
-
-  @media (min-width: 500px) {
-    flex-direction: row;
-  }
 `;
 
 const EventDayListWrapper = styled.div`
@@ -211,18 +207,16 @@ const EventDayListWrapper = styled.div`
 `;
 
 const EventImageContainer = styled.div`
-  width: 100%;
-  height: 180px;
-
-  @media (min-width: 500px) {
-    width: 150px;
-    height: 120px;
-  }
+  width: 140px;
+  max-width: 30%;
 `;
 
 const EventImage = styled.img`
-  height: 100%;
-  width: 100%;
+  height: 120px;
+  width: 140px;
+  max-width: 100%;
+  object-fit: cover;
+  -o-object-fit: cover;
   object-fit: cover;
 `;
 
@@ -230,11 +224,8 @@ const EventInfo = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
+  margin-left: 20px;
   width: 100%;
-
-  @media (min-width: 500px) {
-    margin-left: 20px;
-  }
 `;
 
 const EventTitle = styled.div`
