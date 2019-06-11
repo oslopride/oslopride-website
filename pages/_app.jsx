@@ -7,7 +7,7 @@ import {
   initializeGoogleAnalytics,
   logPageView
 } from "@/utils/google-analytics";
-import logError from "@/utils/sentry";
+import logError, { initializeSentry } from "@/utils/sentry";
 import dayjs from "dayjs";
 import "dayjs/locale/nb";
 import utc from "dayjs/plugin/utc";
@@ -25,7 +25,7 @@ dayjs.locale("nb"); // Use norwegian (bokmål) globally
 dayjs.extend(utc); // Add UTC support
 
 // Initialize sentry
-initializeSentry(ctx);
+initializeSentry();
 
 const GlobalStyle = createGlobalStyle`
   ${normalize()}
