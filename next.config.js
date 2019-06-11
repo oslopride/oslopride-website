@@ -1,8 +1,12 @@
 const withCSS = require("@zeit/next-css");
-const withSourceMaps = require("@zeit/next-source-maps");
+const withSourceMaps = require("@zeit/next-source-maps")();
 const webpack = require("webpack");
 
-const compose = (...fns) => fns.reduce((f, g) => (...args) => f(g(...args)));
+const compose = (...fns) =>
+  fns.reduceRight(
+    (prevFn, nextFn) => (...args) => nextFn(prevFn(...args)),
+    value => value
+  );
 
 const nextPlugins = compose(
   withCSS,
