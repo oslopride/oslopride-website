@@ -5,7 +5,7 @@ const PROD_HOST = "www.oslopride.no";
 const isProd = process.env.NODE_ENV === "production";
 let initialized = false;
 
-export function initializeSentry(ctx) {
+export function initializeSentry() {
   if (!initialized && isProd) {
     // Initialize sentry
     initialized = true;
@@ -19,12 +19,8 @@ export function initializeSentry(ctx) {
 
     Sentry.init(sentryOptions);
 
-    const host = process.browser ? window.location.host : ctx.req.headers.host;
-
     Sentry.configureScope(scope => {
       scope.setTag("ssr", !process.browser);
-      scope.setTag("production", host === PROD_HOST);
-      scope.setExtra("host", host);
     });
   }
 }

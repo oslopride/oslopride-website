@@ -1,13 +1,10 @@
-import logError, { initializeSentry } from "@/utils/sentry";
+import logError from "@/utils/sentry";
 import Document, { Head, Main, NextScript } from "next/document";
 import React from "react";
 import { ServerStyleSheet } from "styled-components";
 
 export default class NextDocument extends Document {
   static async getInitialProps(ctx) {
-    // Initialize sentry
-    initializeSentry(ctx);
-
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
 

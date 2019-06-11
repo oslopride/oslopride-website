@@ -7,7 +7,7 @@ import {
   initializeGoogleAnalytics,
   logPageView
 } from "@/utils/google-analytics";
-import logError, { initializeSentry } from "@/utils/sentry";
+import logError from "@/utils/sentry";
 import dayjs from "dayjs";
 import "dayjs/locale/nb";
 import utc from "dayjs/plugin/utc";
@@ -23,6 +23,9 @@ import styled, { createGlobalStyle } from "styled-components";
 
 dayjs.locale("nb"); // Use norwegian (bokmål) globally
 dayjs.extend(utc); // Add UTC support
+
+// Initialize sentry
+initializeSentry(ctx);
 
 const GlobalStyle = createGlobalStyle`
   ${normalize()}
@@ -59,9 +62,6 @@ const Content = styled.main`
 
 class NextApp extends App {
   static async getInitialProps({ Component, ctx }) {
-    // Initialize sentry
-    initializeSentry(ctx);
-
     let pageProps = {};
 
     const { store, isServer } = ctx;
