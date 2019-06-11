@@ -89,7 +89,7 @@ const Events = props => {
             },
             {
               off: "Alle",
-              on: "Universelt utformet",
+              on: "Rullestolvennlig",
               isOn: query.accessible === "true",
               callback: value => toggleFilter("accessible", "true")
             },
