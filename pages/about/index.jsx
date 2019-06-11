@@ -47,6 +47,7 @@ const About = props => {
 };
 
 About.getInitialProps = async ctx => {
+  logError(new Error("TEST"));
   const { store, isServer } = ctx;
   if (store.getState().about.status === webResponseInitial().status) {
     store.dispatch(aboutActions.request());
