@@ -207,14 +207,16 @@ const EventDayListWrapper = styled.div`
 `;
 
 const EventImageContainer = styled.div`
-  width: 150px;
-  height: 120px;
-  max-width: 25%;
+  width: 140px;
+  max-width: 30%;
 `;
 
 const EventImage = styled.img`
-  width: 150px;
   height: 120px;
+  width: 140px;
+  max-width: 100%;
+  object-fit: cover;
+  -o-object-fit: cover;
   object-fit: cover;
 `;
 
