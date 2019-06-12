@@ -179,6 +179,7 @@ const EventDay = styled.h2`
   color: white;
   text-transform: uppercase;
   text-align: center;
+  border-radius: 2px;
 `;
 
 const EventLink = styled.a`
