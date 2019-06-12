@@ -215,9 +215,14 @@ const EventDayListWrapper = styled.div`
 `;
 
 const EventImageContainer = styled.div`
-  width: 140px;
-  height: 120px;
-  max-width: 30%;
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+
+  @media (min-width: 500px) {
+    width: 120px;
+    height: 120px;
+  }
 `;
 
 const EventImage = styled.img`
@@ -237,7 +242,7 @@ const EventInfo = styled.div`
 
 const EventTitle = styled.div`
   width: 100%;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
 
   @media (min-width: 500px) {
@@ -246,25 +251,41 @@ const EventTitle = styled.div`
 `;
 
 const EventTime = styled.div`
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 600;
   color: ${theme.orange};
   margin-right: 10px;
   width: 100%;
+
+  @media (min-width: 500px) {
+    font-size: 18px;
+  }
 `;
 
 const EventPlace = styled.div`
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 300;
   margin-right: 10px;
+
+  @media (min-width: 500px) {
+    font-size: 18px;
+  }
 `;
 
 const EventType = styled.div`
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 300;
+
+  @media (min-width: 500px) {
+    font-size: 18px;
+  }
 `;
 
 const Descriptor = styled.span`
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 500;
+
+  @media (min-width: 500px) {
+    font-size: 18px;
+  }
 `;
