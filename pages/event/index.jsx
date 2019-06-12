@@ -182,7 +182,7 @@ Event.getInitialProps = async ctx => {
         store.dispatch(eventsActions.success(response));
       } catch (e) {
         logError(e, ctx);
-        store.dispatch(eventsActions.failure("Unable to load articles"));
+        store.dispatch(eventsActions.failure("Unable to load events"));
       }
     }
   }
