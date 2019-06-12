@@ -48,7 +48,13 @@ const Article = ({ article }) => {
               publishedTime: _createdAt,
               modifiedTime: _updatedAt
             },
-            images: [{ url: imagrUrl }]
+            images: [
+              {
+                url: imageUrlFor(image)
+                  .width(1000)
+                  .url()
+              }
+            ]
           }
         }}
       />
