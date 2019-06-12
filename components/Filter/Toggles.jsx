@@ -27,6 +27,7 @@ const ToggleText = styled.span`
 
 const Toggle = styled(Switch)`
   margin: 0 5px;
+  flex-shrink: 0;
 `;
 
 const OnIcon = styled(FaToggleOn)`
