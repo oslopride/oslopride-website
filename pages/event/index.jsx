@@ -77,6 +77,7 @@ const Event = ({ event }) =>
                 <strong>Sted: </strong>
                 {location.name && `${location.name}, `}
                 {location.address}
+                {location.venue && ` (${location.venue.name})`}
               </div>
               <div>
                 <strong>Tidspunkt: </strong>
