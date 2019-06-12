@@ -57,5 +57,10 @@ export default Toggles;
 const Container = styled.div`
   width: 100%;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
+
+  @media (min-width: 750px) {
+    flex-direction: row;
+  }
 `;
