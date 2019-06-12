@@ -3,6 +3,7 @@ import theme from "@/utils/theme";
 import dayjs from "dayjs";
 import Link from "next/link";
 import React from "react";
+import LazyLoad from "react-lazyload";
 import Sticky from "react-sticky-el";
 import styled from "styled-components";
 
@@ -77,12 +78,25 @@ const EventList = props => {
                   <EventLink>
                     {event.image ? (
                       <EventImageContainer>
-                        <EventImage
-                          src={imageUrlFor(event.image)
-                            .height(250)
-                            .url()}
-                          alt="arrangementsbilde"
-                        />
+                        <LazyLoad
+                          height={120}
+                          once
+                          scroll
+                          offset={100}
+                          placeholder={
+                            <EventImage
+                              src="/static/event-placeholder.png"
+                              alt="arrangementsbilde"
+                            />
+                          }
+                        >
+                          <EventImage
+                            src={imageUrlFor(event.image)
+                              .height(250)
+                              .url()}
+                            alt="arrangementsbilde"
+                          />
+                        </LazyLoad>
                       </EventImageContainer>
                     ) : (
                       <EventImageContainer>
