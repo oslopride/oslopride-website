@@ -67,7 +67,11 @@ const Article = ({ article }) => {
         publisherName="Oslo Pride"
         publisherLogo="https://www.oslopride.no/static/logo.jpg"
         description={preamble}
-        images={[imageUrlFor(image).url()]}
+        images={[
+          imageUrlFor(image)
+            .width(1000)
+            .url()
+        ]}
       />
     </Sheet>
   );
