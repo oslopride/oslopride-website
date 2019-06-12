@@ -76,37 +76,38 @@ const EventList = props => {
                   passHref
                 >
                   <EventLink>
-                    {event.image ? (
-                      <EventImageContainer>
-                        <LazyLoad
-                          height={120}
-                          once
-                          scroll
-                          offset={100}
-                          placeholder={
-                            <EventImage
-                              src="/static/event-placeholder.png"
-                              alt="arrangementsbilde"
-                            />
-                          }
-                        >
+                    <LazyLoad
+                      height={120}
+                      scroll
+                      once
+                      offset={100}
+                      placeholder={
+                        <EventImageContainer>
+                          <EventImage
+                            src="/static/event-placeholder.png"
+                            alt="arrangementsbilde"
+                          />
+                        </EventImageContainer>
+                      }
+                    >
+                      {event.image ? (
+                        <EventImageContainer>
                           <EventImage
                             src={imageUrlFor(event.image)
                               .height(250)
                               .url()}
                             alt="arrangementsbilde"
                           />
-                        </LazyLoad>
-                      </EventImageContainer>
-                    ) : (
-                      <EventImageContainer>
-                        <EventImage
-                          src="/static/event-placeholder.png"
-                          alt="arrangementsbilde"
-                        />
-                      </EventImageContainer>
-                    )}
-
+                        </EventImageContainer>
+                      ) : (
+                        <EventImageContainer>
+                          <EventImage
+                            src="/static/event-placeholder.png"
+                            alt="arrangementsbilde"
+                          />
+                        </EventImageContainer>
+                      )}
+                    </LazyLoad>
                     <EventInfo>
                       <EventTitle>{event.title}</EventTitle>
                       <EventTime>
