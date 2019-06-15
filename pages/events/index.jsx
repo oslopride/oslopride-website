@@ -15,24 +15,6 @@ import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import EventPreview from "@/components/EventPreview";
-import Banner from "@/components/Banner";
-
-const arenaNameMapper = arena => {
-  switch (arena) {
-    case "0":
-      return "Ekstern arena";
-    case "1":
-      return "Pride Parade";
-    case "2":
-      return "Pride Park";
-    case "3":
-      return "Pride House";
-    case "4":
-      return "Pride Art";
-    default:
-      return "Ukjent";
-  }
-};
 
 const Events = props => {
   const { events, query } = props;
@@ -42,6 +24,9 @@ const Events = props => {
     "accessible",
     "deafInterpretation"
   ]);
+
+  const featuredEvents =
+    filteredEvents.filter(x => x.isFeatured).slice(0, 4) || [];
 
   if (events.status !== "SUCCESS") {
     // TODO: Make a better UX while loading
@@ -109,9 +94,9 @@ const Events = props => {
         />
 
         <FeaturedEventsWrapper>
-          {filteredEvents &&
-          filteredEvents.length > 4 &&
-          filteredEvents.slice(0, 4).map(e => <EventPreview event={e}/>)}
+          {featuredEvents.map(e => (
+            <EventPreview event={e}/>
+          ))}
         </FeaturedEventsWrapper>
         {events.data.length ? (
           <EventList events={filteredEvents}/>
@@ -178,12 +163,13 @@ const FeaturedEventsWrapper = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   
-  & > :first-child {
-    margin-left: 0;
-  }
-  
-  & > :last-child {
-    margin-right: 0;
+  @media (min-width: 1000px) {
+    & > :first-child {
+      margin-left: 0;
+    }
+    
+    & > :last-child {
+      margin-right: 0;
+    }
   }
 `;
-

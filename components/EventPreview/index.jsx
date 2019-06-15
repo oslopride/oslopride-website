@@ -1,32 +1,10 @@
 import { imageUrlFor } from "@/store/sanity";
 import theme from "@/utils/theme";
-import NextLink from "next/link";
 import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import dayjs from "dayjs";
 import LazyLoad from "react-lazyload";
-
-const displayArena = event => {
-  switch (event.category) {
-    case "0":
-      return "";
-      break;
-    case "1":
-      return "Pride Parade, ";
-      break;
-    case "2":
-      return "Pride Park, ";
-      break;
-    case "3":
-      return "Pride House, ";
-      break;
-    case "4":
-      return "Pride Art, ";
-      break;
-  }
-};
-
 
 const displayEventType = event => {
   switch (event.eventType) {
@@ -48,13 +26,8 @@ const displayEventType = event => {
   }
 };
 
-
 const EventPreview = props => {
   const event = props.event;
-  const { title, image } = props.event;
-  const slug = "";
-  const className = "";
-  const preamble = "";
   const start = dayjs.utc(event.startingTime).add(2, "hour");
   const end = dayjs.utc(event.endingTime).add(2, "hour");
 
@@ -66,7 +39,6 @@ const EventPreview = props => {
       passHref
     >
       <Wrapper>
-
         <LazyLoad
           height={120}
           scroll
@@ -86,6 +58,7 @@ const EventPreview = props => {
               <EventImage
                 src={imageUrlFor(event.image)
                   .height(250)
+                  .width(375)
                   .url()}
                 alt="arrangementsbilde"
               />
@@ -99,15 +72,14 @@ const EventPreview = props => {
             </EventImageContainer>
           )}
         </LazyLoad>
-        <EventTitle id="title">{title}</EventTitle>
+        <EventTitle id="title">{event.title}</EventTitle>
         <EventTimeDay>
           <OrangeColor>{start.format("dddd")} </OrangeColor>
           {start.format("D. MMMM YYYY")}
         </EventTimeDay>
         <EventTimeFromTo>
-          {start.format("HH:mm")} - {end.format("HH:mm")} - {displayEventType(event)}
+          {start.format("HH:mm")} - {end.format("HH:mm")} {displayEventType(event)}
         </EventTimeFromTo>
-
       </Wrapper>
     </Link>
   );
@@ -119,13 +91,22 @@ const Wrapper = styled.a`
   display: flex;
   flex-direction: column;
   background-color: white;
-  padding: 10px;
-  margin: 10px;
   color: initial;
   text-decoration: initial;
   border-radius: 2px;
   transition: transform 0.2s ease-in-out;
-  width: 220px;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px 0;
+
+  @media (min-width: 500px) {
+    width: 220px;
+  }
+
+  @media (min-width: 1000px) {
+    margin: 10px;
+    padding: 10px;
+  }
 
   :hover,
   :focus {
@@ -135,8 +116,8 @@ const Wrapper = styled.a`
 `;
 
 const EventImageContainer = styled.div`
-  width: 200px;
-  height: 112px;
+  width: 100%;
+  height: 150px;
   flex-shrink: 0;
   margin-bottom: 5px;
 
@@ -173,26 +154,5 @@ const EventTitle = styled.div`
 
   @media (min-width: 500px) {
     font-size: 18px;
-  }
-`;
-
-const EventTime = styled.div`
-  font-size: 15px;
-  font-weight: 600;
-  color: ${theme.orange};
-  margin-right: 10px;
-  width: 100%;
-
-  @media (min-width: 500px) {
-    font-size: 16px;
-  }
-`;
-
-const EventType = styled.div`
-  font-size: 16px;
-  font-weight: 300;
-
-  @media (min-width: 500px) {
-    font-size: 16px;
   }
 `;
