@@ -14,6 +14,8 @@ import NextSeo from "next-seo";
 import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
+import EventPreview from "@/components/EventPreview";
+import Banner from "@/components/Banner";
 
 const arenaNameMapper = arena => {
   switch (arena) {
@@ -50,7 +52,6 @@ const Events = props => {
     <>
       <Sheet>
         <PageTitle>Program 2019</PageTitle>
-
         <Filter
           selectors={[
             {
@@ -107,8 +108,13 @@ const Events = props => {
           ]}
         />
 
+        <FeaturedEventsWrapper>
+          {filteredEvents &&
+          filteredEvents.length > 4 &&
+          filteredEvents.slice(0, 4).map(e => <EventPreview event={e}/>)}
+        </FeaturedEventsWrapper>
         {events.data.length ? (
-          <EventList events={filteredEvents} />
+          <EventList events={filteredEvents}/>
         ) : (
           <p>Kommer snart!</p>
         )}
@@ -166,3 +172,18 @@ const PageTitle = styled.h1`
   text-transform: uppercase;
   text-align: center;
 `;
+
+const FeaturedEventsWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+  & > :first-child {
+    margin-left: 0;
+  }
+  
+  & > :last-child {
+    margin-right: 0;
+  }
+`;
+
