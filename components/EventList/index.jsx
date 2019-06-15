@@ -72,6 +72,7 @@ const EventList = props => {
                 >
                   <EventLink>
                     <LazyLoad
+                      height={120}
                       scroll
                       once
                       offset={100}
@@ -211,12 +212,12 @@ const EventDayListWrapper = styled.div`
 
 const EventImageContainer = styled.div`
   width: 90px;
-  height: 67.5px;
+  height: 90px;
   flex-shrink: 0;
 
   @media (min-width: 500px) {
     width: 120px;
-    height: 90px;
+    height: 120px;
   }
 `;
 
