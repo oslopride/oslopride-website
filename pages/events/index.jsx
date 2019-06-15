@@ -38,7 +38,8 @@ const Events = props => {
     "category",
     "official",
     "accessible",
-    "deafInterpretation"
+    "deafInterpretation",
+    "hasEnded"
   ]);
 
   if (events.status !== "SUCCESS") {
@@ -103,6 +104,12 @@ const Events = props => {
               on: "Tegnspråktolket",
               isOn: query.deafInterpretation === "true",
               callback: value => toggleFilter("deafInterpretation", "true")
+            },
+            {
+              off: "Alle",
+              on: "Kun fremtidige",
+              isOn: query.hasEnded === "false",
+              callback: value => toggleFilter("hasEnded", "false")
             }
           ]}
         />
