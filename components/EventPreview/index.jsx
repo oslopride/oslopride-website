@@ -1,10 +1,10 @@
 import { imageUrlFor } from "@/store/sanity";
 import theme from "@/utils/theme";
-import React from "react";
-import styled from "styled-components";
-import Link from "next/link";
 import dayjs from "dayjs";
+import Link from "next/link";
+import React from "react";
 import LazyLoad from "react-lazyload";
+import styled from "styled-components";
 
 const displayEventType = event => {
   switch (event.eventType) {
@@ -39,6 +39,10 @@ const EventPreview = props => {
       passHref
     >
       <Wrapper>
+        <EventTimeDay>
+          <OrangeColor>{start.format("dddd")} </OrangeColor>
+          {start.format("D. MMMM YYYY")}
+        </EventTimeDay>
         <LazyLoad
           height={120}
           scroll
@@ -72,14 +76,11 @@ const EventPreview = props => {
             </EventImageContainer>
           )}
         </LazyLoad>
-        <EventTitle id="title">{event.title}</EventTitle>
-        <EventTimeDay>
-          <OrangeColor>{start.format("dddd")} </OrangeColor>
-          {start.format("D. MMMM YYYY")}
-        </EventTimeDay>
         <EventTimeFromTo>
-          {start.format("HH:mm")} - {end.format("HH:mm")} {displayEventType(event)}
+          {start.format("HH:mm")} - {end.format("HH:mm")}{" "}
+          {displayEventType(event)}
         </EventTimeFromTo>
+        <EventTitle id="title">{event.title}</EventTitle>
       </Wrapper>
     </Link>
   );
@@ -151,6 +152,7 @@ const OrangeColor = styled.span`
 const EventTitle = styled.div`
   width: 100%;
   font-size: 16px;
+  font-weight: bold;
 
   @media (min-width: 500px) {
     font-size: 18px;
