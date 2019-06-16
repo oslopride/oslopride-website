@@ -4,12 +4,9 @@ import { useMemo } from "react";
 const toArray = val =>
   val === undefined ? [] : Array.isArray(val) ? val : [val];
 
-export default (objects, query, allowedFilterKeys, obligatoryQueryKeys) =>
+export default (objects, query, allowedFilterKeys) =>
   useMemo(() => {
     let filteredObjects = objects;
-    if (!query[obligatoryQueryKeys]) {
-      query[obligatoryQueryKeys] = "false";
-    }
     Object.keys(query)
       .filter(key => allowedFilterKeys.includes(key))
       .forEach(key => {

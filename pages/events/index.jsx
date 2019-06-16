@@ -34,18 +34,12 @@ const arenaNameMapper = arena => {
 
 const Events = props => {
   const { events, query } = props;
-  const filteredEvents = useURLFilter(
-    events.data || [],
-    query,
-    [
-      "category",
-      "official",
-      "accessible",
-      "deafInterpretation",
-      "hasEnded",
-    ],
-    "hasEnded"
-  );
+  const filteredEvents = useURLFilter(events.data || [], query, [
+    "category",
+    "official",
+    "accessible",
+    "deafInterpretation"
+  ]);
 
   if (events.status !== "SUCCESS") {
     // TODO: Make a better UX while loading
@@ -109,18 +103,6 @@ const Events = props => {
               on: "Tegnspråktolket",
               isOn: query.deafInterpretation === "true",
               callback: value => toggleFilter("deafInterpretation", "true")
-            },
-            {
-              off: "Fremtidige",
-              on: "Gjennomførte",
-              isOn: query.hasEnded === "true",
-              callback: value => {
-                if (!query.hasEnded || query.hasEnded === "false") {
-                  setFilter("hasEnded", "true");
-                } else {
-                  setFilter("hasEnded", "false");
-                }
-              }
             }
           ]}
         />

@@ -1,4 +1,3 @@
-import dayjs from "dayjs";
 import logError from "@/utils/sentry";
 import { call, put, takeLeading } from "redux-saga/effects";
 import {
@@ -27,19 +26,7 @@ export const eventsReducer = (state = initialState, action) => {
     case REQUEST_EVENTS:
     case FAILURE_EVENTS:
     case SUCCESS_EVENTS:
-      const payload = action.payload;
-      if (payload.data) {
-        return {
-          ...payload,
-          data: payload.data.map(e => {
-            return {
-              ...e,
-              hasEnded: dayjs(e.endingTime).isBefore(dayjs()) ? "true" : "false"
-            };
-          })
-        };
-      }
-      return payload;
+      return action.payload;
     default:
       return state;
   }
