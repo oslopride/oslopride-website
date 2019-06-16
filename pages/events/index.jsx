@@ -93,15 +93,13 @@ const Events = props => {
               callback: value => toggleFilter("deafInterpretation", "true")
             }
           ]}
-          onDropdownSelect={
-            (value) => {
-              if (value && value !== "0") {
-                setFilter("eventType", value);
-              } else {
-                resetFilter("eventType");
-              }
+          onDropdownSelect={value => {
+            if (value && value !== "0") {
+              setFilter("eventType", value);
+            } else {
+              resetFilter("eventType");
             }
-          }
+          }}
           defaultDropdownValue={query.eventType || "0"}
           dropdownOptions={[
             {
@@ -142,7 +140,7 @@ const Events = props => {
         </FeaturedEventsWrapper>
 
         {events.data.length ? (
-          <EventList events={filteredEvents}/>
+          <EventList events={filteredEvents} />
         ) : (
           <p>Kommer snart!</p>
         )}
