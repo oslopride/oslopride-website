@@ -2,13 +2,16 @@ import { imageUrlFor } from "@/store/sanity";
 import theme from "@/utils/theme";
 import dayjs from "dayjs";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import LazyLoad from "react-lazyload";
 import Sticky from "react-sticky-el";
 import styled from "styled-components";
 
 const EventList = props => {
   const { events } = props;
+
+  const [showFinnished, setShowFinnished] = useState(false);
+  const toggleShowFinnished = () => setShowFinnished(!showFinnished);
 
   const displayArena = event => {
     switch (event.category) {
@@ -52,89 +55,105 @@ const EventList = props => {
 
   return (
     <>
-      {groupEventsByDay(events).map(day => {
-        const currentDay = dayjs.utc(day[0].startingTime).add(2, "hour");
-        return (
-          <Event key={currentDay.format("YYYY-MM-DD")}>
-            <Sticky style={{ zIndex: 2, position: "relative" }}>
-              <EventDay>
-                {currentDay.format("dddd")}{" "}
-                <span>{currentDay.format("D. MMMM")}</span>
-              </EventDay>
-            </Sticky>
-            <EventDayListWrapper>
-              {day.map(event => (
-                <Link
-                  key={event._id}
-                  href={`/event?id=${event._id}`}
-                  as={`/events/${event._id}`}
-                  passHref
-                >
-                  <EventLink>
-                    <LazyLoad
-                      height={120}
-                      scroll
-                      once
-                      offset={100}
-                      placeholder={
-                        <EventImageContainer>
-                          <EventImage
-                            src="/static/event-placeholder.png"
-                            alt="arrangementsbilde"
-                          />
-                        </EventImageContainer>
-                      }
-                    >
-                      {event.image ? (
-                        <EventImageContainer>
-                          <EventImage
-                            src={imageUrlFor(event.image)
-                              .height(250)
-                              .url()}
-                            alt="arrangementsbilde"
-                          />
-                        </EventImageContainer>
-                      ) : (
-                        <EventImageContainer>
-                          <EventImage
-                            src="/static/event-placeholder.png"
-                            alt="arrangementsbilde"
-                          />
-                        </EventImageContainer>
-                      )}
-                    </LazyLoad>
-                    <EventInfo>
-                      <EventTitle>{event.title}</EventTitle>
-                      <EventTime>
-                        {dayjs
-                          .utc(event.startingTime)
-                          .add(2, "hour")
-                          .format("HH:mm")}
-                        -
-                        {dayjs
-                          .utc(event.endingTime)
-                          .add(2, "hour")
-                          .format("HH:mm")}
-                      </EventTime>
-                      <EventPlace>
-                        <Descriptor> Hvor: </Descriptor>
-                        {displayArena(event)}
-                        {event.location.venue
-                          ? event.location.venue.name
-                          : event.location.name}
-                      </EventPlace>
-                      <EventType>
-                        <Descriptor> Type: </Descriptor>
-                        {displayEventType(event)}
-                      </EventType>
-                    </EventInfo>
-                  </EventLink>
-                </Link>
-              ))}
-            </EventDayListWrapper>
-          </Event>
-        );
-      })}
+      <HideShowFinnishedButtonWrapper>
+        <HideShowFinnishedButton onClick={toggleShowFinnished}>
+          {showFinnished
+            ? "skjul arrangementer som er ferdig "
+            : "vis arrangementer som er ferdig "}
+        </HideShowFinnishedButton>
+      </HideShowFinnishedButtonWrapper>
+      {groupEventsByDay(events)
+        .filter(eventGroup => {
+          if (!showFinnished && eventGroup.length > 0) {
+            return dayjs
+              .utc(eventGroup[0].endingTime)
+              .isAfter(dayjs.utc().add(1, "hour"));
+          }
+          return true;
+        })
+        .map(day => {
+          const currentDay = dayjs.utc(day[0].startingTime).add(2, "hour");
+          return (
+            <Event key={currentDay.format("YYYY-MM-DD")}>
+              <Sticky style={{ zIndex: 2, position: "relative" }}>
+                <EventDay>
+                  {currentDay.format("dddd")}{" "}
+                  <span>{currentDay.format("D. MMMM")}</span>
+                </EventDay>
+              </Sticky>
+              <EventDayListWrapper>
+                {day.map(event => (
+                  <Link
+                    key={event._id}
+                    href={`/event?id=${event._id}`}
+                    as={`/events/${event._id}`}
+                    passHref
+                  >
+                    <EventLink>
+                      <LazyLoad
+                        height={120}
+                        scroll
+                        once
+                        offset={100}
+                        placeholder={
+                          <EventImageContainer>
+                            <EventImage
+                              src="/static/event-placeholder.png"
+                              alt="arrangementsbilde"
+                            />
+                          </EventImageContainer>
+                        }
+                      >
+                        {event.image ? (
+                          <EventImageContainer>
+                            <EventImage
+                              src={imageUrlFor(event.image)
+                                .height(250)
+                                .url()}
+                              alt="arrangementsbilde"
+                            />
+                          </EventImageContainer>
+                        ) : (
+                          <EventImageContainer>
+                            <EventImage
+                              src="/static/event-placeholder.png"
+                              alt="arrangementsbilde"
+                            />
+                          </EventImageContainer>
+                        )}
+                      </LazyLoad>
+                      <EventInfo>
+                        <EventTitle>{event.title}</EventTitle>
+                        <EventTime>
+                          {dayjs
+                            .utc(event.startingTime)
+                            .add(2, "hour")
+                            .format("HH:mm")}
+                          -
+                          {dayjs
+                            .utc(event.endingTime)
+                            .add(2, "hour")
+                            .format("HH:mm")}
+                        </EventTime>
+                        <EventPlace>
+                          <Descriptor> Hvor: </Descriptor>
+                          {displayArena(event)}
+                          {event.location.venue
+                            ? event.location.venue.name
+                            : event.location.name}
+                        </EventPlace>
+                        <EventType>
+                          <Descriptor> Type: </Descriptor>
+                          {displayEventType(event)}
+                        </EventType>
+                      </EventInfo>
+                    </EventLink>
+                  </Link>
+                ))}
+              </EventDayListWrapper>
+            </Event>
+          );
+        })}
     </>
   );
 };
@@ -166,6 +185,21 @@ const groupEventsByDay = events => {
 };
 
 export default EventList;
+
+const HideShowFinnishedButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+`;
+
+const HideShowFinnishedButton = styled.button`
+  border: 0;
+  padding: 0;
+  color: ${theme.gray};
+  background-color: transparent;
+  text-decoration: underline;
+  cursor: pointer;
+`;
 
 const Event = styled.div`
   width: 100%;
