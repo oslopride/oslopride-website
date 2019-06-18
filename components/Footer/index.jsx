@@ -38,14 +38,12 @@ const Footer = ({ footerLinks }) => {
         </OrgInfo>
 
         <AppStoreLinks>
-          <Link href="https://apps.apple.com/no/app/oslo-pride/id1466382885?l=nb">
-            <a>
-              <AppLogo
-                src="/static/app_store_black.svg"
-                alt="Last ned i iOS App Store"
-              />
-            </a>
-          </Link>
+          <a href="https://apps.apple.com/no/app/oslo-pride/id1466382885?l=nb">
+            <AppLogo
+              src="/static/app_store_black.svg"
+              alt="Last ned i iOS App Store"
+            />
+          </a>
         </AppStoreLinks>
       </Container>
     </Wrapper>
