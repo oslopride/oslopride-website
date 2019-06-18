@@ -1,4 +1,5 @@
 import { foldWebResponse, mapWebResponse } from "@/store/helpers";
+import Link from "next/link";
 import theme from "@/utils/theme";
 import React from "react";
 import { connect } from "react-redux";
@@ -35,6 +36,17 @@ const Footer = ({ footerLinks }) => {
             </TlfOrgNrLink>
           </OrgInfoSection>
         </OrgInfo>
+
+        <AppStoreLinks>
+          <Link href="https://apps.apple.com/no/app/oslo-pride/id1466382885?l=nb">
+            <a>
+              <AppLogo
+                src="/static/app_store_black.svg"
+                alt="Last ned i iOS App Store"
+              />
+            </a>
+          </Link>
+        </AppStoreLinks>
       </Container>
     </Wrapper>
   );
@@ -56,6 +68,11 @@ const Wrapper = styled.footer`
 const Container = styled.div`
   max-width: 1000px;
   margin: 0 auto;
+`;
+
+const AppStoreLinks = styled.div`
+  margin-top: 40px;
+  text-align: center;
 `;
 
 const OrgInfo = styled.div`
@@ -107,4 +124,10 @@ const TlfOrgNrLink = styled.a`
   :focus {
     text-decoration: underline;
   }
+`;
+
+const AppLogo = styled.img`
+  display: none;
+  width: auto;
+  display: inline-block;
 `;
