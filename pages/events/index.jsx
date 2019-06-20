@@ -202,7 +202,7 @@ const PageTitle = styled.h1`
 const FeaturedEventsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
 
   @media (min-width: 1000px) {
     & > :first-child {
