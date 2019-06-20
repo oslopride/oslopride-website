@@ -94,24 +94,6 @@ const Wrapper = styled.a`
   }
 `;
 
-const EventImageContainer = styled.div`
-  width: 100%;
-  padding-bottom: calc((9 / 16) * 100%);
-  flex-shrink: 0;
-  margin-bottom: 5px;
-  position: relative;
-`;
-
-const EventImage = styled.img`
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  object-fit: cover;
-  border-radius: 2px;
-`;
-
 const EventTimeDay = styled.div`
   text-transform: uppercase;
   font-size: 1rem;
