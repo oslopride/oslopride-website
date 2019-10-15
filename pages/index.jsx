@@ -28,6 +28,7 @@ const FrontPage = props => {
 
   return (
     <>
+      <h1>Hei</h1>
       <HeroWrapper>
         <FrontPageHero
           imageURL={imageUrlFor(frontPage.data.callToActionImage).url()}
