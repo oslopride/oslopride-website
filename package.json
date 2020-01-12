@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Oslo Pride's official website",
   "main": "index.js",
-  "engines": { "node": "12.x" },
+  "engines": { "node": ">=12" },
   "scripts": {
     "dev": "now dev",
     "build": "next build",
