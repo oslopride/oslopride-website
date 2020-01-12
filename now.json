@@ -7,6 +7,11 @@
     { "src": "/events/(?<id>[^/]+)$", "dest": "/event?id=$id" },
     { "src": "/p/(?<slug>[^/]+)$", "dest": "/page?slug=$slug" },
     {
+      "src": "/interpride2020(/.*)?",
+      "status": 301,
+      "headers": { "Location": "https://interpride2020.org" }
+    },
+    {
       "src": "/personvern(/.*)?",
       "status": 307,
       "headers": { "Location": "https://www.oslopride.no/p/privacy" }
