@@ -24,7 +24,7 @@ const Footer = ({ footerLinks }) => {
         <OrgInfo>
           <OrgHeader>OSLO PRIDE AS</OrgHeader>
           <OrgInfoSection>
-            c/o Foreningen FRI, Tollbugata 24 0157 OSLO
+            c/o Foreningen FRI, Mariboes gate 13, 0183 OSLO
           </OrgInfoSection>
           <OrgInfoSection>
             <TlfOrgNrLink href="tel:915 44 090">Tlf: 915 44 090</TlfOrgNrLink>
