@@ -70,13 +70,7 @@ const Partners = props => {
       return (
         <div>
           <PageSubtitle>Støttepartnere</PageSubtitle>
-          <FlexList>
-            {supporters}
-            {supporters}
-            {supporters}
-            {supporters}
-            {supporters}
-          </FlexList>
+          <FlexList>{supporters}</FlexList>
         </div>
       );
     }
