@@ -49,6 +49,34 @@ const Partners = props => {
     return null;
   };
 
+  const SupporterList = () => {
+    const supporters = partners.data
+      .filter(partnerItem => partnerItem.type === "supportpartner")
+      .map(({ _id, partnerUrl, image, name }) => (
+        <SupporterItem key={_id}>
+          <SupporterImage>
+            <a href={partnerUrl}>
+              <img
+                src={imageUrlFor(image)
+                  .maxWidth(200)
+                  .url()}
+                alt={name}
+              />
+            </a>
+          </SupporterImage>
+        </SupporterItem>
+      ));
+    if (supporters.length > 0) {
+      return (
+        <div>
+          <PageSubtitle>Støttepartnere</PageSubtitle>
+          <FlexList>{supporters}</FlexList>
+        </div>
+      );
+    }
+    return null;
+  };
+
   if (partners.status !== "SUCCESS") {
     // TODO: Make a better UX while loading
     return <div>Laster ...</div>;
@@ -64,7 +92,7 @@ const Partners = props => {
       <PartnerList partnerSubtitle="Eier og arrangør" partnerType="owner" />
       <PartnerList partnerSubtitle="Hovedpartnere" partnerType="mainpartner" />
       <PartnerList partnerSubtitle="Partnere" partnerType="partner" />
-      <PartnerList partnerSubtitle="Støttepartnere" partnerType="supportpartner" />
+      <SupporterList />
 
       <NextSeo
         config={{
@@ -140,8 +168,20 @@ const List = styled.ul`
   padding: 0;
 `;
 
+const FlexList = styled(List)`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1088px;
+`;
+
 const PartnerItem = styled.li`
   list-style: none;
+`;
+
+const SupporterItem = styled.li`
+  list-style: none;
+  margin: 1rem;
 `;
 
 const PartnerCard = styled(Sheet)`
@@ -154,6 +194,16 @@ const PartnerCard = styled(Sheet)`
   @media (min-width: 800px) {
     flex-direction: row;
     justify-content: space-around;
+  }
+`;
+
+const SupporterImage = styled.div`
+  width: 100%;
+  max-width: 200px;
+
+  img {
+    height: auto;
+    max-width: 100%;
   }
 `;
 
