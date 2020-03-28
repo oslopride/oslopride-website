@@ -60,6 +60,17 @@ const Content = styled.main`
   align-items: center;
 `;
 
+const Covid19Banner = styled.section`
+  font-size: 1.2rem;
+  background: #341f76;
+  padding: 1.5rem;
+  text-align: center;
+
+  a {
+    color: white;
+  }
+`;
+
 class NextApp extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
@@ -102,6 +113,11 @@ class NextApp extends App {
 
     return (
       <Container>
+        <Covid19Banner>
+          <a href="/a/informasjon-om-koronaviruset-og-oslo-pride">
+            Informasjon om Koronaviruset og Oslo Pride
+          </a>
+        </Covid19Banner>
         <Provider store={store}>
           <GlobalStyle />
           <Header />
