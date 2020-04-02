@@ -114,8 +114,8 @@ class NextApp extends App {
     return (
       <Container>
         <Covid19Banner>
-          <a href="/a/informasjon-om-koronaviruset-og-oslo-pride">
-            Informasjon om Koronaviruset og Oslo Pride
+          <a href="/a/pressemelding-pride-2020">
+            Oslo Pride tar ny form i 2020
           </a>
         </Covid19Banner>
         <Provider store={store}>
