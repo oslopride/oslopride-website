@@ -29,7 +29,7 @@ const Wrapper = styled.div`
 const Image = styled.img`
   position: relative;
   width: 100%;
-  max-width: 490px;
+  max-width: 270px;
   height: auto;
   border-radius: 2px;
   display: none;
@@ -41,7 +41,7 @@ const Image = styled.img`
 
 const Text = styled.div`
   width: 100%;
-  max-width: 270px;
+  max-width: 490px;
   text-align: center;
 
   h2 {
