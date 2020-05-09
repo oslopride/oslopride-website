@@ -5,7 +5,7 @@
   "main": "index.js",
   "engines": { "node": ">=10.x" },
   "scripts": {
-    "dev": "now dev",
+    "dev": "next dev",
     "build": "next build",
     "now-build": "next build",
     "start": "next start",

@@ -6,13 +6,12 @@ import styled from "styled-components";
 const FeaturedAction = ({ image, title, description, link }) => {
   return (
     <Wrapper>
+      <Text href={link} arrow={false} color={theme.green}>
+        <h2>{title}</h2>
+        <p>{description}</p>
+        <LinkButton href={link}>Les mer</LinkButton>
+      </Text>
       <Image src={image} />
-      <TextBox>
-        <Text href={link} arrow={false} color={theme.green}>
-          <h2>{title}</h2>
-          <p>{description}</p>
-        </Text>
-      </TextBox>
     </Wrapper>
   );
 };
@@ -21,82 +20,62 @@ export default FeaturedAction;
 
 const Wrapper = styled.div`
   display: flex;
+  justify-content: space-around;
+  flex-direction: column-reverse;
   align-items: center;
-  justify-content: center;
-  position: relative;
-  margin: 50px 0 100px 0;
+  margin-top: 30px;
+
+  @media (min-width: 1100px) {
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top: 60px;
+  }
 `;
 
 const Image = styled.img`
   position: relative;
-  max-width: 100%;
+  width: 100%;
+  max-width: 150px;
   height: auto;
   border-radius: 2px;
+  margin-bottom: 30px;
 
-  @media (min-width: 800px) {
-    max-width: 50%;
-    left: -20%;
+  @media (min-width: 1100px) {
+    max-width: 270px;
   }
 `;
 
-const TextBox = styled.div`
-  display: flex;
-  align-items: center;
-  flex-flow: row wrap;
-  position: absolute;
-  top: 70%;
-  max-width: 90%;
-  height: auto;
-  background-color: white};
-  border: 2px solid #25A081;
-  border-radius: 2px;
-  transition: 0.2s ease-in-out;
-
-  :hover,
-  :focus {
-    transform: scale(1.05);
-    border: 4px solid #25A081;
-    cursor: pointer;
-  }
-
-  @media (min-width: 800px) {
-    max-width: 50%;
-    top: 60%;
-    left: 40%;
-  }
-`;
-
-const Text = styled(ExternalLink)`
-  margin: 20px;
-  line-height: 1.7;
-
-  :hover::before,
-  :before {
-    transform: scaleX(0);
-  }
+const Text = styled.div`
+  width: 100%;
+  max-width: 490px;
+  text-align: center;
 
   h2 {
-    color: #25a081;
-    text-transform: uppercase;
-    font-size: 20px;
+    margin-top: 0;
+    font-size: calc(30px + 1vw);
   }
 
   p {
-    color: black;
-    font-size: 16px;
-    font-weight: 400;
-    text-transform: none;
+    font-size: 18px;
   }
 
-  @media (min-width: 500px) {
-    margin: 30px;
-
-    h2 {
-      font-size: 24px;
-    }
-
-    p {
-      font-size: 18px;
-    }
+  @media (min-width: 1100px) {
+    text-align: left;
   }
+`;
+
+const LinkButton = styled.a`
+  padding: 0.85em 3em;
+  background-color: rgb(31, 73, 198);
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 3px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 20px auto 50px auto;
+  display: inline-block;
+  width: 100%;
+  max-width: 200px;
 `;

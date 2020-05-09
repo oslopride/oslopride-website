@@ -66,17 +66,18 @@ export default connect(
 const Wrapper = styled.a`
   display: flex;
   flex-direction: column;
-  background-color: white;
   padding: 15px;
   color: initial;
   text-decoration: initial;
   border-radius: 2px;
-  transition: transform 0.2s ease-in-out;
+  max-width: 500px;
 
-  :hover,
-  :focus {
+  :hover {
     cursor: pointer;
-    transform: scale(1.05);
+
+    div {
+      text-decoration: underline;
+    }
   }
 `;
 
@@ -90,4 +91,5 @@ const Image = styled.img`
 const Title = styled.div`
   font-size: 25px;
   margin: 5px 0;
+  font-weight: bold;
 `;

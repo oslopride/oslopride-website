@@ -1,7 +1,6 @@
 import ArticlePreview from "@/components/ArticlePreview";
 import Banner from "@/components/Banner";
 import FeaturedAction from "@/components/FeaturedAction";
-import FeaturedButtons from "@/components/FeaturedButtons";
 import FeaturedDates from "@/components/FeaturedDates";
 import FeaturedPartners from "@/components/FeaturedPartners";
 import Hero from "@/components/Hero";
@@ -12,7 +11,6 @@ import { webResponseInitial } from "@/store/helpers";
 import { getPartners, partnersActions } from "@/store/partners";
 import { imageUrlFor } from "@/store/sanity";
 import logError from "@/utils/sentry";
-import theme from "@/utils/theme";
 import NextSeo from "next-seo";
 import React from "react";
 import { connect } from "react-redux";
@@ -49,12 +47,14 @@ const FrontPage = props => {
         />
       </ContentWrapper>
 
-      <ContentWrapper>
-        <FeaturedDates dates={frontPage.data.featuredDates} />
-      </ContentWrapper>
+      {frontPage.data.featuredDates && frontPage.data.featuredDates.length > 0 && (
+        <ContentWrapper>
+          <FeaturedDates dates={frontPage.data.featuredDates} />
+        </ContentWrapper>
+      )}
 
       {frontPage.data.featuredArticles.length > 0 && (
-        <Banner color={theme.lightBlue} title="Artikler" textColor={theme.blue}>
+        <Banner color="#f9e6e9" title="Artikler" textColor={"black"}>
           <FeaturedArticlesWrapper>
             {frontPage.data.featuredArticles.map(article => (
               <FeaturedArticle
@@ -65,25 +65,6 @@ const FrontPage = props => {
           </FeaturedArticlesWrapper>
         </Banner>
       )}
-
-      <Banner>
-        <StoreWrapper>
-          <StoreImage>
-            <img src="/static/pridebutikk.svg" alt="Pridebutikken logo" />
-          </StoreImage>
-          <StoreLink href="https://butikk.oslopride.no/">
-            Gå til butikken
-          </StoreLink>
-        </StoreWrapper>
-      </Banner>
-
-      <Banner
-        color={theme.lightGreen}
-        title="Engasjer deg"
-        textColor={theme.green}
-      >
-        <FeaturedButtons />
-      </Banner>
 
       <FeaturedPartners />
 
@@ -186,16 +167,13 @@ const ContentWrapper = styled.div`
 `;
 
 const HeroWrapper = styled.div`
-  padding: 0 15px;
+  padding: 0;
   width: 100%;
 `;
 
 const FrontPageHero = styled(Hero)`
   width: 100%;
   margin: 0 auto;
-  @media (min-width: 1025px) {
-    width: 1000px;
-  }
 `;
 
 const FeaturedDatesWrapper = styled.div`

@@ -1,20 +1,11 @@
 import Link, { ExternalLink } from "@/components/Link";
-import theme from "@/utils/theme";
 import React from "react";
 import styled from "styled-components";
 
 const Container = styled.nav`
-  transition: height 0.2s ease-in-out;
+  transition: max-height 0.2s ease-in-out;
   overflow: hidden;
-  height: ${({ visible }) => (visible ? "500px" : "0")};
-
-  @media (min-width: 450px) {
-    height: ${({ visible }) => (visible ? "450px" : "0")};
-  }
-
-  @media (min-width: 520px) {
-    height: ${({ visible }) => (visible ? "350px" : "0")};
-  }
+  max-height: ${({ visible }) => (visible ? "200px" : "0")};
 `;
 
 const NavigationGroup = styled.div`
@@ -47,43 +38,6 @@ const ExternalNavigationLink = styled(ExternalLink)`
 const Navigation = ({ className, visible, callback }) => (
   <Container className={className} visible={visible}>
     <NavigationGroup>
-      <NavigationTitle>Våre arenaer</NavigationTitle>
-      <NavigationLink href="/pride-parade" onClick={callback} arrow={false}>
-        Pride Parade
-      </NavigationLink>
-      <NavigationLink href="/pride-park" onClick={callback} arrow={false}>
-        Pride Park
-      </NavigationLink>
-      <NavigationLink href="/pride-house" onClick={callback} arrow={false}>
-        Pride House
-      </NavigationLink>
-      <NavigationLink href="/pride-art" onClick={callback} arrow={false}>
-        Pride Art
-      </NavigationLink>
-    </NavigationGroup>
-
-    <NavigationGroup>
-      <NavigationTitle>Engasjer deg</NavigationTitle>
-      <ExternalNavigationLink
-        href="/a/engasjer-deg-i-oslo-pride"
-        onClick={callback}
-        arrow={false}
-      >
-        Vær Frivillig
-      </ExternalNavigationLink>
-      <NavigationLink href="/become-partner" onClick={callback} arrow={false}>
-        Bli Partner
-      </NavigationLink>
-      <ExternalNavigationLink
-        href="/a/registrering-av-arrangement"
-        onClick={callback}
-        arrow={false}
-      >
-        Registrer arrangement
-      </ExternalNavigationLink>
-    </NavigationGroup>
-
-    <NavigationGroup>
       <NavigationLink href="/about" onClick={callback} arrow={false}>
         Om Oss
       </NavigationLink>
@@ -92,6 +46,13 @@ const Navigation = ({ className, visible, callback }) => (
       </NavigationLink>
       <NavigationLink href="/partners" onClick={callback} arrow={false}>
         Partnere
+      </NavigationLink>
+    </NavigationGroup>
+
+    <NavigationGroup>
+      <NavigationTitle>Støtt oss</NavigationTitle>
+      <NavigationLink href="/become-partner" onClick={callback} arrow={false}>
+        Bli Partner
       </NavigationLink>
       <ExternalNavigationLink
         href="https://butikk.oslopride.no/"
