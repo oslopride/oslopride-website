@@ -91,7 +91,10 @@ const Header = () => {
 
         <PrideDate>19. juni – 28. juni 2020</PrideDate>
         <ButtonWrapper>
-          <MenuButton onClick={() => setOpen(!isOpen)} aria-label="Meny d">
+          <MenuButton
+            onClick={() => setOpen(!isOpen)}
+            aria-label="Navigasjonsmeny"
+          >
             <MenuIcon />
           </MenuButton>
         </ButtonWrapper>
@@ -103,6 +106,7 @@ const Header = () => {
 
 const Wrapper = styled.div`
   z-index: 9001;
+  background-color: #ebe7f4;
 `;
 
 export default Header;
