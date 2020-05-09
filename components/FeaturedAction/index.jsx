@@ -21,7 +21,6 @@ export default FeaturedAction;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-around;
   margin-top: 60px;
@@ -33,14 +32,25 @@ const Image = styled.img`
   max-width: 490px;
   height: auto;
   border-radius: 2px;
+  display: none;
+
+  @media (min-width: 1100px) {
+    display: initial;
+  }
 `;
 
 const Text = styled.div`
   width: 100%;
   max-width: 490px;
+  text-align: center;
+
   h2 {
     margin-top: 0;
     font-size: calc(30px + 1vw);
+  }
+
+  @media (min-width: 1100px) {
+    text-align: left;
   }
 `;
 
