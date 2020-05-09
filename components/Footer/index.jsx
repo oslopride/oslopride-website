@@ -35,15 +35,6 @@ const Footer = ({ footerLinks }) => {
             </TlfOrgNrLink>
           </OrgInfoSection>
         </OrgInfo>
-
-        <AppStoreLinks>
-          <a href="https://apps.apple.com/no/app/oslo-pride/id1466382885?l=nb">
-            <AppLogo
-              src="/static/app_store_black.svg"
-              alt="Last ned i iOS App Store"
-            />
-          </a>
-        </AppStoreLinks>
       </Container>
     </Wrapper>
   );
@@ -60,6 +51,7 @@ const Wrapper = styled.footer`
   color: white;
   width: 100%;
   padding: 20px;
+  margin-top: 30px;
 `;
 
 const Container = styled.div`
