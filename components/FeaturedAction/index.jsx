@@ -41,7 +41,7 @@ const Image = styled.img`
 
 const Text = styled.div`
   width: 100%;
-  max-width: 490px;
+  max-width: 270px;
   text-align: center;
 
   h2 {
