@@ -22,21 +22,21 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
   align-items: flex-start;
+  justify-content: space-around;
 `;
 
 const Image = styled.img`
   position: relative;
-  max-width: 100%;
+  width: 100%;
+  max-width: 490px;
   height: auto;
   border-radius: 2px;
 `;
 
 const Text = styled.div`
   width: 100%;
-  max-width: 500px;
+  max-width: 490px;
   h2 {
     margin-top: 0;
     font-size: calc(30px + 1vw);
