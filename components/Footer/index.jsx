@@ -51,7 +51,7 @@ const Wrapper = styled.footer`
   color: white;
   width: 100%;
   padding: 20px;
-  margin-top: 30px;
+  margin-top: 80px;
 `;
 
 const Container = styled.div`

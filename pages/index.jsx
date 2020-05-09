@@ -47,9 +47,11 @@ const FrontPage = props => {
         />
       </ContentWrapper>
 
-      <ContentWrapper>
-        <FeaturedDates dates={frontPage.data.featuredDates} />
-      </ContentWrapper>
+      {frontPage.data.featuredDates && frontPage.data.featuredDates.length > 0 && (
+        <ContentWrapper>
+          <FeaturedDates dates={frontPage.data.featuredDates} />
+        </ContentWrapper>
+      )}
 
       {frontPage.data.featuredArticles.length > 0 && (
         <Banner color="#f9e6e9" title="Artikler" textColor={"black"}>

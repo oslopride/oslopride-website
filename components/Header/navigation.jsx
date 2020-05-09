@@ -5,7 +5,7 @@ import styled from "styled-components";
 const Container = styled.nav`
   transition: max-height 0.2s ease-in-out;
   overflow: hidden;
-  max-height: ${({ visible }) => (visible ? "150px" : "0")};
+  max-height: ${({ visible }) => (visible ? "200px" : "0")};
 `;
 
 const NavigationGroup = styled.div`
@@ -46,6 +46,13 @@ const Navigation = ({ className, visible, callback }) => (
       </NavigationLink>
       <NavigationLink href="/partners" onClick={callback} arrow={false}>
         Partnere
+      </NavigationLink>
+    </NavigationGroup>
+
+    <NavigationGroup>
+      <NavigationTitle>Støtt oss</NavigationTitle>
+      <NavigationLink href="/become-partner" onClick={callback} arrow={false}>
+        Bli Partner
       </NavigationLink>
       <ExternalNavigationLink
         href="https://butikk.oslopride.no/"
