@@ -55,6 +55,10 @@ const Text = styled.div`
     font-size: calc(30px + 1vw);
   }
 
+  p {
+    font-size: 18px;
+  }
+
   @media (min-width: 1100px) {
     text-align: left;
   }
