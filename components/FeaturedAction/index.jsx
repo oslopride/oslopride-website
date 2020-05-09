@@ -24,6 +24,7 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-around;
+  margin-top: 60px;
 `;
 
 const Image = styled.img`
