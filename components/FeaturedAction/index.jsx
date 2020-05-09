@@ -20,22 +20,28 @@ export default FeaturedAction;
 
 const Wrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
   justify-content: space-around;
-  margin-top: 60px;
+  flex-direction: column-reverse;
+  align-items: center;
+  margin-top: 30px;
+
+  @media (min-width: 1100px) {
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top: 60px;
+  }
 `;
 
 const Image = styled.img`
   position: relative;
   width: 100%;
-  max-width: 270px;
+  max-width: 150px;
   height: auto;
   border-radius: 2px;
-  display: none;
+  margin-bottom: 30px;
 
   @media (min-width: 1100px) {
-    display: initial;
+    max-width: 270px;
   }
 `;
 
